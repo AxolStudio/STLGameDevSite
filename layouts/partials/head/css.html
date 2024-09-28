@@ -1,0 +1,15 @@
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&familySpace+Groteskl@0;1&display=swap");
+</style>
+
+{{- $options := dict "targetPath" "css/styles.css" "outputStyle" "compressed"
+"enableSourceMap" (not hugo.IsProduction) -}} 
+{{- with resources.Get "/scss/main.scss" | toCSS $options | minify -}}
+<link
+  rel="stylesheet"
+  href="{{ .RelPermalink }}"
+  integrity="{{ .Data.Integrity }}"
+  media="screen"
+  crossorigin="anonymous"
+/>
+{{- end -}}

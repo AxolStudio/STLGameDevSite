@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="card h-100 my-3">
+  <div class="card-body">
+    <h1 class="card-title">{{ .Title }}</h1>
+    {{ .Content }} {{ range .Pages }}
+    <div class="card my-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <h2 class="card-title">
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </h2>
+          </div>
+          <div class="col-6">
+            <div class="row text-end">
+              <small>{{ .Date.Format "January 2, 2006" }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            {{ partial "authors.html" (dict "taxonomy" "authors" "page" .) }}
+          </div>
+          <div class="col-6 text-end">
+            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+          </div>
+        </div>
+        <div class="row">{{ .Summary }}</div>
+      </div>
+
+      <div class="card-footer text-end">
+        <a class="btn btn-primary btn-sm" href="{{ .RelPermalink }}"
+          >Read More</a
+        >
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

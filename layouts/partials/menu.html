@@ -1,0 +1,28 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+{{- end }}
+
+{{- define "partials/inline/menu/walk.html" }}
+    {{- $page := .page }}
+    {{- range .menuEntries }}
+        {{- $name := .Name }}
+            {{- with .Identifier }}
+        {{- with T . }}
+            {{- $name = . }}
+        {{- end }}
+        {{- end }}
+        <li class="nav-item">
+        <a class="nav-link {{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu .}} ancestor" aria-current="true{{- end -}}" href="{{ .URL }}">{{ $name }}</a>
+        {{/*  {{- with .Children }}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+            </ul>
+        {{- end }}  */}}
+        </li>
+    {{- end }}
+{{- end }}

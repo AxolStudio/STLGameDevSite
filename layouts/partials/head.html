@@ -1,0 +1,40 @@
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>{{ site.Title }}</title>
+
+<meta name="description" content='{{ .Param "description" }}' />
+<meta name="author" content="The STL Game Dev Admin Team" />
+<meta name="keywords" content='{{ .Param "keywords" }}' />
+
+{{ if .Params.canonicalUrl }}
+    <link rel="canonical" href="{{ .Params.canonicalUrl }}">
+{{ else }}
+    <link rel="canonical" href="{{ .Permalink }}">
+{{ end }}
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+{{ hugo.Generator }}
+{{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
+{{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
+{{ $public := not .Params.private }}
+{{ if and $production $public }}
+    <meta name="robots" content="index, follow">
+{{ else }}
+    <meta name="robots" content="noindex, nofollow">
+{{ end }}
+
+{{- partialCached "head/css.html" . }}
+
+{{- template "_internal/opengraph.html" . -}}
+{{- template "_internal/schema.html" . -}}
+{{- template "_internal/twitter_cards.html" . -}}
+
+{{- if hugo.IsProduction -}}
+{{ $bootstrap := resources.Get "js/bootstrap.bundle.min.js" }}
+<script src="{{ $bootstrap.RelPermalink }}" crossorigin="anonymous"></script>
+{{- else -}}
+{{ $bootstrap := resources.Get "js/bootstrap.bundle.js" }}
+<script src="{{ $bootstrap.RelPermalink }}" ></script>
+{{- end -}}

@@ -1,0 +1,69 @@
+baseURL = 'https://stlgame.dev/'
+languageCode = 'en-us'
+title = 'STL Game Dev'
+
+enableEmoji = true
+
+[params]
+    keywords = "st louis, stl, saint louis, missouri, mo, video game, game development, games, video games, tabletop games, board games, game dev, indie dev, indie game dev, community, club, group"
+    description ="STL Game Dev is a community run organization dedicated to providing social, educational, and professional resources for game developers in the St. Louis area."
+    
+
+relativeURLs = false
+
+publishDir = "public/"
+
+
+[[menus.main]]
+  name = "About"
+  pageref = "/about"
+  weight = 10
+[[menus.main]]
+  name = "News"
+  pageref = "/news"
+  weight = 20
+[[menus.main]]
+  name = "Blog"
+  pageref = "/blog"
+  weight = 30
+[[menus.main]]
+  name = "Events"
+  pageref = "/events"
+  weight = 40
+[[menus.main]]
+  name = "Directory"
+  pageref = "/directory"
+  weight = 60
+[[menus.main]]
+  name = "Resources"
+  pageref = "/resources"
+  weight = 60
+[[menus.main]]
+  name = "Contact"
+  pageref = "/contact"
+  weight = 70
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+  [taxonomies]
+    tag = "tags"  
+    author = 'authors'
+
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "node_modules/bootstrap/scss"
+    target = "assets/scss/bootstrap"
+  [[module.mounts]]
+    source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+    target = "assets/js/bootstrap.bundle.min.js"
+  [[module.mounts]]
+    source = "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
+    target = "assets/js/bootstrap.bundle.js"
+  [[module.mounts]]
+    source = "node_modules/bootstrap-icons/font/fonts"
+    target = "static/css/fonts"

@@ -1,0 +1,25 @@
+{
+  "name": "stlgamedevsite",
+  "version": "0.1.0",
+  "description": "New website for the STL Game Dev Community",
+  "main": "index.html",
+  "scripts": {
+    "scss": "sass assets/scss:.",
+    "build": "npm run scss",
+    "watch:css": "sass --watch assets/scss:.",
+    "watch": "npm run watch:css",
+    "script": "npm run build && npm run watch"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.10.1",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.2",
+    "node-fetch": "^3.3.2",
+    "sass": "^1.69.5"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.0",
+    "prettier-plugin-go-template": "^0.0.15",
+    "watch": "^0.13.0"
+  }
+}

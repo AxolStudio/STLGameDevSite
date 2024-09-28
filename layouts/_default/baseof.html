@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{ block "head" . }}
+            {{ partial "head.html" . }}
+        {{ end }}
+    </head>
+    <body>
+        {{ block "nav" . }}
+            {{ partial "nav.html" . }}
+        {{ end }}
+        <main class="container px-4 px-lg-5 mh-100">
+        {{ block "main" . }}{{ end }}
+        </main>
+        <footer class="footer py-5 bg-dark ">
+        {{ block "footer" . }}
+            {{ partial "footer.html" . }}
+        {{ end }}
+        </footer>
+    </body>
+</html>
