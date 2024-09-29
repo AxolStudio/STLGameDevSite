@@ -32,7 +32,6 @@
 {{- template "_internal/schema.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
 
-<script src="https://kit.fontawesome.com/6abed6a49d.js" crossorigin="anonymous"></script>
 {{- if hugo.IsProduction -}}
 {{ $bootstrap := resources.Get "js/bootstrap.bundle.min.js" }}
 <script src="{{ $bootstrap.RelPermalink }}" crossorigin="anonymous"></script>
@@ -40,3 +39,10 @@
 {{ $bootstrap := resources.Get "js/bootstrap.bundle.js" }}
 <script src="{{ $bootstrap.RelPermalink }}" ></script>
 {{- end -}}
+
+{{ $faBrands := resources.Get "js/brands.min.js" }}
+{{ $faSD := resources.Get "js/sharp-duotone-solid.min.js" }}
+{{ $faFontAwesome := resources.Get "js/fontawesome.min.js" }}
+<script defer src="{{ $faBrands.RelPermalink }}"></script>
+<script defer src="{{ $faSD.RelPermalink }}"></script>
+<script defer src="{{ $faFontAwesome.RelPermalink }}"></script>
