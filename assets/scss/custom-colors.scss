@@ -1,0 +1,18 @@
+$body-bg: rgba(0, 0, 0, .33);
+$body-color: #fff;
+
+$color-red: #E3331C;
+$color-yellow: #EA9500;
+$color-green: #4C9C23;
+$color-blue: #00AAE6;
+$color-purple: #995AA0;
+
+$colors-array: (
+    "red" 1 $color-red,
+    "yellow" 2 $color-yellow,
+    "green" 3 $color-green,
+    "blue" 4 $color-blue,
+    "purple" 5 $color-purple
+);
+
+

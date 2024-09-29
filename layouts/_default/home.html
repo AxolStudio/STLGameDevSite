@@ -1,13 +1,15 @@
 {{ define "main" }}
 
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-6"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+    <div class="col-lg-6"><img class="img-fluid rounded mb-4 mb-lg-0"
+            src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
     <div class="col-lg-6">
         <h1 class="font-weight-light text-center">Welcome to <strong>STL Game Dev</strong>!</h1>
         <p class="lead text-center">We are making a Home for Game Developers!</p>
-        <p>We are a community run organization dedicated to providing social, professional, and educational events, resources, and support for game developers in and around the St Louis region.</p>
+        <p>We are a community run organization dedicated to providing social, professional, and educational events,
+            resources, and support for game developers in and around the St Louis region.</p>
         <p class="text-center h4 font-weight-light">Let's make something great together!</p>
-        <a class="d-flex justify-content-center btn btn-primary mt-3" href="About">Learn more About us!</a>
+        <a class="d-flex justify-content-center btn btn-primary mt-3" href="about">Learn more About us!</a>
     </div>
 </div>
 
@@ -18,8 +20,9 @@
 </div>
 
 <div class="row gx-4 gx-lg-5">
-    <div class="col-md-8 mb-5">
-        <div class="card h-100">
+    <div class="col-md-8 mb-5 colored-list">
+
+        <div class="card  bg-blur basic-border mb-5">
             <div class="card-body">
                 <h2 class="card-title">Latest News</h2>
                 {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
@@ -29,9 +32,17 @@
             </div>
             <div class="card-footer "><a class=" btn btn-primary btn-sm " href="#!">Read More</a></div>
         </div>
+
+        <div class="card  bg-blur basic-border mb-5">
+            <div class="card-body">
+                <h2 class="card-title">Another thing here</h2>
+                Something else can go here...
+            </div>
+            <div class="card-footer "><a class=" btn btn-primary btn-sm " href="#!">Read More</a></div>
+        </div>
     </div>
-    <div class="col-md-4 mb-5">
-        <div class="card  mb-5">
+    <div class="col-md-4 mb-5 colored-list-rev">
+        <div class="card basic-border  mb-5 bg-blur">
             <div class="card-body">
                 <h2 class="card-title">Next Event</h2>
                 <p class="card-text">
@@ -40,12 +51,80 @@
             </div>
             <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
         </div>
-        <div class="card ">
-            <div class="card-body">
-                <h2 class="card-title">Section Card</h2>
-                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero minima voluptate ipsum officia similique reprehenderit quam. Exercitationem earum laborum, enim saepe similique voluptatibus minima amet reiciendis placeat, nisi nulla fugiat? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus omnis quas quo corrupti deleniti veritatis voluptatum quibusdam odit commodi maxime ab cumque mollitia vitae, temporibus beatae distinctio. Itaque, eveniet aut!</p>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Connect with our Community!</p>
+                <p class="card-text">Join the conversation over on our Discord!</p>
+
+                <div><a class="btn btn-primary btn-xl" href="https://discord.com/invite/mTMKpre/"><i
+                            class="fa-brands fa-discord"></i> Join</a></div>
             </div>
-            <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+        </div>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Another section!?</p>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
+                    accusantium
+                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
+                    quaerat
+                    ut
+                    earum harum!</p>
+            </div>
+        </div>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Another section!?</p>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
+                    accusantium
+                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
+                    quaerat
+                    ut
+                    earum harum!</p>
+            </div>
+        </div>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Another section!?</p>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
+                    accusantium
+                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
+                    quaerat
+                    ut
+                    earum harum!</p>
+            </div>
+        </div>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Another section!?</p>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
+                    accusantium
+                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
+                    quaerat
+                    ut
+                    earum harum!</p>
+            </div>
+        </div>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Another section!?</p>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
+                    accusantium
+                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
+                    quaerat
+                    ut
+                    earum harum!</p>
+            </div>
+        </div>
+        <div class="card bg-blur basic-border mb-5">
+            <div class="card-body text-center">
+                <p class="card-title h4">Another section!?</p>
+                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
+                    accusantium
+                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
+                    quaerat
+                    ut
+                    earum harum!</p>
+            </div>
         </div>
     </div>
 </div>

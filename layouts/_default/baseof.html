@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" >
     <head>
         {{ block "head" . }}
             {{ partial "head.html" . }}
@@ -12,9 +12,9 @@
         <main class="container px-4 px-lg-5 mh-100">
         {{ block "main" . }}{{ end }}
         </main>
-        <footer class="footer py-5 bg-dark ">
+        <footer class="footer pt-5  ">
         {{ block "footer" . }}
-            {{ partial "footer.html" . }}
+            {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
         {{ end }}
         </footer>
     </body>

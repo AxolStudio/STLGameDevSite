@@ -1,3 +1,29 @@
-<div class="container px-4 px-lg-5">
-    <p class="m-0 text-center text-white">Copyright &copy; 2024 St Louis Game Developers Association, LLC</p>
-</div>
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+<div class="container">
+    <footer class="py-3 my-4">
+        {{- with index site.Menus $menuID }}
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        {{- partial "inline/footer-menu/walk.html" (dict "page" $page "menuEntries" .) }}
+      </ul>
+      {{- end }}
+      <p class="text-center text-body-secondary">© 2024 STL Game Dev Admin Group</p>
+    </footer>
+  </div>
+
+
+{{- define "partials/inline/footer-menu/walk.html" }}
+    {{- $page := .page }}
+    {{- range .menuEntries }}
+        {{- $name := .Name }}
+            {{- with .Identifier }}
+        {{- with T . }}
+            {{- $name = . }}
+        {{- end }}
+        {{- end }}
+        <li class="nav-item">
+        <a class="nav-link px-2 text-body-secondary {{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu .}} ancestor" aria-current="true{{- end -}}" href="{{ .URL }}">{{ $name }}</a>
+        </li>
+    {{- end }}
+{{- end }}

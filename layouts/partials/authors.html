@@ -3,5 +3,5 @@
 {{- $taxonomy := .taxonomy -}}
 {{- with $page.GetTerms $taxonomy -}}
 {{- $len := len . -}}
-{{- $label := (index . 0).Parent.LinkTitle }}<p class="text-secondary"><span >By </span>{{- range $index, $element := . -}}<span class="ms-1"><a href="{{ $element.RelPermalink }}">{{ $element.LinkTitle }}</a>{{- if ne (add $index 1) $len -}},{{- end -}}</span > {{- end -}}
+<p class=""><span >By </span>{{- range $index, $element := . -}}<span class="ms-1"><a href="{{ $element.RelPermalink }}">{{ $element.LinkTitle }}</a>{{- if ne (add $index 1) $len -}},{{- end -}}</span > {{- end -}}
 {{- end -}}

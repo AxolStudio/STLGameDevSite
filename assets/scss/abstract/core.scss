@@ -15,6 +15,7 @@ $font-family-base: $my-font-family;
 @import "bootstrap/variables-dark";
 
 // custom colors
+@import "custom-colors";
 
 @import "bootstrap/maps";
 @import "bootstrap/mixins";
@@ -56,6 +57,3 @@ $font-family-base: $my-font-family;
 
 @import "bootstrap/utilities/api";
 
-@import "node_modules/bootstrap-icons/font/bootstrap-icons.scss";
-
-@import "styles.scss";

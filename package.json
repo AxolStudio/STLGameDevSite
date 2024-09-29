@@ -11,14 +11,13 @@
     "script": "npm run build && npm run watch"
   },
   "dependencies": {
-    "@popperjs/core": "^2.10.1",
-    "bootstrap": "^5.3.2",
-    "bootstrap-icons": "^1.11.2",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3",
     "node-fetch": "^3.3.2",
-    "sass": "^1.69.5"
+    "sass": "^1.79.4"
   },
   "devDependencies": {
-    "prettier": "^3.1.0",
+    "prettier": "^3.3.3",
     "prettier-plugin-go-template": "^0.0.15",
     "watch": "^0.13.0"
   }

@@ -18,11 +18,7 @@
         {{- end }}
         <li class="nav-item">
         <a class="nav-link {{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu .}} ancestor" aria-current="true{{- end -}}" href="{{ .URL }}">{{ $name }}</a>
-        {{/*  {{- with .Children }}
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-            </ul>
-        {{- end }}  */}}
+
         </li>
     {{- end }}
 {{- end }}
