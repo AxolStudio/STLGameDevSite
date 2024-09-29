@@ -27,6 +27,10 @@ nav, footer {
     }
 }
 
+footer, footer .navbar, footer .navbar .nav-item , footer .navbar .nav-item a {
+    color: $color-white;
+}
+
 .btn {
     background-image: none;
     border:none !important;
@@ -60,6 +64,10 @@ nav, footer {
     border-style: solid;
     border-radius: 0;
     
+}
+.card-header, .card-footer {
+    background: none;
+    border: none;
 }
 
 .btn, .navbar-nav a { font-weight: bolder;}
@@ -182,6 +190,7 @@ nav, footer {
             }
         }
     }
+
     .basic-border-#{$name} {
         border-color: $color;
 

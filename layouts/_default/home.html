@@ -1,15 +1,46 @@
 {{ define "main" }}
 
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-6"><img class="img-fluid rounded mb-4 mb-lg-0"
-            src="https://dummyimage.com/900x400/dee2e6/6c757d.jpg" alt="..." /></div>
+    <div class="col-lg-6 ">
+        <script type="text/javascript">
+            var imageURLs = [
+                {{ range resources.Match "images/photos/*.jpg" }}
+
+            "{{ .RelPermalink }}",
+
+                {{ end -}}
+            ];
+            function getImageTag() {
+                var img = '<img src=\"';
+                var randomIndex = Math.floor(Math.random() * imageURLs.length);
+                img += imageURLs[randomIndex];
+                img += '\" alt=\"A Random STL Game Dev Photo\" class="img-fluid basic-border basic-border-blue "  />';
+                return img;
+            }
+            document.write(getImageTag());
+        </script>
+    </div>
     <div class="col-lg-6">
-        <h1 class="font-weight-light text-center">Welcome to <strong>STL Game Dev</strong>!</h1>
-        <p class="lead text-center">We are making a Home for Game Developers!</p>
-        <p>We are a community run organization dedicated to providing social, professional, and educational events,
-            resources, and support for game developers in and around the St Louis region.</p>
-        <p class="text-center h4 font-weight-light">Let's make something great together!</p>
-        <a class="d-flex justify-content-center btn btn-blue mt-3" href="about">Learn more About us!</a>
+
+        <div class="card bg-blur basic-border basic-border-purple">
+
+
+            <div class="card-header">
+                <h1 class="font-weight-light text-center">Welcome to <strong>STL Game Dev</strong>!</h1>
+                <p class="lead text-center">We are making a Home for Game Developers!</p>
+            </div>
+            <div class="card-body">
+
+                <p>We are a community run organization dedicated to providing social, professional, and educational
+                    events,
+                    resources, and support for game developers in and around the St Louis region.</p>
+                <p class="text-center h4 font-weight-light">Let's make something great together!</p>
+
+            </div>
+            <div class="card-footer text-center">
+                <a class="d-flex justify-content-center btn btn-blue " href="about">Learn more About us!</a>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -25,7 +56,7 @@
         <div class="card  bg-blur basic-border mb-5">
 
             {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
-            <article >
+            <article>
                 <div class="card-header">
                     <h4 class="card-title">Latest News Article</h4>
                     <div class="row">
@@ -42,7 +73,7 @@
                             {{ partial "authors.html" (dict "taxonomy" "authors" "page" .) }}
                         </div>
                         <div class="col-6 text-end">
-                            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}        
+                            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
                         </div>
                     </div>
                 </div>
@@ -64,7 +95,7 @@
                 <h2 class="card-title">Another thing here</h2>
                 Something else can go here...
             </div>
-            <div class="card-footer "><a class=" btn  btn-sm " href="#!">Read More</a></div>
+            <div class="card-footer text-end "><a class=" btn " href="#!">Read More</a></div>
         </div>
     </div>
     <div class="col-md-4 mb-5 colored-list-rev">

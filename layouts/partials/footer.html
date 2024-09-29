@@ -2,13 +2,13 @@
 {{- $menuID := .menuID }}
 
 <div class="container">
-    <footer class="py-3 my-4">
+    <footer class="py-3 ms-4">
         {{- with index site.Menus $menuID }}
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         {{- partial "inline/footer-menu/walk.html" (dict "page" $page "menuEntries" .) }}
       </ul>
       {{- end }}
-      <p class="text-center text-body-secondary">© 2024 STL Game Dev Admin Group</p>
+      <p class="text-center ">© 2024 STL Game Dev Admin Group</p>
     </footer>
   </div>
 
@@ -23,7 +23,7 @@
         {{- end }}
         {{- end }}
         <li class="nav-item">
-        <a class="nav-link px-2 text-body-secondary {{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu .}} ancestor" aria-current="true{{- end -}}" href="{{ .URL }}">{{ $name }}</a>
+        <a class="nav-link px-2  {{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu .}} ancestor" aria-current="true{{- end -}}" href="{{ .URL }}">{{ $name }}</a>
         </li>
     {{- end }}
 {{- end }}
