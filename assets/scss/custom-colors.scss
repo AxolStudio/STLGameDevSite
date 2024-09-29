@@ -1,11 +1,17 @@
-$body-bg: rgba(0, 0, 0, .33);
-$body-color: #fff;
 
-$color-red: #E3331C;
-$color-yellow: #EA9500;
-$color-green: #4C9C23;
-$color-blue: #00AAE6;
-$color-purple: #995AA0;
+$color-black: #39363a;
+$color-grey: #67585b;
+$color-white: #fbe9c1;
+
+$color-red: #dc6b56;
+$color-yellow: #e1a854;
+$color-green: #6b8d5f;
+$color-blue: #4eb1aa;
+$color-purple: #9c7fa6;
+
+$body-bg: rgba(0, 0, 0, .33);
+$body-color: $color-white;
+
 
 $colors-array: (
     "red" 1 $color-red,

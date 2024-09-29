@@ -9,7 +9,7 @@
         <p>We are a community run organization dedicated to providing social, professional, and educational events,
             resources, and support for game developers in and around the St Louis region.</p>
         <p class="text-center h4 font-weight-light">Let's make something great together!</p>
-        <a class="d-flex justify-content-center btn btn-primary mt-3" href="about">Learn more About us!</a>
+        <a class="d-flex justify-content-center btn btn-blue mt-3" href="about">Learn more About us!</a>
     </div>
 </div>
 
@@ -23,14 +23,40 @@
     <div class="col-md-8 mb-5 colored-list">
 
         <div class="card  bg-blur basic-border mb-5">
-            <div class="card-body">
-                <h2 class="card-title">Latest News</h2>
-                {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
-                <h1>{{ .Title }}</h1>
-                {{ .Content }}
+
+            {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
+            <article >
+                <div class="card-header">
+                    <h4 class="card-title">Latest News Article</h4>
+                    <div class="row">
+                        <div class="col-9">
+                            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                        </div>
+                        <div class="col-3 text-end">
+                            <div class="post-meta">{{ .Date.Format "Mon, Jan 2, 2006" }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            {{ partial "authors.html" (dict "taxonomy" "authors" "page" .) }}
+                        </div>
+                        <div class="col-6 text-end">
+                            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}        
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{ .Summary }}
+                </div>
+                {{ if .Truncated }}
+                <div class="card-footer text-end ">
+                    <a class=" btn  " href="{{ .RelPermalink }}">Read More</a>
+                </div>
                 {{ end }}
-            </div>
-            <div class="card-footer "><a class=" btn btn-primary btn-sm " href="#!">Read More</a></div>
+            </article>
+            {{ end }}
+
         </div>
 
         <div class="card  bg-blur basic-border mb-5">
@@ -38,7 +64,7 @@
                 <h2 class="card-title">Another thing here</h2>
                 Something else can go here...
             </div>
-            <div class="card-footer "><a class=" btn btn-primary btn-sm " href="#!">Read More</a></div>
+            <div class="card-footer "><a class=" btn  btn-sm " href="#!">Read More</a></div>
         </div>
     </div>
     <div class="col-md-4 mb-5 colored-list-rev">
@@ -49,14 +75,14 @@
                     [[ This will show the next event and a link to RSVP ]]
                 </p>
             </div>
-            <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
+            <div class="card-footer"><a class="btn  btn-sm" href="#!">More Info</a></div>
         </div>
         <div class="card bg-blur basic-border mb-5">
             <div class="card-body text-center">
                 <p class="card-title h4">Connect with our Community!</p>
                 <p class="card-text">Join the conversation over on our Discord!</p>
 
-                <div><a class="btn btn-primary btn-xl" href="https://discord.com/invite/mTMKpre/"><i
+                <div><a class="btn  btn-xl" href="https://discord.com/invite/mTMKpre/"><i
                             class="fa-brands fa-discord"></i> Join</a></div>
             </div>
         </div>

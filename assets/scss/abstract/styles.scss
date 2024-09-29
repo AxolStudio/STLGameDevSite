@@ -5,10 +5,37 @@ body {
     background-image: url('{{ $bg.RelPermalink }}');
 }
 
-nav {
-    background-color: rgba(0, 0, 0, .5);
+nav, footer {
+    background-color: $color-black;
+    
 }
 
+.navbar {
+    line-height: 4rem;
+    padding-top:0;
+    padding-bottom:0;
+    background-image: none;
+    .navbar-brand {
+        padding: 0;
+        color: $color-white;
+        font-weight: bolder;
+    }
+    .nav-item a {
+        min-width: 7rem;
+        max-width: 7rem;
+        text-align: center;
+    }
+}
+
+.btn {
+    background-image: none;
+    border:none !important;
+    border-radius: 0;
+    box-shadow: none !important;
+    border-width:0;
+
+
+}
 .btn.btn-xl {
     
     --bs-btn-padding-x: 3rem;
@@ -35,20 +62,162 @@ nav {
     
 }
 
+.btn, .navbar-nav a { font-weight: bolder;}
 
 @each $name, $id, $color in $colors-array {
+
+    .navbar-nav .nav-item:nth-of-type(5n + #{$id}) a {
+        color: $color;
+        text-decoration: none;
+        &:hover {
+            color: $color-black;
+            background-color: $color;
+        }
+        &:active {
+            color: $color-black;
+            background-color: $color;
+        }
+        &:disabled {
+            color: darken($color-white, 20%);
+        }
+    }
+
+    .btn-#{$name} {
+        color: darken($color, 50%);
+        background-color: $color;
+        // border-color: $color;
+        &:hover {
+            background-color: darken($color, 10%);
+            // border-color: darken($color, 10%);
+        }
+        &:active {
+            
+            background-color: darken($color, 20%);
+            // border-color: darken($color, 20%);
+        }
+        &:disabled {
+            background-color: lighten($color, 10%);
+            // border-color: lighten($color, 10%);
+        }
+    }
+
     .colored-list .basic-border:nth-of-type(5n + #{$id})
     {
         border-color: $color;
         
         background-color: rgba($color, 0.15);
+
+        a:not(.btn) {
+            color: $color;
+            text-decoration: none;
+            &:hover {
+                color: lighten($color, 10%);
+                text-decoration:     underline;
+            }
+            &:active {
+                color: lighten($color, 20%);
+                text-decoration: underline;
+            }
+            &:disabled {
+                color: darken($color, 10%);
+            }
+        }
+
+        .btn {
+            
+            color: darken($color, 50%);
+            background-color: $color;
+            // border-color: $color;
+            &:hover {
+                background-color: darken($color, 10%);
+                // border-color: darken($color, 10%);
+            }
+            &:active {
+                background-color: darken($color, 20%);
+                // border-color: darken($color, 20%);
+            }
+            &:disabled {
+                background-color: lighten($color, 10%);
+                // border-color: lighten($color, 10%);
+            }
+        }
+        
     }
     .colored-list-rev .basic-border:nth-of-type(5n - #{$id})
     {
         border-color: $color;
         background-color: rgba($color, 0.15);
+
+        a:not(.btn) {
+            color: $color;
+            text-decoration: none;
+            &:hover {
+                color: lighten($color, 10%);
+                text-decoration:     underline;
+            }
+            &:active {
+                color: lighten($color, 20%);
+                text-decoration: underline;
+            }
+            &:disabled {
+                color: darken($color, 10%);
+            }
+        }
+
+        .btn {
+            color: darken($color, 50%);
+            background-color: $color;
+            // border-color: $color;
+            &:hover {
+                background-color: darken($color, 10%);
+                // border-color: darken($color, 10%);
+            }
+            &:active {
+                background-color: darken($color, 20%);
+                // border-color: darken($color, 20%);
+            }
+            &:disabled {
+                background-color: lighten($color, 10%);
+                // border-color: lighten($color, 10%);
+            }
+        }
     }
     .basic-border-#{$name} {
         border-color: $color;
+
+        a:not(.btn) {
+            color: $color;
+            text-decoration: none;
+            &:hover {
+                color: lighten($color, 10%);
+                text-decoration:     underline;
+            }
+            &:active {
+                color: lighten($color, 20%);
+                text-decoration: underline;
+            }
+            &:disabled {
+                color: darken($color, 10%);
+            }
+        }
+
+        .btn {
+            color: darken($color, 50%);
+            background-color: $color;
+            // border-color: $color;
+            &:hover {
+                background-color: darken($color, 10%);
+                // border-color: darken($color, 10%);
+            }
+            &:active {
+                
+                background-color: darken($color, 20%);
+                // border-color: darken($color, 20%);
+            }
+            &:disabled {
+                background-color: lighten($color, 10%);
+                // border-color: lighten($color, 10%);
+            }
+        }
     }
 }
