@@ -1,0 +1,41 @@
+{{ $pageTitle :=site.Title }}
+{{ if .IsPage }}
+{{ $pageTitle =  .Title "|" site.Title }}
+{{ end }}
+
+{{- with $pageTitle | plainify }}
+  <meta itemprop="name" content="{{ . }}">
+{{- end }}
+
+{{- with  .Param "keywords" | plainify | htmlUnescape | chomp }}
+  <meta itemprop="keywords" content="{{ . }}">
+  <meta name="keywords" content='{{ . }}' />
+{{- end }}
+
+{{- with .Param "author" | plainify | htmlUnescape | chomp }}
+<meta itemprop="author" content="{{ . }}" />
+<meta name="author" content="{{ . }}" />
+{{- end -}}
+
+{{- with or .Description .Summary site.Params.description | plainify | htmlUnescape | chomp }}
+  <meta name="description" content="{{ . }}">
+  <meta itemprop="description" content="{{ . }}">
+{{- end }}
+
+{{- $ISO8601 := "2006-01-02T15:04:05-07:00" }}
+{{- with .PublishDate }}
+  <meta itemprop="datePublished" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+{{- end }}
+
+{{- with .Lastmod }}
+  <meta itemprop="dateModified" {{ .Format $ISO8601 | printf "content=%q" | safeHTMLAttr }}>
+{{- end }}
+
+{{- with .WordCount }}
+  <meta itemprop="wordCount" content="{{ . }}">
+{{- end }}
+
+{{- $images := partial "_funcs/get-page-images" . }}
+{{- range first 6 $images }}
+  <meta itemprop="image" content="{{ .Permalink }}">
+{{- end }}
