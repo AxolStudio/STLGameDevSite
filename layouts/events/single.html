@@ -35,7 +35,7 @@
     {{- $lastTime := "" -}}
     {{- range $event := (sort $events "when" "asc") -}}
     {{- $rawDate := time.AsTime $event.when -}}
-    {{- $eventDate := time.Format "January 2, 2006" $rawDate -}}
+    {{- $eventDate := time.Format "January 2006" $rawDate -}}
     {{- if (ne $lastDate $eventDate) -}}
     {{- if (ne $lastDate "") -}}
     </ul>
@@ -53,9 +53,9 @@
 
                 <li class="basic-border ">
                     <dl class="p-3 m-0">
-                        <dt class="h4 text-center">{{ $event.name }}</dt>
-                        <dd class=""><em>When:</em> {{ time.Format ":time_short" $rawDate }} &mdash; <em>Where:</em> {{
-                            $event.where }}</dd>
+                        <dt class="h3 text-center">{{ $event.name }}</dt>
+                        <dt class="h4 text-center">{{ time.Format "Jan 2" $rawDate }} - {{ time.Format ":time_short" $rawDate }}</dt>
+                        <dd class=""><em>Where:</em> {{ $event.where }}</dd>
                         <dd class="">{{ $event.desc }}</dd>
                         {{ if $event.meetup }}
                         <dd class="text-center"><a href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/" class="btn"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
