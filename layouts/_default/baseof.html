@@ -9,7 +9,11 @@
         {{ block "nav" . }}
             {{ partial "nav.html" . }}
         {{ end }}
+        <header class="container px-4 px-lg-5 mh-100">
+        {{ block "header" . }}{{ end }}
+        </header>
         <main class="container px-4 px-lg-5 mh-100">
+        {{ block "middle" . }}{{ end }}
         {{ block "main" . }}{{ end }}
         </main>
         <footer class="footer pt-5  ">

@@ -106,8 +106,6 @@ footer, footer .navbar, footer .navbar .nav-item , footer .navbar .nav-item a {
 
 }
 
-
-
 @each $name, $id, $color in $colors-array {
 
     $color-dark-50: darken($color, 50%);
@@ -275,5 +273,48 @@ footer, footer .navbar, footer .navbar .nav-item , footer .navbar .nav-item a {
                 background-color: $color-light-10;
             }
         }
+    }
+}
+
+
+@media (min-width: 400px) {
+    ul.event-list li {
+        flex-basis: calc(50% - 0.5vw);
+    }
+}
+
+@media (min-width: 650px) {
+    ul.event-list li {
+        flex-basis: calc(33.33% - 3vw);
+    }
+}
+
+@media (min-width: 900px) {
+    ul.event-list li {
+        flex-basis: calc(25% - 3.5vw);
+    }
+}
+
+@media (min-width: 1100px) {
+    ul.event-list li {
+        flex-basis: calc(20% - 4vw);
+    }
+}
+
+ul.event-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    li {
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        list-style-type: none;
+        min-height: 20vh ;
+        min-width: 30vh;
+        max-width: 30vh;
+        margin:1rem;
     }
 }

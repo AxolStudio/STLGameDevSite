@@ -1,0 +1,72 @@
+{{ define "header" }}
+<div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="basic-border basic-border-blue card bg-blur ">
+        <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-calendar-days fa-6x "></i>
+        <div class="card-header">
+            <h1 class="font-weight-light text-center">Upcoming Events</h1>
+            <p class="lead text-center">This is a list of our upcoming events</p>
+        </div>
+    </div>
+</div>
+{{ end }}
+
+{{ define "main" -}}
+<section class="d-flex flex-column">
+
+    {{- $today := ((time.Format "2006-01-02" time.Now ) | time ) -}}
+
+    {{- $eventsRaw := .Site.Data.events -}}
+    {{- $events := slice -}}
+    {{- range $eventRaw := $eventsRaw -}}
+    {{- $rawD := ((time.Format "2006-01-02" (index $eventRaw 1) ) | time ) -}}
+    {{- if (ge $rawD $today ) -}}
+    {{- $events = $events | append (dict
+    "name" (index $eventRaw 0)
+    "when" (index $eventRaw 1)
+    "desc" (index $eventRaw 2)
+    "where" (index $eventRaw 3)
+    "meetup" (index $eventRaw 4)
+    )
+    -}}
+    {{ end }}
+    {{ end }}
+
+    {{- $lastDate := "" -}}
+    {{- $lastTime := "" -}}
+    {{- range $event := (sort $events "when" "asc") -}}
+    {{- $rawDate := time.AsTime $event.when -}}
+    {{- $eventDate := time.Format "January 2, 2006" $rawDate -}}
+    {{- if (ne $lastDate $eventDate) -}}
+    {{- if (ne $lastDate "") -}}
+    </ul>
+    </div>
+    </div>
+    {{- end -}}
+    {{ $lastDate = $eventDate }}
+    <div class="basic-border bg-blur card my-3">
+        <div class="card-header">
+            <h2>{{ $eventDate }}:</h2>
+        </div>
+        <div class="card-body colored-list">
+            <ul class="event-list justify-content-center ">
+                {{ end }}
+
+                <li class="basic-border ">
+                    <dl class="p-3 m-0">
+                        <dt class="h4 text-center">{{ $event.name }}</dt>
+                        <dd class=""><em>When:</em> {{ time.Format ":time_short" $rawDate }} &mdash; <em>Where:</em> {{
+                            $event.where }}</dd>
+                        <dd class="">{{ $event.desc }}</dd>
+                        {{ if $event.meetup }}
+                        <dd class="text-center"><a href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/" class="btn"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
+                        {{ end }}
+
+                    </dl>
+                </li>
+
+                {{- end -}}
+            </ul>
+        </div>
+        </div>
+</section>
+{{- end }}

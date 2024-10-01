@@ -1,11 +1,10 @@
-{{ define "main" }}
-
+{{ define "header" }}
 <div class="row gx-4 gx-lg-5 align-items-center my-5">
     <div class="col-lg-6 ">
         <div class="basic-border basic-border-blue">
-            
+
             <i class="i corner-icon ci-top-left fa-sharp-duotone fa-solid fa-game-console-handheld fa-6x "></i>
-            
+
             <div>
                 <script type="text/javascript">
                     var imageURLs = [
@@ -29,46 +28,39 @@
         </div>
     </div>
     <div class="col-lg-6">
-
         <div class="card bg-blur basic-border basic-border-purple">
-
-
             <div class="card-header">
-
-
                 <h1 class="font-weight-light text-center">Welcome to <strong>STL Game Dev</strong>!</h1>
                 <p class="lead text-center">We are making a Home for Game Developers!</p>
             </div>
             <div class="card-body">
-
                 <p>We are a community run organization dedicated
                     to providing social, professional, and educational
                     events,
                     resources, and support for game developers in and around the St Louis region.</p>
                 <p class="text-center h4 font-weight-light">Let's make something great together!</p>
-
             </div>
             <div class="card-footer text-center">
                 <a class=" btn btn-lg " href="about">Learn more About us!</a>
             </div>
-            
             <i class="i corner-icon ci-bottom-right fa-sharp-duotone fa-solid  fa-block-question fa-6x "></i>
-            
         </div>
     </div>
 </div>
+{{ end }}
 
-<div class="card text-white bg-secondary my-5 py-4 text-center">
+{{ define "middle" }}
+<section class="card text-white bg-secondary my-5 py-4 text-center">
     <div class="card-body">
         Something Here
     </div>
-</div>
+</section>
+{{ end }}
 
-<div class="row gx-4 gx-lg-5">
+{{ define "main" }}
+<section class="row gx-4 gx-lg-5">
     <div class="col-md-8 mb-5 colored-list">
-
         <div class="card  bg-blur basic-border mb-5">
-
             {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
             <article>
                 <div class="card-header">
@@ -77,11 +69,9 @@
                         <div class="flex-grow-1">
                             <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
                         </div>
-
                         <div class="post-meta">
                             {{ .Date.Format "Mon, Jan 2, 2006" }}
                         </div>
-
                         <div class="fa-2x ">
                             <span class="fa-layers fa-fw">
                                 <i class="i fa-sharp-duotone fa-solid fa-calendar"></i>
@@ -89,7 +79,6 @@
                                     style="font-weight:900">{{ .Date.Format "2" }}</span>
                             </span>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col-6">
@@ -101,7 +90,6 @@
                     </div>
                 </div>
                 <div class="card-body">
-
                     {{ .Summary }}
                 </div>
                 {{ if .Truncated }}
@@ -109,14 +97,11 @@
                     <a class=" btn  " href="{{ .RelPermalink }}">Read More</a>
                 </div>
                 {{ end }}
-                
+
             </article>
             {{ end }}
-            <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x " ></i>
-            
-            
+            <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x "></i>
         </div>
-
         <div class="card  bg-blur basic-border mb-5">
             <div class="card-body">
                 <h2 class="card-title">Another thing here</h2>
@@ -211,5 +196,5 @@
             </div>
         </div>
     </div>
-</div>
+</section>
 {{ end }}
