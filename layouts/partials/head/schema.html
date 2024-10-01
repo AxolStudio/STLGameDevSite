@@ -1,6 +1,7 @@
 {{ $pageTitle :=site.Title }}
 {{ if .IsPage }}
-{{ $pageTitle =  .Title "|" site.Title }}
+{{ $pageTitle = (printf "%s | %s" .Title site.Title) }}
+{{ $pageTitle = (printf "%s | %s" .Title site.Title) }}
 {{ end }}
 
 {{- with $pageTitle | plainify }}
