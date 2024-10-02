@@ -43,7 +43,7 @@ jobs:
           
           existing=$(echo $(cat $data_file))
           
-          existslist=$(echo $existing | jq '[ .[] | .[0] ]')
+          existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
 
           echo $existing;
           echo $existslist;
@@ -53,7 +53,7 @@ jobs:
 
           echo $incoming};
 
-          allowed=$(echo -n $incoming $existslist | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
+          allowed=$(echo  $incoming $existslist | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
           
           echo $allowed;
           
