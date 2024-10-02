@@ -50,7 +50,7 @@ jobs:
 
           echo 'Incoming: ${incoming}';
 
-          allowed=$(echo $incoming | jq -r 'map(select(.[0] | . as $in | all(${existing}[]; . != $in)))')
+          allowed=$(echo $incoming $existing | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
           
           echo 'Allowed: ${allowed}';
           
