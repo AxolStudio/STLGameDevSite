@@ -13,6 +13,8 @@ jobs:
   fetch-events:
     runs-on: ubuntu-latest
     if: ${{ github.event_name == 'workflow_dispatch' }}
+    outputs:
+      issue_no: ${{ steps.save-data.outputs.new_ones }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,26 +44,25 @@ jobs:
           test -f $data_file || touch $data_file
           
           existing=$(echo $(cat $data_file))
-          
-          existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
+          if ($existing == "") then
+            existing="[]"
+          fi
 
-          echo $existing;
-          echo $existslist;
+          existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
 
           incoming=$(echo $RESULTS | jq)
           incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
 
-          echo $incoming};
-
           allowed=$(echo $incoming | jq --argjson ex $existslist -r 'map(select(.[0] | . as $in | all($ex[]; . != $in)))')
-          
-          echo $allowed;
+          newones=$(echo $allowed | jq -r '.[] | .[0]')
+
+          echo 'new_ones'=$newones >> $GITHUB_OUTPUT
           
           combined=$(echo $existing $allowed | jq -s add)
 
-          echo $combined;
-
           echo $combined > $data_file
+      - name: share
+        run: echo "The data is ${{ steps.save-data.outputs.new_ones }}"
       - name: Commit Change
         id: commit-change
         run: |
