@@ -45,7 +45,7 @@ jobs:
           existing=$(echo $(cat $data_file))
           incoming=$(echo $RESULTS | jq)
           incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
-          if ($existing == "") then
+          if [ -z "$existing" ]; then
             allowed=$incoming
             combined=$incoming
           else
