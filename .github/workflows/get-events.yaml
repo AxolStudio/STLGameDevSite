@@ -43,7 +43,7 @@ jobs:
           
           existing=$(echo $(cat $data_file))
           
-          existslist=$(echo $existing | jq -r '[ .[] | .[0] ]')
+          existslist=$(echo $existing | jq '[ .[] | .[0] ]')
 
           echo $existing;
 
