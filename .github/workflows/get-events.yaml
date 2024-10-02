@@ -41,20 +41,24 @@ jobs:
           mkdir -p data
           test -f $data_file || touch $data_file
           
-          existing=$(echo $(cat $data_file) | jq -r '[ .[] | .[0] ]')
+          existing=$(echo $(cat $data_file))
+          
+          existslist=$(echo $existing | jq -r '[ .[] | .[0] ]')
 
-          echo `Existing: ${existing}`;
+          echo $existing;
 
           incoming=$(echo $RESULTS | jq)
           incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
 
-          echo `Incoming: ${incoming}`;
+          echo $incoming};
 
-          allowed=$(echo $incoming $existing | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
+          allowed=$(echo $incoming $existslist | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
           
-          echo `Allowed: ${allowed}`;
+          echo $allowed;
           
           combined=$(echo $existing $allowed | jq -s add)
+
+          echo $combined;
 
           echo $combined > $data_file
       - name: Commit Change
