@@ -43,16 +43,16 @@ jobs:
           
           existing=$(echo $(cat $data_file) | jq -r '[ .[] | .[0] ]')
 
-          echo 'Existing: $existing';
+          echo 'Existing: ${existing}';
 
           incoming=$(echo $RESULTS | jq)
           incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
 
-          echo 'Incoming: $incoming';
+          echo 'Incoming: ${incoming}';
 
-          allowed=$(echo $incoming | jq -r '. [] | select( .[0] as $in | ${existing} | index($in) | not )' )
+          # allowed=$(echo $incoming | jq -r '. [] | select( .[0] as $in | ${existing} | index($in) | not )' )
 
-          echo 'Allowed: $allowed';
+          # echo 'Allowed: ${allowed}';
 
           echo $incoming > $data_file
       - name: Commit Change
