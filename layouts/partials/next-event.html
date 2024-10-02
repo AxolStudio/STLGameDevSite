@@ -3,14 +3,16 @@
     {{- $eventsRaw := .Site.Data.events -}}
     {{- $events := slice -}}
     {{- range $eventRaw := $eventsRaw -}}
-    {{- $rawD := ((time.Format "2006-01-02" (index $eventRaw 1) ) | time ) -}}
+    {{- $rawD := ((time.Format "2006-01-02" (index $eventRaw 3) ) | time ) -}}
     {{- if (ge $rawD $today ) -}}
     {{- $events = $events | append (dict
-    "name" (index $eventRaw 0)
-    "when" (index $eventRaw 1)
-    "desc" (index $eventRaw 2)
-    "where" (index $eventRaw 3)
-    "meetup" (index $eventRaw 4)
+    "internal_id" (index $eventRaw 0)
+    "created" (index $eventRaw 1)
+    "name" (index $eventRaw 2)
+    "when" (index $eventRaw 3)
+    "where" (index $eventRaw 4)
+    "meetup" (index $eventRaw 5)
+    "desc" (index $eventRaw 6)
     )
     -}}
     {{ end }}
