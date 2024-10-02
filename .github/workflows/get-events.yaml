@@ -42,24 +42,19 @@ jobs:
           data_file="data/events.json"
           mkdir -p data
           test -f $data_file || touch $data_file
-          
           existing=$(echo $(cat $data_file))
-          if ($existing == "") then
-            existing="[]"
-          fi
-
-          existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
-
           incoming=$(echo $RESULTS | jq)
           incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
-
-          allowed=$(echo $incoming | jq --argjson ex $existslist -r 'map(select(.[0] | . as $in | all($ex[]; . != $in)))')
+          if ($existing == "") then
+            allowed=$incoming
+            combined=$incoming
+          else
+            existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
+            allowed=$(echo $incoming | jq --argjson ex $existslist -r 'map(select(.[0] | . as $in | all($ex[]; . != $in)))')
+            combined=$(echo $existing $allowed | jq -s add)
+          fi
           newones=$(echo $allowed | jq -r '.[] | .[0]')
-
           echo 'new_ones'=$newones >> $GITHUB_OUTPUT
-          
-          combined=$(echo $existing $allowed | jq -s add)
-
           echo $combined > $data_file
       - name: share
         run: echo "The data is ${{ steps.save-data.outputs.new_ones }}"
