@@ -50,11 +50,13 @@ jobs:
 
           echo 'Incoming: ${incoming}';
 
-          # allowed=$(echo $incoming | jq -r '. [] | select( .[0] as $in | ${existing} | index($in) | not )' )
+          allowed=$(echo $incoming | jq -r 'map(select(.[0] | . as $in | all($existing[]; . != $in)))')
+          
+          echo 'Allowed: ${allowed}';
+          
+          combined=$(echo $existing $allowed | jq -s add)
 
-          # echo 'Allowed: ${allowed}';
-
-          echo $incoming > $data_file
+          echo $combined > $data_file
       - name: Commit Change
         id: commit-change
         run: |
