@@ -21,7 +21,7 @@ jobs:
           fetch-depth: 0
       - id: fetch-data
         name: Fetch Data
-        uses: jroehl/gsheet.action@v2.0.0
+        uses: jroehl/gsheet.action@v2.1.1
         with:
           spreadsheetId: 1XEmNv7bX9_VxxqzD7XhWayRs9dv1ZAHyns2W2UyIAtk
           commands: |
