@@ -46,6 +46,7 @@ jobs:
           existslist=$(echo $existing | jq '[ .[] | .[0] ]')
 
           echo $existing;
+          echo $existslist;
 
           incoming=$(echo $RESULTS | jq)
           incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
