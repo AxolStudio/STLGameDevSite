@@ -1,0 +1,68 @@
+name: 📅 grab the list of events from google sheets
+
+on:
+  workflow_dispatch:
+
+permissions: write-all
+
+concurrency:
+  cancel-in-progress: false
+
+defaults:
+  run: 
+    shell: bash
+
+jobs:
+  fetch-events:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: 
+          submodules: recursive
+          fetch-depth: 0
+      - id: fetch-data
+        name: Fetch Data
+        uses: jroehl/gsheet.action@v2.0.0
+        with:
+          spreadsheetId: 1XEmNv7bX9_VxxqzD7XhWayRs9dv1ZAHyns2W2UyIAtk
+          commands: |
+            [
+              { "command": "getData", "args": { "range": "'Form Responses 1'!A1:I99", "hasHeaderRow": true }}
+            ]
+        env:
+          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+      - name: Save Data
+        id: save-data
+        env: 
+          RESULTS: ${{ steps.fetch-data.outputs.results }}
+        run: |
+          git pull
+          data_file="data/events.json"
+          mkdir -p data
+          test -f $data_file || touch $data_file
+          
+          existing=$(echo $(cat $data_file) | jq -r '[ .[] | .[0] ]')
+
+          incoming=$(echo $RESULTS | jq)
+          incoming=$(echo $data_node | jq -r '.results[0].result.rawData' )
+
+          allowed=$(echo $incoming | jq -r '. [] | select( .[0] as $in | ${existing} | index($in) | not )' )
+
+          echo 'Allowed: $allowed';
+
+          echo $incoming > $data_file
+      - name: Commit Change
+        id: commit-change
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "no-reply@github.com"
+          git tag updated-event-list
+          git add data/events.json
+          git commit -m "Updated event list"
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+          git push --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
