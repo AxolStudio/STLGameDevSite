@@ -44,7 +44,7 @@ jobs:
           existing=$(echo $(cat $data_file) | jq -r '[ .[] | .[0] ]')
 
           incoming=$(echo $RESULTS | jq)
-          incoming=$(echo $data_node | jq -r '.results[0].result.rawData' )
+          incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
 
           allowed=$(echo $incoming | jq -r '. [] | select( .[0] as $in | ${existing} | index($in) | not )' )
 
