@@ -53,7 +53,7 @@ jobs:
 
           echo $incoming};
 
-          allowed=$(echo $incoming $existslist | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
+          allowed=$(echo -n $incoming $existslist | jq -r 'map(select(.[0] | . as $in | all(input[]; . != $in)))')
           
           echo $allowed;
           
