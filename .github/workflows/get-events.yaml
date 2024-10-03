@@ -81,7 +81,7 @@ jobs:
         if: ${{ needs.fetch-events.outputs.new_list != null }}
         strategy:
             matrix:
-                steps: ${{ needs.fetch-events.outputs.new_list }}
+                steps: ${{ fromJSON(needs.fetch-events.outputs.new_list) }}
         steps:
             -   name: list new ones
                 run: |
