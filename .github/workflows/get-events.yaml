@@ -98,7 +98,8 @@ jobs:
                 uses: Ilshidur/action-discord@master
                 env:
                     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-                    DISCORD_EMBEDS: ${{ toJson(steps.get-new-one.outputs.embeds) }}
+                    DISCORD_EMBEDS: |
+                                        ${{ steps.get-new-one.outputs.embeds }}
                 with:
                     args: ":calendar: A new event has been scheduled!"
                             
