@@ -39,7 +39,7 @@ jobs:
             -   name: Install Dart Sass
                 run: sudo snap install dart-sass
             -   name: Checkout
-                uses: actions/checkout
+                uses: actions/checkout@v4
                 with: 
                     submodules: recursive
                     fetch-depth: 0
@@ -47,7 +47,7 @@ jobs:
                 id: pages
                 uses: actions/configure-pages@release
             -   name: Setup Node
-                uses: actions/setup-node
+                uses: actions/setup-node@v4
                 with:
                     node-version: 20.10.0
             -   name: Install dependencies
@@ -64,7 +64,7 @@ jobs:
                     --minify \
                     --baseURL "${{ steps.pages.outputs.base_url }}/"
             -   name: Upload Artifact
-                uses: actions/upload-pages-artifact
+                uses: actions/upload-pages-artifact@v3
                 with: 
                     path: ./public
     
@@ -79,4 +79,4 @@ jobs:
         steps:
             -   name: Deploy
                 id: deployment
-                uses: actions/deploy-pages
+                uses: actions/deploy-pages@v4

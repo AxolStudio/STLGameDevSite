@@ -18,7 +18,7 @@ jobs:
             new_list: ${{ steps.save-data.outputs.new_list }}
         steps:
         -   name: Checkout
-            uses: actions/checkout
+            uses: actions/checkout@v4
             with:
                 submodules: recursive
                 fetch-depth: 0
