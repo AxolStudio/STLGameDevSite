@@ -87,12 +87,29 @@ jobs:
                 id: get-new-one 
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-                        embeds=$(echo $new_one | jq -r ' .[0] | { "title": .[2], "timestamp": .[3], "description": ("Where: " + .[4] + "\n" + .[6]) } ')
+
+                        start=$(echo $new_one | jq -r '.[0][4]')
+                        end=$(echo $new_one | jq -r '.[0][10]')
+                        start_human=$(date -d "$start" +"%Y-%m-%d %H:%M:%S %Z")
+                        end_human=$(date -d "$end" +"%Y-%m-%d %H:%M:%S %Z")
+
+                        echo start=$start >> $GITHUB_OUTPUT
+                        echo end=$end >> $GITHUB_OUTPUT
+                        echo start_human=$start_human >> $GITHUB_OUTPUT
+                        echo end_human=$end_human >> $GITHUB_OUTPUT
+
+                        embeds=$(echo $new_one | jq -r --arg start $start_human --arg end $end_human ' .[0] | { "title": .[2], "timestamp": .[3], "description": ("*When:* " + $start + " - " + $end + "\n*Where:*" + .[4] + "\n\n" + .[6]) } ')
+                        if [ ! -z $(echo $new_one | jq -r '.[0][7]')]; then
+                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": $value }')
+                        elif [ $(echo $new_one | jq -c '.[0][2]') == *"DrinkUp"* ]
+                            embeds=$(echo $embeds | jq '. + { "image": { "url": "https://drive.google.com/open?id=1tqJTO00Fd0mkGpQio_M0d4zSFbk_-J_K" } }')
+                        else
+                            embeds=$(echo $embeds | jq '. + { "image": { "url": "https://drive.google.com/open?id=1Q929ciYnMgWgC-Du9kLQQQ98dVTNV0Rg" } }')
+                        fi
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
                         embeds=$(echo $embeds | jq -c '[ . ]')
-                        echo $embeds
                         echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: STL Game Dev Discord
                 uses: Ilshidur/action-discord@master
