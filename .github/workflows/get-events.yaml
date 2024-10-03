@@ -99,17 +99,21 @@ jobs:
                         echo end_human=$end_human >> $GITHUB_OUTPUT
 
                         embeds=$(echo $new_one | jq -r --arg start $start_human --arg end $end_human ' .[0] | { "title": .[2], "timestamp": .[3], "description": ('*When:* ' + $start + ' - ' + $end + '\n*Where:*' + .[4] + '\n\n' + .[6]) } ')
+                        echo $embeds
                         if [ ! -z $(echo $new_one | jq -r '.[0][7]')]; then
-                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": $value }')
+                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
                         elif [ $(echo $new_one | jq -c '.[0][2]') == *"DrinkUp"* ]
                             embeds=$(echo $embeds | jq '. + { "image": { "url": "https://drive.google.com/open?id=1tqJTO00Fd0mkGpQio_M0d4zSFbk_-J_K" } }')
                         else
                             embeds=$(echo $embeds | jq '. + { "image": { "url": "https://drive.google.com/open?id=1Q929ciYnMgWgC-Du9kLQQQ98dVTNV0Rg" } }')
                         fi
+                        echo $embeds
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
+                        echo $embeds
                         embeds=$(echo $embeds | jq -c '[ . ]')
+                        echo $embeds
                         echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: STL Game Dev Discord
                 uses: Ilshidur/action-discord@master
