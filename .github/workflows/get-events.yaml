@@ -81,12 +81,10 @@ jobs:
         if: ${{ needs.fetch-events.outputs.new_list != null }}
         strategy:
             matrix:
-                steps: ${{ fromJSON(needs.fetch-events.outputs.new_list) }}
+                steps: ${{ fromJSON(needs.fetch-events.outputs.new_ones) }}
         steps:
             -   name: list new ones
                 run: |
                         echo ${{ matrix.steps }}
-                        new_ones=${{ needs.fetch-events.outputs.new_ones }}
-                        new_one=$(echo $new_ones | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-                        echo $new_one
+                        
 
