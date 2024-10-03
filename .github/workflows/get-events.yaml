@@ -85,6 +85,7 @@ jobs:
         steps:
             -   name: list new ones
                 run: |
-                        echo ${{ matrix.steps }}
+                        new_one=$(echo ${{ matrix.steps }} | jq)
+                        echo $new_one
                         
 
