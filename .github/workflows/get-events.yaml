@@ -87,10 +87,11 @@ jobs:
                 id: get-new-one 
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("Where: " + .[4] + "\n" + .[6]) }')
+                        embeds=$(echo $new_one | jq -r ' .[0] | { "title": .[2], "timestamp": .[3], "description": ("Where: " + .[4] + "\n" + .[6]) } ')
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
+                        embeds=$(echo $embeds | jq -r '[ . ]')
                         echo $embeds
                         echo embeds=$embeds >> $GITHUB_ENV
             -   name: STL Game Dev Discord
