@@ -74,16 +74,10 @@ jobs:
     build:
         uses: ./.github/workflows/hugo-build.yaml
         needs: fetch-events
-        concurrency:
-            group: "pages"
-            cancel-in-progress: false
 
     share:
         runs-on: ubuntu-latest
         needs: fetch-events
-        concurrency:
-            group: "pages"
-            cancel-in-progress: false
         if: ${{ needs.fetch-events.outputs.new_list != null }}
         strategy:
             matrix:
@@ -93,19 +87,14 @@ jobs:
                 id: get-new-one 
                 run: |
                         new_one=$(echo ${{ needs.fetch-events.outputs.new_ones }} | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-                        embeds=$('[
-                                    {
-                                        "title": $new_one[0][2],
-                                        "description": "Where: $new_one[0][1]\n$new_one[0][6]",
-                                        "timestamp": $new_one[0][3]
-                                        }
-                                    }
-                                ]' | jq)
-                        if [ -z $new_one[0][5] ]; then
-                            embeds=$(echo $embeds | jq --arg url 'https://www.meetup.com/st-louis-game-developers/events/$new_one[0][5]/' '.[0] + {"url": $url}')
+                        # use jq to create embeds json from new_one
+                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": "Where: " + .[4] + "\n" + .[7], "color": 16711680 }')
+                        # if new_one[0][5] is not empty, add it to embeds
+                        if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
+                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": "https://www.meetup.com/st-louis-game-developers/events/" + $value }')
                         fi
+                        echo $embeds
                         echo embeds=$embeds >> $GITHUB_ENV
-                        echo new_one=$new_one >> $GITHUB_ENV
             -   name: STL Game Dev Discord
                 uses: Ilshidur/action-discord@master
                 env:
