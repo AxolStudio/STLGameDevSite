@@ -1,7 +1,7 @@
-name: Grab Events
+name: 🖐 Grab Events
 
 on: 
-    workflow_call:
+    workflow_dispatch:
 
 permissions: write-all
 
