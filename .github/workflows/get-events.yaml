@@ -1,72 +1,91 @@
-name: 📅 grab the list of events from google sheets
+name: Grab Events
 
-on:
-  workflow_dispatch:
+on: 
+    workflow_call:
 
 permissions: write-all
 
 defaults:
-  run: 
-    shell: bash
+    run:
+        shell: bash
 
 jobs:
-  fetch-events:
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' }}
-    outputs:
-      issue_no: ${{ steps.save-data.outputs.new_ones }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with: 
-          submodules: recursive
-          fetch-depth: 0
-      - id: fetch-data
-        name: Fetch Data
-        uses: jroehl/gsheet.action@release
-        with:
-          spreadsheetId: 1XEmNv7bX9_VxxqzD7XhWayRs9dv1ZAHyns2W2UyIAtk
-          commands: |
-            [
-              { "command": "getData", "args": { "range": "'Form Responses 1'!A1:I99", "hasHeaderRow": true }}
-            ]
-        env:
-          GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
-          GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
-      - name: Save Data
-        id: save-data
-        env: 
-          RESULTS: ${{ steps.fetch-data.outputs.results }}
-        run: |
-          git pull
-          data_file="data/events.json"
-          mkdir -p data
-          test -f $data_file || touch $data_file
-          existing=$(echo $(cat $data_file))
-          incoming=$(echo $RESULTS | jq)
-          incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
-          if [ -z "$existing" ]; then
-            allowed=$incoming
-            combined=$incoming
-          else
-            existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
-            allowed=$(echo $incoming | jq --argjson ex $existslist -r 'map(select(.[0] | . as $in | all($ex[]; . != $in)))')
-            combined=$(echo $existing $allowed | jq -s add)
-          fi
-          newones=$(echo $allowed | jq -r '.[] | .[0]')
-          echo 'new_ones'=$newones >> $GITHUB_OUTPUT
-          echo $combined > $data_file
-      - name: share
-        run: echo "The data is ${{ steps.save-data.outputs.new_ones }}"
-      - name: Commit Change
-        id: commit-change
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "no-reply@github.com"
-          git tag updated-event-list
-          git add data/events.json
-          git commit -m "Updated event list"
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
-          git push --follow-tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    fetch-events:
+        runs-on: ubuntu-latest
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        outputs:
+            new_ones: ${{ steps.save-data.outputs.new_ones }}
+            new_list: ${{ steps.save-data.outputs.new_list }}
+        steps:
+        -   name: Checkout
+            uses: actions/checkout@v4
+            with:
+                submodules: recursive
+                fetch-depth: 0
+        -   name: Fetch Data
+            id: fetch-data
+            uses: jroehl/gsheet.action@release
+            with:
+                spreadsheetId: 1XEmNv7bX9_VxxqzD7XhWayRs9dv1ZAHyns2W2UyIAtk
+                commands: |
+                            [
+                            { "command": "getData", "args": { "range": "'Form Responses 1'!A1:I99", "hasHeaderRow": true }}
+                            ]
+            env:
+                GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
+                GSHEET_PRIVATE_KEY: ${{ secrets.GSHEET_PRIVATE_KEY }}
+        -   name: Save Data
+            id: save-data
+            env:
+                RESULTS: ${{ steps.fetch-data.outputs.results }}
+            run: |
+                    git pull
+                    data_file="data/events.json"
+                    mkdir -p data
+                    test -f $data_file || touch $data_file
+                    existing=$(echo $(cat $data_file))
+                    incoming=$(echo $RESULTS | jq)
+                    incoming=$(echo $incoming | jq -r '.results[0].result.rawData' )
+                    if [ -z "$existing" ]; then
+                        allowed=$incoming
+                        combined=$incoming
+                    else
+                        existslist=$(echo $existing | jq -c '[ .[] | .[0] ]')
+                        allowed=$(echo $incoming | jq --argjson ex $existslist -r 'map(select(.[0] | . as $in | all($ex[]; . != $in)))')
+                        combined=$(echo $existing $allowed | jq -s add)
+                    fi
+                    echo 'new_list'=(echo $allowed | jq -c '.[] | .[0]') >> $GITHUB_OUTPUT
+                    echo 'new_ones'=$allowed >> $GITHUB_OUTPUT
+                    echo $combined > $data_file
+        -   name: Commit Change
+            id: commit-change
+            run: |
+                    git config --global user.name "GitHub Actions"
+                    git config --global user.email "no-reply@github.com"
+                    git tag updated-event-list
+                    git add data/events.json
+                    git commit -m "Updated event list"
+                    git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
+                    git push --follow-tags
+            env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    build:
+        uses: ./.github/workflows/hugo-build.yaml
+        needs: fetch-events
+
+    share:
+        runs-on: ubuntu-latest
+        needs: fetch-events
+        if: ${{ needs.fetch-events.outputs.new_list != null }}
+        strategy:
+            matrix:
+                steps: ${{ needs.fetch-events.outputs.new_list }}
+        steps:
+            -   name: list new ones
+                run: |
+                        echo ${{ matrix.steps }}
+                        new_ones=${{ needs.fetch-events.outputs.new_ones }}
+                        new_one=$(echo $new_ones | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
+                        echo $new_one
+
