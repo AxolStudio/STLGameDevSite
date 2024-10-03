@@ -91,14 +91,14 @@ jobs:
                         start=$(echo $new_one | jq -c '.[0][3]')
                         end=$(echo $new_one | jq -c '.[0][9]')
 
-                        $echo $start
-                        $echo $end
+                        echo $start
+                        echo $end
 
                         start_human=$(date -d "$start" +"%Y-%m-%d %H:%M:%S %Z")
                         end_human=$(date -d "$end" +"%Y-%m-%d %H:%M:%S %Z")
 
-                        $echo $start_human
-                        $echo $end_human
+                        echo $start_human
+                        echo $end_human
 
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
