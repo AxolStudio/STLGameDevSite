@@ -91,15 +91,15 @@ jobs:
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
-                        embeds=$(echo $embeds | jq -r '[ . ]')
+                        embeds=$(echo $embeds | jq -c '[ . ]')
                         echo $embeds
-                        echo embeds=$embeds >> $GITHUB_ENV
+                        echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: STL Game Dev Discord
                 uses: Ilshidur/action-discord@master
                 env:
+                    DISCORD_USERNAME: "STL Game Dev"
                     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-                    DISCORD_EMBEDS: |
-                                        ${{ steps.get-new-one.outputs.embeds }}
+                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
                 with:
                     args: ":calendar: A new event has been scheduled!"
                             
