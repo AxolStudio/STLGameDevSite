@@ -74,21 +74,46 @@ jobs:
     build:
         uses: ./.github/workflows/hugo-build.yaml
         needs: fetch-events
+        concurrency:
+            group: "pages"
+            cancel-in-progress: false
 
     share:
         runs-on: ubuntu-latest
         needs: fetch-events
+        concurrency:
+            group: "pages"
+            cancel-in-progress: false
         if: ${{ needs.fetch-events.outputs.new_list != null }}
         strategy:
             matrix:
                 steps: ${{ fromJSON(needs.fetch-events.outputs.new_list) }}
         steps:
-            -   name: list new ones
+            -   name: get new one
+                id: get-new-one 
                 run: |
-                        new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq -r --arg index '${{ matrix.steps }}' '.[0] == $index')
-                        echo $new_one
-                        
-                        
+                        new_one=$(echo ${{ needs.fetch-events.outputs.new_ones }} | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
+                        embeds=$('[
+                                    {
+                                        "title": $new_one[0][2],
+                                        "description": "Where: $new_one[0][1]\n$new_one[0][6]",
+                                        "timestamp": $new_one[0][3]
+                                        }
+                                    }
+                                ]' | jq)
+                        if [ -z $new_one[0][5] ]; then
+                            embeds=$(echo $embeds | jq --arg url 'https://www.meetup.com/st-louis-game-developers/events/$new_one[0][5]/' '.[0] + {"url": $url}')
+                        fi
+                        echo embeds=$embeds >> $GITHUB_ENV
+                        echo new_one=$new_one >> $GITHUB_ENV
+            -   name: STL Game Dev Discord
+                uses: Ilshidur/action-discord@master
+                env:
+                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
+                with:
+                    args: ":calendar: A new event has been scheduled!"
+                            
             
 
                         
