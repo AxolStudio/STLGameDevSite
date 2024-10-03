@@ -29,7 +29,7 @@ jobs:
                 spreadsheetId: 1XEmNv7bX9_VxxqzD7XhWayRs9dv1ZAHyns2W2UyIAtk
                 commands: |
                             [
-                            { "command": "getData", "args": { "range": "'Form Responses 1'!A1:I99", "hasHeaderRow": true }}
+                                { "command": "getData", "args": { "range": "'Form Responses 1'!A1:I99", "hasHeaderRow": true }}
                             ]
             env:
                 GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
@@ -54,7 +54,8 @@ jobs:
                         allowed=$(echo $incoming | jq --argjson ex $existslist -r 'map(select(.[0] | . as $in | all($ex[]; . != $in)))')
                         combined=$(echo $existing $allowed | jq -s add)
                     fi
-                    echo 'new_list'=(echo $allowed | jq -c '.[] | .[0]') >> $GITHUB_OUTPUT
+                    new_list=$(echo $allowed | jq -r 'map(.[0])')
+                    echo 'new_list'=$new_list >> $GITHUB_OUTPUT
                     echo 'new_ones'=$allowed >> $GITHUB_OUTPUT
                     echo $combined > $data_file
         -   name: Commit Change
