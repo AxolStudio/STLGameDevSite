@@ -29,7 +29,7 @@ jobs:
                 spreadsheetId: 1XEmNv7bX9_VxxqzD7XhWayRs9dv1ZAHyns2W2UyIAtk
                 commands: |
                             [
-                                { "command": "getData", "args": { "range": "'Form Responses 1'!A1:I99", "hasHeaderRow": true }}
+                                { "command": "getData", "args": { "range": "'Form Responses 1'!A1:J99", "hasHeaderRow": true }}
                             ]
             env:
                 GSHEET_CLIENT_EMAIL: ${{ secrets.GSHEET_CLIENT_EMAIL }}
