@@ -87,12 +87,10 @@ jobs:
                 id: get-new-one 
                 run: |
                         new_one=$(echo ${{ needs.fetch-events.outputs.new_ones }} | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-                        # use jq to create embeds json from new_one
-                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": .[7] }')
-                        # if new_one[0][5] is not empty, add it to embeds
-                        # if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
-                        #     embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": "https://www.meetup.com/st-louis-game-developers/events/" + $value }')
-                        # fi
+                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("Where: " + .[4] + "\n" + .[6]) }')
+                        if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
+                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
+                        fi
                         echo $embeds
                         echo embeds=$embeds >> $GITHUB_ENV
             -   name: STL Game Dev Discord
