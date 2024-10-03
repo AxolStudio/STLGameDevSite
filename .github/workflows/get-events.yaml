@@ -88,28 +88,35 @@ jobs:
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
 
-                        start=$(echo $new_one | jq -r '.[0][3]')
-                        end=$(echo $new_one | jq -r '.[0][9]')
+                        start=$(echo $new_one | jq -c '.[0][3]')
+                        end=$(echo $new_one | jq -c '.[0][9]')
+
+                        $echo $start
+                        $echo $end
+
                         start_human=$(date -d "$start" +"%Y-%m-%d %H:%M:%S %Z")
                         end_human=$(date -d "$end" +"%Y-%m-%d %H:%M:%S %Z")
+
+                        $echo $start_human
+                        $echo $end_human
 
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
                         echo end_human=$end_human >> $GITHUB_OUTPUT
 
-                        embeds=$(echo $new_one | jq -r --arg start $start_human --arg end $end_human ' .[0] | { "title": .[2], "timestamp": .[3], "description": ('*When:* ' + $start + ' - ' + $end + '\n*Where:*' + .[4] + '\n\n' + .[6]) } ')
+                        embeds=$(echo $new_one | jq -c --arg start $start_human --arg end $end_human ' .[0] | { "title": .[2], "timestamp": .[3], "description": ('*When:* ' + $start + ' - ' + $end + '\n*Where:*' + .[4] + '\n\n' + .[6]) } ')
                         echo $embeds
-                        if [ ! -z $(echo $new_one | jq -r '.[0][7]')]; then
+                        if [ ! -z $(echo $new_one | jq -c '.[0][7]')]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
                         elif [ $(echo $new_one | jq -c '.[0][2]') == *"DrinkUp"* ]
-                            embeds=$(echo $embeds | jq '. + { "image": { "url": "https://drive.google.com/open?id=1tqJTO00Fd0mkGpQio_M0d4zSFbk_-J_K" } }')
+                            embeds=$(echo $embeds | jq -c '. + { "image": { "url": "https://drive.google.com/open?id=1tqJTO00Fd0mkGpQio_M0d4zSFbk_-J_K" } }')
                         else
-                            embeds=$(echo $embeds | jq '. + { "image": { "url": "https://drive.google.com/open?id=1Q929ciYnMgWgC-Du9kLQQQ98dVTNV0Rg" } }')
+                            embeds=$(echo $embeds | jq -c '. + { "image": { "url": "https://drive.google.com/open?id=1Q929ciYnMgWgC-Du9kLQQQ98dVTNV0Rg" } }')
                         fi
                         echo $embeds
-                        if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
-                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
+                        if [ ! -z $(echo $new_one | jq -c '.[0][5]') ]; then
+                            embeds=$(echo $embeds | jq -c --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
                         echo $embeds
                         embeds=$(echo $embeds | jq -c '[ . ]')
