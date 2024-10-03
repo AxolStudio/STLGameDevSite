@@ -81,11 +81,21 @@ jobs:
         if: ${{ needs.fetch-events.outputs.new_list != null }}
         strategy:
             matrix:
-                steps: ${{ fromJSON(needs.fetch-events.outputs.new_ones) }}
+                steps: ${{ fromJSON(needs.fetch-events.outputs.new_list) }}
         steps:
             -   name: list new ones
                 run: |
-                        new_one=$(echo ${{ matrix.steps }} | jq)
+                        # set new one to the item in new_ones where index 0 = ${{ matrix.steps }}
+                        new_one=$(echo ${{ needs.fetch-events.outputs.new_ones }} | jq -r --argjson index ${{ matrix.steps }} '.[$index]')
                         echo $new_one
+                        
+                        
+            
+
+                        
+
+
+
+
                         
 
