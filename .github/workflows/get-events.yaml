@@ -86,7 +86,7 @@ jobs:
             -   name: list new ones
                 run: |
                         # set new one to the item in new_ones where index 0 = ${{ matrix.steps }}
-                        new_one=$(echo ${{ needs.fetch-events.outputs.new_ones }} | jq -r --argjson index ${{ matrix.steps }} '.[$index]')
+                        new_one=$(echo ${{ needs.fetch-events.outputs.new_ones }} | jq -r --argjson index '${{ matrix.steps }}' '.[$index]')
                         echo $new_one
                         
                         
