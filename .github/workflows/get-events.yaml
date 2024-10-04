@@ -89,8 +89,8 @@ jobs:
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
                         start=$(echo $new_one | jq -r '.[0][3]')
                         end=$(echo $new_one | jq -r '.[0][9]')
-                        start_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p %Z")
-                        end_human=$(date --date="$end" --utc +"%A, %B %d, %Y %I:%M %p")
+                        start_human=$(date --date="$start" +"%A, %B %d, %Y %I:%M %p %Z")
+                        end_human=$(date --date="$end" +"%A, %B %d, %Y %I:%M %p")
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
@@ -129,6 +129,7 @@ jobs:
                     args: ":calendar: A new event has been scheduled!"
             -   name: STL Game Dev Event
                 run: |
+                        
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.AXOL_GUILD_ID }}/scheduled-events' \
                             --header 'Content-Type: application/json' \
                             --header 'Accept: application/json' \
@@ -143,5 +144,5 @@ jobs:
                                     "location": "${{ steps.get-new-one.outputs.event_location }}"
                                 },
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "${{ steps.get-new-one.outputs.event_image }}"
+                                "image": "data:image/jpeg;base64,"base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8')
                             }'
