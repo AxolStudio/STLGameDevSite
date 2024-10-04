@@ -101,11 +101,13 @@ jobs:
                         if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
                         then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
-                        elif [ $(echo $new_one | jq -r '.[0][2]') == *DrinkUp ]
-                        then
-                            embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                         else
                             embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
+                            case $(echo $new_one | jq -r '.[0][2]') in
+                                *"DrinkUp"* )
+                                    embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
+                                    ;;
+                            esac 
                         fi
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]
                         then
@@ -114,6 +116,9 @@ jobs:
                         embeds=$(echo $embeds | jq -c '[ . ]')
                         echo embeds=$embeds >> $GITHUB_OUTPUT
                         echo event_image=$(echo $embeds | jq -r '.[0].image.url') >> $GITHUB_OUTPUT
+                        echo event_name=$(echo $new_one | jq -r '.[0][2]') >> $GITHUB_OUTPUT
+                        echo event_location=$(echo $new_one | jq -r '.[0][4]') >> $GITHUB_OUTPUT
+                        echo event_description=$(echo $new_one | jq -r '.[0][6]') >> $GITHUB_OUTPUT
             -   name: STL Game Dev Discord
                 uses: Ilshidur/action-discord@master
                 env:
@@ -124,23 +129,19 @@ jobs:
                     args: ":calendar: A new event has been scheduled!"
             -   name: STL Game Dev Event
                 run: |
-                        event_name=$(echo $new_one | jq -r '.[0][2]')
-                        event_location=$(echo $new_one | jq -r '.[0][4]')
-                        event_description=$(echo $new_one | jq -r '.[0][6]')
-                        
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.AXOL_GUILD_ID }}/scheduled-events' \
-                                --header 'Content-Type: application/json' \
-                                --header 'Accept: application/json' \
-                                --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
-                                --data '{
-                                    "name": $event_name,
-                                    "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
-                                    "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
-                                    "privacy_level": 2,
-                                    "entity_type": 3,
-                                    "entity_metadata": {
-                                        "location": $event_location
-                                    },
-                                    "description": $event_description,
-                                    "image": "${{ steps.get-new-one.outputs.event_image }}"
-                                }'
+                            --header 'Content-Type: application/json' \
+                            --header 'Accept: application/json' \
+                            --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
+                            --data '{
+                                "name": "${{ steps.get-new-one.outputs.event_name }}",
+                                "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
+                                "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
+                                "privacy_level": 2,
+                                "entity_type": 3,
+                                "entity_metadata": {
+                                    "location": "${{ steps.get-new-one.outputs.event_location }}"
+                                },
+                                "description": "${{ steps.get-new-one.outputs.event_description }}",
+                                "image": "${{ steps.get-new-one.outputs.event_image }}"
+                            }'
