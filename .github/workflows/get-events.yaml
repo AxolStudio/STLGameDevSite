@@ -112,15 +112,18 @@ jobs:
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
 
                         echo $embeds
-                        if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]; then
+                        if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
+                        then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
                         elif [ $(echo $new_one | jq -r '.[0][2]') == *"DrinkUp"* ]
+                        then
                             embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://drive.google.com/open?id=1tqJTO00Fd0mkGpQio_M0d4zSFbk_-J_K" } }')
                         else
                             embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://drive.google.com/open?id=1Q929ciYnMgWgC-Du9kLQQQ98dVTNV0Rg" } }')
                         fi
                         echo $embeds
-                        if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]; then
+                        if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]
+                        then
                             embeds=$(echo $embeds | jq -r --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
                         echo $embeds
