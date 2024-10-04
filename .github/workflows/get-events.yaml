@@ -107,7 +107,7 @@ jobs:
                         echo start_human=$start_human >> $GITHUB_OUTPUT
                         echo end_human=$end_human >> $GITHUB_OUTPUT
 
-                        embeds=$(echo $new_one | jq -c --arg start "$start_human" --arg end "$end_human" ' .[0] | { "title": .[2], "timestamp": .[3], "description": ("\*When:\* " + $start + " - " + $end + "\n\*Where:\*" + .[4] + "\n\n" + .[6]) } ')
+                        embeds=$(echo $new_one | jq -c --arg start "$start_human" --arg end "$end_human" ' .[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + $start + " - " + $end + "\nWhere: " + .[4] + "\n\n" + .[6]) } ')
                         echo $embeds
                         if [ ! -z $(echo $new_one | jq -c '.[0][7]')]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
