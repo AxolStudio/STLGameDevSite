@@ -88,11 +88,13 @@ jobs:
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
 
-                        start=$(echo $new_one | jq -c '.[0][3]')
-                        end=$(echo $new_one | jq -c '.[0][9]')
+                        start=$(echo $new_one | jq -r '.[0][3]')
+                        start_human=$(date -d "$start" +"%A, %B %d, %Y %I:%M %p")
+
+                        end=$(echo $new_one | jq -r '.[0][9]')
+                        end_human=$(date -d "$end" +"%A, %B %d, %Y %I:%M %p")
                         
-                        start_human=$(echo $start | jq -R 'gsub("[-+][0-9]{2}:?[0-9]{2}$"; "Z") | fromdate | strftime("%A, %B %d, %Y %I:%M %p")')
-                        end_human=$(echo $end | jq -R 'gsub("[-+][0-9]{2}:?[0-9]{2}$"; "Z") | fromdate | strftime("%A, %B %d, %Y %I:%M %p")')
+                       
                         
                         echo $start
 
