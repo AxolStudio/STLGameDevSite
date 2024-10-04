@@ -87,64 +87,65 @@ jobs:
                 id: get-new-one 
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-
-                        # Extract the date from the JSON
                         start=$(echo $new_one | jq -r '.[0][3]')
                         end=$(echo $new_one | jq -r '.[0][9]')
-
-                        # Convert the extracted date to a human-readable format
                         start_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p %Z")
                         end_human=$(date --date="$end" --utc +"%A, %B %d, %Y %I:%M %p")
-
-                        # Output the dates
-                        echo $start
-                        echo $start_human
-                        echo $end
-                        echo $end_human
-
-                        # Set GitHub Actions outputs
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
                         echo end_human=$end_human >> $GITHUB_OUTPUT
+                        echo new_one=$new_one >> $GITHUB_OUTPUT
 
-                        # Create the embeds JSON object
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
-
-                        echo $embeds
                         if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
                         then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
                         elif [ $(echo $new_one | jq -r '.[0][2]') == *"DrinkUp"* ]
                         then
-                            embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://drive.google.com/open?id=1tqJTO00Fd0mkGpQio_M0d4zSFbk_-J_K" } }')
+                            embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                         else
-                            embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://drive.google.com/open?id=1Q929ciYnMgWgC-Du9kLQQQ98dVTNV0Rg" } }')
+                            embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
                         fi
-                        echo $embeds
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]
                         then
                             embeds=$(echo $embeds | jq -r --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
-                        echo $embeds
                         embeds=$(echo $embeds | jq -c '[ . ]')
-                        echo $embeds
                         echo embeds=$embeds >> $GITHUB_OUTPUT
+                        echo event_image=$(echo $embeds | jq -r '.[0].image.url') >> $GITHUB_OUTPUT
             -   name: STL Game Dev Discord
                 uses: Ilshidur/action-discord@master
                 env:
                     DISCORD_USERNAME: "STL Game Dev"
-                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+                    DISCORD_WEBHOOK: ${{ secrets.AXOL_WEBHOOK }}
                     DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
                 with:
                     args: ":calendar: A new event has been scheduled!"
-                            
-            
-
+            -   name: STL Game Dev Event
+                run: |
+                        event_name=$(echo $new_one | jq -r '.[0][2]')
+                        event_location=$(echo $new_one | jq -r '.[0][4]')
+                        event_description=$(echo $new_one | jq -r '.[0][6]')
                         
-
-
-
-
-                        
-
+                        curl --location 'https://discord.com/api/v10/guilds/${{ secrets.AXOL_GUILD_ID }}/scheduled-events' \
+                                --header 'Content-Type: application/json' \
+                                --header 'Accept: application/json' \
+                                --header 'Authorization: ${{ secrets.DISCORD_API_TOKEN }}' \
+                                --data '{
+                                    "name": "'"$event_name"'",
+                                    "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
+                                    "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
+                                    "privacy_level": {
+                                        "title": "GUILD_ONLY",
+                                        "description": "the scheduled event is only accessible to guild members",
+                                        "const": 2
+                                    },
+                                    "entity_type": 3,
+                                    "entity_metadata": {
+                                        "location": "'"$event_location"'"
+                                    },
+                                    "description": "'"$event_description"'",
+                                    "image": "'${{ steps.get-new-one.outputs.event_image }}'",
+                                    "channel_id": "NULL"
+                                }'
