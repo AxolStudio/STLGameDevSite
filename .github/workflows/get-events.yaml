@@ -91,11 +91,15 @@ jobs:
                         start=$(echo $new_one | jq -c '.[0][3]')
                         end=$(echo $new_one | jq -c '.[0][9]')
 
-                        # convert ISO 8501 dates to human readable
-                        start_human=$(date --date="$(echo $start | sed 's/T/ /; s/Z//')" +"%A, %B %d, %Y %I:%M %p")
-                        end_human=$(date --date="$(echo $end | sed 's/T/ /; s/Z//')" +"%A, %B %d, %Y %I:%M %p")
+                        # convert start that is in this format 2024-09-19T19:00:00-0500 dates to human readable without getting 'invalid date' error
+                        echo start
 
+                        start_human=$(date -d $start +"%A, %B %d, %Y %I:%M %p")
                         echo $start_human
+
+                        echo $end
+                        end_human=$(date -d $end +"%A, %B %d, %Y %I:%M %p")
+
                         echo $end_human
 
                         echo start=$start >> $GITHUB_OUTPUT
