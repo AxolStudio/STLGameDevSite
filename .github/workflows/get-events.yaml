@@ -92,13 +92,13 @@ jobs:
                         end=$(echo $new_one | jq -c '.[0][9]')
 
                         # convert start that is in this format 2024-09-19T19:00:00-0500 dates to human readable without getting 'invalid date' error
-                        echo start
+                        echo $start
 
-                        start_human=$(date -d $start +"%A, %B %d, %Y %I:%M %p")
+                        start_human=$(date -d "$(echo $start | sed 's/T/ /' | sed 's/-\([0-9][0-9]\)$/ -\1/')" +"%A, %B %d, %Y %I:%M %p")
                         echo $start_human
 
                         echo $end
-                        end_human=$(date -d $end +"%A, %B %d, %Y %I:%M %p")
+                        rnd_human=$(date -d "$(echo $end | sed 's/T/ /' | sed 's/-\([0-9][0-9]\)$/ -\1/')" +"%A, %B %d, %Y %I:%M %p")
 
                         echo $end_human
 
