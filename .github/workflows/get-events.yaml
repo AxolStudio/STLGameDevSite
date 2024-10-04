@@ -94,8 +94,8 @@ jobs:
                         echo $start
                         echo $end
 
-                        start_human=$(date -d "$start" +"%Y-%m-%d %H:%M:%S %Z")
-                        end_human=$(date -d "$end" +"%Y-%m-%d %H:%M:%S %Z")
+                        start_human=$(date -d "${start}" +"%Y-%m-%d %H:%M:%S %Z")
+                        end_human=$(date -d "${end}" +"%Y-%m-%d %H:%M:%S %Z")
 
                         echo $start_human
                         echo $end_human
