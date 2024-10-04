@@ -101,7 +101,7 @@ jobs:
                         if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
                         then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
-                        elif [ $(echo $new_one | jq -r '.[0][2]') == *DrinkUp* ]
+                        elif [ $(echo $new_one | jq -r '.[0][2]') == *DrinkUp ]
                         then
                             embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                         else
