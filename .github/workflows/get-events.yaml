@@ -90,10 +90,10 @@ jobs:
 
                         start=$(echo $new_one | jq -c '.[0][3]')
                         end=$(echo $new_one | jq -c '.[0][9]')
-                        start_human=$(echo $start | jq -R 'fromdate | strftime("%A, %B %d, %Y %I:%M %p")')
-                        end_human=$(echo $end | jq -R 'fromdate | strftime("%A, %B %d, %Y %I:%M %p")')
-
-
+                        
+                        start_human=$(echo $start | jq -R 'gsub("[-+][0-9]{2}:?[0-9]{2}$"; "Z") | fromdate | strftime("%A, %B %d, %Y %I:%M %p")')
+                        end_human=$(echo $end | jq -R 'gsub("[-+][0-9]{2}:?[0-9]{2}$"; "Z") | fromdate | strftime("%A, %B %d, %Y %I:%M %p")')
+                        
                         echo $start
 
                         echo $start_human
