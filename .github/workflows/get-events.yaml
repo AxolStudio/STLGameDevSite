@@ -89,12 +89,10 @@ jobs:
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
 
                         start=$(echo $new_one | jq -r '.[0][3]')
-                        start_human=$(date -d "$start" +"%A, %B %d, %Y %I:%M %p")
+                        start_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p %Z")
 
                         end=$(echo $new_one | jq -r '.[0][9]')
-                        end_human=$(date -d "$end" +"%A, %B %d, %Y %I:%M %p")
-                        
-                       
+                        end_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p")
                         
                         echo $start
 
@@ -109,7 +107,7 @@ jobs:
                         echo start_human=$start_human >> $GITHUB_OUTPUT
                         echo end_human=$end_human >> $GITHUB_OUTPUT
 
-                        embeds=$(echo $new_one | jq -c --arg start $start_human --arg end $end_human ' .[0] | { "title": .[2], "timestamp": .[3], "description": ('*When:* ' + $start + ' - ' + $end + '\n*Where:*' + .[4] + '\n\n' + .[6]) } ')
+                        embeds=$(echo $new_one | jq -c --arg start "$start_human" --arg end "$end_human" ' .[0] | { "title": .[2], "timestamp": .[3], "description": ('*When:* ' + $start + ' - ' + $end + '\n*Where:*' + .[4] + '\n\n' + .[6]) } ')
                         echo $embeds
                         if [ ! -z $(echo $new_one | jq -c '.[0][7]')]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
