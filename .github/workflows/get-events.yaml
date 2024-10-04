@@ -101,7 +101,7 @@ jobs:
                         if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
                         then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
-                        elif [ $(echo $new_one | jq -r '.[0][2]') == *"DrinkUp"* ]
+                        elif [ $(echo $new_one | jq -r '.[0][2]') == *DrinkUp* ]
                         then
                             embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                         else
@@ -131,7 +131,7 @@ jobs:
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.AXOL_GUILD_ID }}/scheduled-events' \
                                 --header 'Content-Type: application/json' \
                                 --header 'Accept: application/json' \
-                                --header 'Authorization: ${{ secrets.DISCORD_API_TOKEN }}' \
+                                --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
                                 --data '{
                                     "name": "'"$event_name"'",
                                     "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
