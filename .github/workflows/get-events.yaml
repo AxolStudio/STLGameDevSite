@@ -129,7 +129,7 @@ jobs:
                     args: ":calendar: A new event has been scheduled!"
             -   name: STL Game Dev Event
                 run: |
-                        
+                        image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8'))
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.AXOL_GUILD_ID }}/scheduled-events' \
                             --header 'Content-Type: application/json' \
                             --header 'Accept: application/json' \
@@ -144,5 +144,5 @@ jobs:
                                     "location": "${{ steps.get-new-one.outputs.event_location }}"
                                 },
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "data:image/jpeg;base64,"base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8')
+                                "image": "data:image/jpeg;base64,"'"$image64'""
                             }'
