@@ -92,8 +92,8 @@ jobs:
                         end=$(echo $new_one | jq -c '.[0][9]')
 
                         # convert ISO 8501 dates to human readable
-                        start_human=$(date -d $start +"%A, %B %d, %Y %I:%M %p")
-                        end_human=$(date -d $end +"%A, %B %d, %Y %I:%M %p")
+                        start_human=$(date --date="$(echo $start | sed 's/T/ /; s/Z//')" +"%A, %B %d, %Y %I:%M %p")
+                        end_human=$(date --date="$(echo $end | sed 's/T/ /; s/Z//')" +"%A, %B %d, %Y %I:%M %p")
 
                         echo $start_human
                         echo $end_human
