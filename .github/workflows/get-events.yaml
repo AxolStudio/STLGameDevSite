@@ -88,26 +88,29 @@ jobs:
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
 
+                        # Extract the date from the JSON
                         start=$(echo $new_one | jq -r '.[0][3]')
-                        start_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p %Z")
-
                         end=$(echo $new_one | jq -r '.[0][9]')
-                        end_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p")
-                        
+
+                        # Convert the extracted date to a human-readable format
+                        start_human=$(date --date="$start" --utc +"%A, %B %d, %Y %I:%M %p %Z")
+                        end_human=$(date --date="$end" --utc +"%A, %B %d, %Y %I:%M %p")
+
+                        # Output the dates
                         echo $start
-
                         echo $start_human
-
                         echo $end
-
                         echo $end_human
 
+                        # Set GitHub Actions outputs
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
                         echo end_human=$end_human >> $GITHUB_OUTPUT
 
+                        # Create the embeds JSON object
                         embeds=$(echo $new_one | jq -c --arg start "$start_human" --arg end "$end_human" '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + $start + " - " + $end + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
+
                         echo $embeds
                         if [ ! -z $(echo $new_one | jq -c '.[0][7]')]; then
                             embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
