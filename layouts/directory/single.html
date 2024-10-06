@@ -1,12 +1,12 @@
 {{ define "header" }}
-<div class="row gx-4 gx-lg-5 align-items-center my-5"></div>
-    <div class="basic-border basic-border-blue card bg-blur ">
-        <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i>
-        <div class="card-header">
+<div class="row ">
+    
+        {{/*  <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i>  */}}
+        
             <h1 class="font-weight-light text-center">Developer Directory</h1>
             <p class="lead text-center">This is a list of developers in our community!</p>
-        </div>
-    </div>
+        
+    
 </div>
 {{ end }}
 
@@ -15,11 +15,11 @@
     {{ $directory := .Site.Data.directory }}
     {{ $directory := sort $directory "name" "asc" }}
     {{ range $directoryItem := $directory }}
-        {{ $logo := resources.Get "images/directory/axolstudio.png"}}
+        {{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
         {{ $logo := $logo.Fill "60x60" }}
         {{ $logoLink := $logo.RelPermalink }}
         {{ with $directoryItem }}
-            <section class="d-flex flex-column">
+            <section class="d-flex flex-column justify-content-around flex-wrap">
                 <div class="basic-border bg-blur card my-3">
                     <div class="card-header">
                         <h2><img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ $directoryItem.Name }}</h2>
@@ -30,27 +30,12 @@
                             <dd>{{ $directoryItem.Description }}</dd>
                         </dl>
                         <h3>Projects</h3>
-                        <ul>
+                        <div class="d-flex">
                             {{ range $directoryItem.Projects }}
-                                
-                                {{ $item := index $.Site.Data.showcase . }}
-                                {{ if $item }}
-                                {{ with $item }}
-                                    <li>
-                                        <dl>
-                                            <dt><h4>{{ .Name }}</h4></dt>
-                                        </dl>
-                                        <dd>{{ .Description }}</dd>
-                                        <dd>{{ if .Website }}<a href="{{ .Website }}" target="_blank"><i class="i fa-sharp-duotone fa-solid fa-link"></i></a>{{ end }}{{ if .Steam }}<a href="{{ .Steam }}" target="_blank"><i class="i fa-brands fa-steam"></i></a>{{ end }}{{ if .Itch }}<a href="{{ .Itch }}" target="_blank"><i class="i fa-brands fa-itch-io"></i></a>{{ end }}</dd>
-                                    </li>
-                                {{ end }}
-                                {{ end }}
-
+                                {{ partial "showcase.html" . }}
                             {{ end }}
-
-                        </ul>
+                        </div>
                     </div>
-
                 </div>
             </section>
         {{ end }}

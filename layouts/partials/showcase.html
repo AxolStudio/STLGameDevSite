@@ -1,0 +1,24 @@
+{{ $itemName := . }}
+{{ $item := index site.Data.showcase $itemName }}
+{{ if $item }}
+{{ with $item }}
+    <div class="card m-2" >
+        {{ $img := resources.Get (printf "images/directory/%s.png" $itemName ) }}
+        {{ $img := $img.Fit "320x180" }} 
+        {{/*  16:9  */}}
+        {{ $imgLink := $img.RelPermalink }}
+        <img src="{{ $imgLink }}" class="card-img-top" alt="Header Image for {{ .Name }}" width="320">
+        <div class="card-body" style="width: 320px;">
+            <h4 class="card-title text-center">{{ .Name }}</h4>
+            <p class="card-text ">{{ .Description }}</p>
+            <div class="d-flex justify-content-evenly">
+                {{ range .Links }}
+                <div>
+                    <a href="{{ .URL }}" target="_blank" data-bs-toggle="tooltip" data-bs-title="{{ .Tooltip }}" ><i class="i {{ .Icon }} fa-2x"></i></a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+{{ end }}
+{{ end }}

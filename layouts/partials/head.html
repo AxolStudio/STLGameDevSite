@@ -37,9 +37,15 @@
 <script src="{{ $bootstrap.RelPermalink }}" ></script>
 {{- end -}}
 
+{{ $faCustom := resources.Get "js/custom-icons.min.js" }}
 {{ $faBrands := resources.Get "js/brands.min.js" }}
 {{ $faSD := resources.Get "js/sharp-duotone-solid.min.js" }}
 {{ $faFontAwesome := resources.Get "js/fontawesome.min.js" }}
+{{ $scripts := resources.Get "js/scripts.js" }}
+<script defer src="{{ $faCustom.RelPermalink }}"></script>
 <script defer src="{{ $faBrands.RelPermalink }}"></script>
 <script defer src="{{ $faSD.RelPermalink }}"></script>
 <script defer src="{{ $faFontAwesome.RelPermalink }}"></script>
+<script defer src="{{ $scripts.RelPermalink }}"></script>
+
+

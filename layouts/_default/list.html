@@ -1,8 +1,19 @@
+{{ define "header" }}
+<div class="row ">
+    
+        {{/*  <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i>  */}}
+        
+            <h1 class="font-weight-light text-center">{{ .Title }}</h1>
+            <p class="lead text-center">{{ .Content }}</p>
+        
+    
+</div>
+{{ end }}
+
 {{ define "main" }}
 <div class="card h-100 my-3">
   <div class="card-body">
-    <h1 class="card-title">{{ .Title }}</h1>
-    {{ .Content }} {{ range .Pages }}
+    {{ range .Pages }}
     <div class="card my-3">
       <div class="card-body">
         <div class="row">
