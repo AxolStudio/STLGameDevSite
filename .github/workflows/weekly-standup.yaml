@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Send Message
         run: |
-              curl --location 'https://discord.com/api/v10/channels/${{ secrets.STL_GUILD_ID }}/messages' \
+              curl --location 'https://discord.com/api/v10/channels/${{ secrets.STL_LEADERSHIP_CHANNEL }}/messages' \
                   --header 'Content-Type: application/json' \
                   --header 'Accept: application/json' \
                   --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
