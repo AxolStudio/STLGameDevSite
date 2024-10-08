@@ -97,6 +97,7 @@ jobs:
                         echo end_human=$end_human >> $GITHUB_OUTPUT
                         echo new_one=$new_one >> $GITHUB_OUTPUT
 
+
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
                         if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
                         then
@@ -111,6 +112,7 @@ jobs:
                         fi
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]
                         then
+                            echo $meetup=$(echo $new_one | jq -r '.[0][5]')
                             embeds=$(echo $embeds | jq -r --arg value $(echo $new_one | jq -r '.[0][5]') '. + { "url": ("https://www.meetup.com/st-louis-game-developers/events/" + $value) }')
                         fi
                         embeds=$(echo $embeds | jq -c '[ . ]')
@@ -130,7 +132,7 @@ jobs:
             -   name: STL Game Dev Event
                 run: |
                         image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8'))
-                        curl --location 'https://discord.com/api/v10/guilds/${{ secrets.AXOL_GUILD_ID }}/scheduled-events' \
+                        curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
                             --header 'Content-Type: application/json' \
                             --header 'Accept: application/json' \
                             --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
@@ -146,3 +148,22 @@ jobs:
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
                                 "image": "data:image/jpeg;base64,"'"$image64'""
                             }'
+            -   name: Tweet
+                id: tweet
+                uses: dart-actions/tweet@v1.0.1
+                with:
+                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                    text: |
+                            :calendar: A new event has been scheduled!
+                            ${{ steps.get-new-one.outputs.event_name }} 
+
+                            ${{ steps.get-new-one.outputs.event_name }}
+                            
+                            ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
+                            
+                            https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+                            
+                            \#STL \#GameDev \#IndieGames

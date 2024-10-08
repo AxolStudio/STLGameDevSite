@@ -18,6 +18,8 @@
     {{ end }}
     {{ end }}
 
+    {{- if $events -}}
+
     {{- range $event := first 1 (sort $events "when" "asc") -}}
 
         <dl class="p-3 m-0">
@@ -33,3 +35,8 @@
 
     {{ end}}
     
+{{- else -}}
+
+    <p class="text-center">No upcoming events</p>
+
+{{- end -}}

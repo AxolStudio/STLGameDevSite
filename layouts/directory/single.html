@@ -1,12 +1,11 @@
 {{ define "header" }}
 <div class="row ">
     
-        {{/*  <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i>  */}}
+    {{/*  <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i>  */}}
         
-            <h1 class="font-weight-light text-center">Developer Directory</h1>
-            <p class="lead text-center">This is a list of developers in our community!</p>
+    <h1 class="font-weight-light text-center">Developer Directory</h1>
+    <p class="lead text-center">This is a list of developers in our community!</p>
         
-    
 </div>
 {{ end }}
 
@@ -20,11 +19,11 @@
         {{ $logoLink := $logo.RelPermalink }}
         {{ with $directoryItem }}
             <section class="d-flex flex-column justify-content-around flex-wrap">
-                <div class="basic-border bg-blur card my-3">
+                <div class="bg-blur card my-3">
                     <div class="card-header">
                         <h2><img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ $directoryItem.Name }}</h2>
                     </div>
-                    <div class="card-body colored-list">
+                    <div class="card-body ">
                         <dl>
                             <dd class="text-secondary text-small">Website: <a href="{{ $directoryItem.Website }}" target="_blank">{{ $directoryItem.Website }}</a></dd>
                             <dd>{{ $directoryItem.Description }}</dd>

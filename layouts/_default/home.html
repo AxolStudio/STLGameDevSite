@@ -3,14 +3,15 @@
     <div class="col-lg-6 ">
         <div class="">
 
-            {{/*  <i class="i corner-icon ci-top-left fa-sharp-duotone fa-solid fa-game-console-handheld fa-6x "></i>  */}}
+            {{/* <i class="i corner-icon ci-top-left fa-sharp-duotone fa-solid fa-game-console-handheld fa-6x "></i>
+            */}}
 
             <div>
                 <script type="text/javascript">
-                    var imageURLs = [
-                        {{- range resources.Match "images/photos/*.jpg" -}}
-                        "{{ .RelPermalink }}",
-                        {{- end -}}
+                    const imageURLs = [ 
+                        
+                        {{ range resources.Match "images/photos/*.jpg" }}"{{ .RelPermalink }}",{{ end }}
+                    
                     ];
                     function getImageTag() {
                         var img = '<img src=\"';
@@ -41,7 +42,7 @@
             <div class="card-footer text-center">
                 <a class=" btn btn-lg " href="about">Learn more About us!</a>
             </div>
-            {{/*  <i class="i corner-icon ci-bottom-right fa-sharp-duotone fa-solid  fa-block-question fa-6x "></i>  */}}
+            {{/* <i class="i corner-icon ci-bottom-right fa-sharp-duotone fa-solid  fa-block-question fa-6x "></i> */}}
         </div>
     </div>
 </div>
@@ -98,16 +99,50 @@
 
             </article>
             {{ end }}
-            {{/*  <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x "></i>  */}}
+            {{/* <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x "></i> */}}
         </div>
-        <div class="card   mb-5">
-            <div class="card-body">
-                <h2 class="card-title">Another thing here</h2>
-                Something else can go here...
-            </div>
-            <div class="card-footer text-end "><a class=" btn " href="#!">Read More</a></div>
+        {{ with (index (where site.RegularPages "Type" "blog").ByDate.Reverse 0) }}
+        <div class="card mb-5">
+            <article>
+                <div class="card-header">
+                    <h4 class="card-title">Latest News Article</h4>
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="flex-grow-1">
+                            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+                        </div>
+                        <div class="post-meta">
+                            {{ .Date.Format "Mon, Jan 2, 2006" }}
+                        </div>
+                        <div class="fa-2x ">
+                            <span class="fa-layers fa-fw">
+                                <i class="i fa-sharp-duotone fa-solid fa-calendar"></i>
+                                <span class="fa-layers-text fa-inverse --fa-right" data-fa-transform="shrink-8 down-3"
+                                    style="font-weight:900">{{ .Date.Format "2" }}</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            {{ partial "authors.html" (dict "taxonomy" "authors" "page" .) }}
+                        </div>
+                        <div class="col-6 text-end">
+                            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {{ .Summary }}
+                </div>
+                {{ if .Truncated }}
+                <div class="card-footer text-end ">
+                    <a class=" btn  " href="{{ .RelPermalink }}">Read More</a>
+                </div>
+                {{ end }}
+            </article>
         </div>
+        {{ end }}
     </div>
+
     <div class="col-md-4 mb-5 ">
         <div class="card mb-5 ">
             <div class="card-header">
@@ -127,40 +162,7 @@
                             class="fa-brands fa-discord"></i> Join</a></div>
             </div>
         </div>
-        <div class="card  mb-5">
-            <div class="card-body text-center">
-                <p class="card-title h4">Another section!?</p>
-                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
-                    accusantium
-                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
-                    quaerat
-                    ut
-                    earum harum!</p>
-            </div>
-        </div>
-        <div class="card  mb-5">
-            <div class="card-body text-center">
-                <p class="card-title h4">Another section!?</p>
-                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
-                    accusantium
-                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
-                    quaerat
-                    ut
-                    earum harum!</p>
-            </div>
-        </div>
-        <div class="card  mb-5">
-            <div class="card-body text-center">
-                <p class="card-title h4">Another section!?</p>
-                <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex laboriosam minus
-                    accusantium
-                    molestiae deleniti sequi atque ea consectetur nisi, esse ducimus ipsam culpa incidunt. At animi
-                    quaerat
-                    ut
-                    earum harum!</p>
-            </div>
-        </div>
-        
+
     </div>
 </section>
 {{ end }}

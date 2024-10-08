@@ -1,7 +1,7 @@
 ---
 title: "New Blog Post"
 date: 2024-09-20
-draft: false
+draft: true
 tags: [
     "how-to"
 ]

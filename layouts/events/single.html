@@ -1,8 +1,8 @@
 {{ define "header" }}
 <div class="row ">
-        {{/*  <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-calendar-days fa-6x "></i>  */}}
-            <h1 class="font-weight-light text-center">Upcoming Events</h1>
-            <p class="lead text-center">This is a list of our upcoming events</p>
+    {{/* <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-calendar-days fa-6x "></i> */}}
+    <h1 class="font-weight-light text-center">Upcoming Events</h1>
+    <p class="lead text-center">This is a list of our upcoming events</p>
 </div>
 {{ end }}
 
@@ -29,6 +29,8 @@
     {{ end }}
     {{ end }}
 
+    {{- if $events -}}
+
     {{- $lastDate := "" -}}
     {{- $lastTime := "" -}}
     {{- range $event := (sort $events "when" "asc") -}}
@@ -41,22 +43,25 @@
     </div>
     {{- end -}}
     {{ $lastDate = $eventDate }}
-    <div class="basic-border bg-blur card my-3">
+    <div class="card my-3">
         <div class="card-header">
             <h2>{{ $eventDate }}:</h2>
         </div>
-        <div class="card-body colored-list">
+        <div class="card-body">
             <ul class="event-list justify-content-center ">
                 {{ end }}
 
-                <li class="basic-border ">
-                    <dl class="p-3 m-0">
-                        <dt class="h3 text-center">{{ $event.name }}</dt>
-                        <dt class="h4 text-center">{{ time.Format "Jan 2" $rawDate }} - {{ time.Format ":time_short" $rawDate }}</dt>
-                        <dd class=""><em>Where:</em> {{ $event.where }}</dd>
-                        <dd class="">{{ $event.desc }}</dd>
+                <li class="card">
+                    <dl class="card-body p-3 m-0">
+                        <dt class="h3 card-text text-center">{{ $event.name }}</dt>
+                        <dt class="h4 card-text text-center">{{ time.Format "Jan 2" $rawDate }} - {{ time.Format
+                            ":time_short" $rawDate }}</dt>
+                        <dd class="card-text "><em>Where:</em> {{ $event.where }}</dd>
+                        <dd class="card-text ">{{ $event.desc }}</dd>
                         {{ if $event.meetup }}
-                        <dd class="text-center"><a href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/" class="btn"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
+                        <dd class="card-text text-center"><a
+                                href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/"
+                                class="btn"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
                         {{ end }}
 
                     </dl>
@@ -65,6 +70,9 @@
                 {{- end -}}
             </ul>
         </div>
-        </div>
+    </div>
+    {{- else -}}
+    <p class="text-center">No upcoming events</p>
+    {{- end -}}
 </section>
 {{- end }}

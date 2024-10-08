@@ -30,6 +30,10 @@ publishDir = "public/"
   name = "Blog"
   pageref = "/blog"
   weight = 30
+  disabled = true
+    [ menus.main.params ]
+      disabled = true
+
 [[menus.main]]
   name = "Events"
   pageref = "/events"
@@ -42,10 +46,10 @@ publishDir = "public/"
   name = "Resources"
   pageref = "/resources"
   weight = 60
-[[menus.main]]
-  name = "Contact"
-  pageref = "/contact"
-  weight = 70
+    [ menus.main.params ]
+      disabled = true
+
+
 
 [markup.goldmark.renderer]
   unsafe = true
