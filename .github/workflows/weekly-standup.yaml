@@ -1,0 +1,18 @@
+name: 🔁 Weekly Leadership Standup
+
+on:
+  workflow_call:
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Message
+        run: |
+              curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/messages' \
+                  --header 'Content-Type: application/json' \
+                  --header 'Accept: application/json' \
+                  --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
+                  --data-urlencode 'content="@everyone: SHOW ME WHAT YOU GOT!"'
