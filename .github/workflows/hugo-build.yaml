@@ -111,9 +111,10 @@ jobs:
             -   name: get new one
                 id: get-new-one
                 run: |
-                        # new_one=$(echo '${{ needs.build.outputs.new_news_items }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
+                        new_one='${{ toJSON(matrix.steps) }}'
                         embeds=$(echo $new_one | jq -r ' . | { "title": .title, "timestamp": .date_published, "url": .url }')
                         embeds=$(echo $embeds | jq -c '[ . ]')
+                        echo embeds
                         echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: discord post
                 id: discord-post
