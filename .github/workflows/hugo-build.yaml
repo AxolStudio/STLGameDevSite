@@ -81,7 +81,8 @@ jobs:
                         echo $new_news
                         old_news='${{ steps.check-news.outputs.old_news }}'
                         echo $old_news
-                        new_items=$(jq -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
+                        new_items=$(jq -r -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
+                        echo $new_items
                         echo "new_items=$new_items" >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
                 uses: actions/upload-pages-artifact@v3
