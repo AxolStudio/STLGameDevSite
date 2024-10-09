@@ -76,8 +76,8 @@ jobs:
                 run: |
                         new_news=$(echo $(cat ./public/news/index.json))
                         new_news=$(echo $new_news | jq)
-                        old_news=${{ steps.check-news.outputs.old_news }}
-                        old_news=$(echo $old_news | jq)
+                        echo $new_news
+                        old_news=$(${{ steps.check-news.outputs.old_news }} | jq)
                         new_items=$(jq -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
                         echo "new_items=$new_items" >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
