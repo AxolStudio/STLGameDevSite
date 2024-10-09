@@ -107,6 +107,7 @@ jobs:
         runs-on: ubuntu-latest
         needs: build
         if: ${{ needs.build.outputs.new_news_items != null }}
+        continue-on-error: true
         strategy:
             matrix:
                 steps: ${{ fromJSON(needs.build.outputs.new_news_items) }}
@@ -120,7 +121,7 @@ jobs:
                         echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: discord post
                 id: discord-post
-                uses: Ilshidur/action-discord@v2
+                uses: Ilshidur/action-discord@master
                 env:
                     DISCORD_USERNAME: "STL Game Dev"
                     DISCORD_WEBHOOK: ${{ secrets.AXOL_WEBHOOK }}
