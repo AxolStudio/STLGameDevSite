@@ -111,10 +111,10 @@ jobs:
             -   name: get new one
                 id: get-new-one
                 run: |
-                        new_one='${{ toJSON(matrix.steps) }}'
+                        new_one=$(${{ toJSON(matrix.steps) }}' | jq -c) 
                         embeds=$(echo $new_one | jq -r ' . | { "title": .title, "timestamp": .date_published, "url": .url }')
                         embeds=$(echo $embeds | jq -c '[ . ]')
-                        echo embeds
+                        echo $embeds
                         echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: discord post
                 id: discord-post
