@@ -38,7 +38,9 @@ jobs:
                 id: check-news
                 run: |
                         curl -s https://stlgame.dev/news/index.json -o news_index.json
-                        echo "old_news=$(echo $(cat news_index.json) | jq)" >> $GITHUB_OUTPUT
+                        old_news=$(jq . news_index.json)
+                        echo $old_news
+                        echo 'old_news'=$old_news >> $GITHUB_OUTPUT
             -   name: Install Hugo CLI
                 run: |
                     wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
@@ -77,7 +79,8 @@ jobs:
                         new_news=$(echo $(cat ./public/news/index.json))
                         new_news=$(echo $new_news | jq)
                         echo $new_news
-                        old_news=${{ steps.check-news.outputs.old_news }}
+                        old_news=${{ fromJSON(steps.check-news.outputs.old_news) }}
+                        echo $old_news
                         new_items=$(jq -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
                         echo "new_items=$new_items" >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
