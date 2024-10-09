@@ -80,6 +80,7 @@ jobs:
                         new_news=$(echo $new_news | jq)
                         old_news='${{ steps.check-news.outputs.old_news }}'
                         new_items=$(jq -r -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
+                        echo $new_items          
                         echo new_items=$new_items >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
                 uses: actions/upload-pages-artifact@v3
@@ -102,7 +103,7 @@ jobs:
     share:
         runs-on: ubuntu-latest
         needs: build
-        if: needs.build.outputs.new_news_items != '{}'
+        if: fromJSON(needs.build.outputs.new_news_items) != '{}'
         continue-on-error: true
         strategy:
             fail-fast: false
