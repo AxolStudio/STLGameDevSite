@@ -31,7 +31,15 @@ jobs:
             HUGO_VERSION: 0.122.0
         outputs:
             base_url: ${{ steps.pages.outputs.base_url }}
+            new_news_items: ${{ steps.compare-new-news.outputs.new_items }}
         steps:
+            -   name: check existing news
+                id: check-news
+                run: |
+                    -   name: Download news index
+                        run: |
+                            curl -s https://stlgame.dev/news/index.json -o news_index.json
+                            echo "old_news=$(cat news_index.json)" >> $GITHUB_OUTPUT
             -   name: Install Hugo CLI
                 run: |
                     wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
@@ -63,6 +71,12 @@ jobs:
                     --gc \
                     --minify \
                     --baseURL "${{ steps.pages.outputs.base_url }}/"
+            -   name: compare new news
+                run: |
+                        new_news=$(cat ./public/news/index.json)
+                        old_news=${{ steps.check-news.outputs.old_news }}
+                        new_items=$(jq -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
+                        echo "new_items=$new_items" >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
                 uses: actions/upload-pages-artifact@v3
                 with: 
@@ -80,3 +94,28 @@ jobs:
             -   name: Deploy
                 id: deployment
                 uses: actions/deploy-pages@v4
+
+    share:
+        runs-on: ubuntu-latest
+        needs: build
+        if: ${{ needs.build.outputs.new_news_items != null }}
+        strategy:
+            matrix:
+                steps: ${{ fromJSON(needs.build.outputs.new_news_items) }}
+        steps:
+            -   name: get new one
+                id: get-new-one
+                run: |
+                        new_one=$(echo '${{ needs.build.outputs.new_news_items }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
+                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .[0], "timestamp": .[2], "url": .[1] }')
+                        embeds=$(echo $embeds | jq -c '[ . ]')
+                        echo embeds=$embeds >> $GITHUB_OUTPUT
+            -   name: discord post
+                id: discord-post
+                uses: Ilshidur/action-discord@v2
+                env:
+                    DISCORD_USERNAME: "STL Game Dev"
+                    DISCORD_WEBHOOK: ${{ secrets.AXOL_WEBHOOK }}
+                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
+                with:
+                    args: ":newspaper: A News Article has been posted on the website!"
