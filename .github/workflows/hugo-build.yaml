@@ -72,8 +72,7 @@ jobs:
                     --baseURL "${{ steps.pages.outputs.base_url }}/"
             -   name: compare new news
                 run: |
-                        cat ./public/news/index.json
-                        new_news=$(jq . ./public/news/index.json)
+                        new_news=$(echo $(cat ./public/news/index.json))
                         old_news=${{ steps.check-news.outputs.old_news }}
                         new_items=$(jq -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
                         echo "new_items=$new_items" >> $GITHUB_OUTPUT             
