@@ -39,7 +39,6 @@ jobs:
                 run: |
                         curl -s https://stlgame.dev/news/index.json -o news_index.json
                         old_news=$(jq . news_index.json)
-                        echo $old_news
                         echo 'old_news'=$old_news >> $GITHUB_OUTPUT
             -   name: Install Hugo CLI
                 run: |
@@ -79,11 +78,8 @@ jobs:
                 run: |
                         new_news=$(echo $(cat ./public/news/index.json))
                         new_news=$(echo $new_news | jq)
-                        echo $new_news
                         old_news='${{ steps.check-news.outputs.old_news }}'
-                        echo $old_news
                         new_items=$(jq -r -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
-                        echo $new_items
                         echo new_items=$new_items >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
                 uses: actions/upload-pages-artifact@v3
@@ -109,6 +105,7 @@ jobs:
         if: ${{ needs.build.outputs.new_news_items != null }}
         continue-on-error: true
         strategy:
+            fail-fast: false
             matrix:
                 steps: ${{ fromJSON(needs.build.outputs.new_news_items) }}
         steps:
