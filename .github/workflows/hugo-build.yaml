@@ -75,6 +75,7 @@ jobs:
                     --minify \
                     --baseURL "${{ steps.pages.outputs.base_url }}/"
             -   name: compare new news
+                id: compare-new-news
                 run: |
                         new_news=$(echo $(cat ./public/news/index.json))
                         new_news=$(echo $new_news | jq)
