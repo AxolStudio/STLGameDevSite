@@ -104,9 +104,7 @@ jobs:
         runs-on: ubuntu-latest
         needs: build
         if: needs.build.outputs.new_news_items != '[]'
-        continue-on-error: true
         strategy:
-            fail-fast: false
             matrix:
                 steps: ${{ fromJSON( needs.build.outputs.new_news_items ) }}
         steps:
@@ -114,7 +112,7 @@ jobs:
                 id: get-new-one
                 run: |
                         new_one=$(echo '${{ needs.build.outputs.new_news_items }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
-                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .[0], "timestamp": .[2], "url": .[1] }')
+                        embeds=$(echo $new_one | jq -r '.[0] | { "title": .title, "timestamp": .date_published, "url": .url }')
                         embeds=$(echo $embeds | jq -c '[ . ]')
                         echo embeds=$embeds >> $GITHUB_OUTPUT
             -   name: discord post
