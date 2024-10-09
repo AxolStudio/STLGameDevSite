@@ -2,14 +2,14 @@
 {{- $menuID := .menuID }}
 
 <div class="container">
-    <footer class="py-3 ms-4">
+    <div class="py-3 ms-4">
         {{- with index site.Menus $menuID }}
       <ul class="nav justify-content-center border-bottom pb-3 mb-3">
         {{- partial "inline/footer-menu/walk.html" (dict "page" $page "menuEntries" .) }}
       </ul>
       {{- end }}
       <p class="text-center ">© 2024 STL Game Dev Admin Group</p>
-    </footer>
+    </div>
   </div>
 
 
@@ -22,8 +22,11 @@
             {{- $name = . }}
         {{- end }}
         {{- end }}
-        <li class="nav-item" {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!" data-bs-placement="top"  {{ end }}>
-        <a class="nav-link px-2 {{ if .Params.disabled }}disabled {{ end }} {{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu .}} ancestor" aria-current="true{{- end -}}" href="{{ .URL }}">{{ $name }}</a>
+        <li class="nav-item" {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!"
+          data-bs-placement="bottom" {{ end }}>
+          <a class="nav-link {{ if .Params.disabled }}disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active"
+            aria-current="page{{- else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{- end -}}"
+            href=" {{ .URL }}" {{ end }}>{{ $name }}</a>
         </li>
     {{- end }}
 {{- end }}

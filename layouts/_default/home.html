@@ -7,7 +7,7 @@
             */}}
 
             <div>
-                <script type="text/javascript">
+                <script>
                         const imageURLs = [
 
                                 {{ range resources.Match "images/photos/*.jpg" }}"{{ .RelPermalink }}", {{ end }}
@@ -49,11 +49,11 @@
 {{ end }}
 
 {{ define "middle" }}
-<section class="card text-white bg-secondary my-5 py-4 text-center">
+<div class="card text-white bg-secondary my-5 py-4 text-center">
     <div class="card-body">
         Something Here
     </div>
-</section>
+</div>
 {{ end }}
 
 {{ define "main" }}
