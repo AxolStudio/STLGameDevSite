@@ -83,7 +83,7 @@ jobs:
                         echo $old_news
                         new_items=$(jq -r -n --argjson old "$old_news" --argjson new "$new_news" '$new - $old')
                         echo $new_items
-                        echo "new_items=$new_items" >> $GITHUB_OUTPUT             
+                        echo new_items=$new_items >> $GITHUB_OUTPUT             
             -   name: Upload Artifact
                 uses: actions/upload-pages-artifact@v3
                 with: 
