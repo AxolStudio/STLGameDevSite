@@ -78,7 +78,7 @@ jobs:
     share:
         runs-on: ubuntu-latest
         needs: fetch-events
-        if: ${{ needs.fetch-events.outputs.new_list != null }}
+        if: needs.fetch-events.outputs.new_list != '[]'
         strategy:
             matrix:
                 steps: ${{ fromJSON(needs.fetch-events.outputs.new_list) }}
