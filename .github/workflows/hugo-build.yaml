@@ -111,7 +111,7 @@ jobs:
             -   name: get new one
                 id: get-new-one
                 run: |
-                        new_one=$(echo ${{ fromJSON(matrix.steps) }} )
+                        new_one=$(echo ${{ fromJSON(matrix.steps) }} | jq -r '.[0]')
                         embeds=$(echo $new_one | jq -r ' . | { "title": .title, "timestamp": .date_published, "url": .url }')
                         embeds=$(echo $embeds | jq -c '[ . ]')
                         echo embeds=$embeds >> $GITHUB_OUTPUT
