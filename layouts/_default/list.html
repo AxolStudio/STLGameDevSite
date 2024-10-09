@@ -16,14 +16,19 @@
     <div class="card my-3">
       <div class="card-body">
         <div class="row">
-          <div class="col-6">
-            <h2 class="card-title">
-              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-            </h2>
-          </div>
-          <div class="col-6">
-            <div class="row text-end">
-              <small>{{ .Date.Format "January 2, 2006" }}</small>
+          <div class="d-flex flex-row align-items-center">
+            <div class="flex-grow-1">
+              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            </div>
+            <div class="post-meta">
+              {{ .Date.Format "Mon, Jan 2, 2006" }}
+            </div>
+            <div class="fa-2x ">
+              <span class="fa-layers fa-fw">
+                <i class="i fa-sharp-duotone fa-solid fa-calendar"></i>
+                <span class="fa-layers-text fa-inverse --fa-right" data-fa-transform="shrink-8 down-3" style="font-weight:900">{{
+                  .Date.Format "2" }}</span>
+              </span>
             </div>
           </div>
         </div>

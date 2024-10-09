@@ -1,42 +1,43 @@
 {{ define "header" }}
 <div class="row ">
-    
-    {{/*  <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i>  */}}
-        
+
+    {{/* <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i> */}}
+
     <h1 class="font-weight-light text-center">Developer Directory</h1>
     <p class="lead text-center">This is a list of developers in our community!</p>
-        
+
 </div>
 {{ end }}
 
 {{ define "main" -}}
 
-    {{ $directory := .Site.Data.directory }}
-    {{ $directory := sort $directory "name" "asc" }}
-    {{ range $directoryItem := $directory }}
-        {{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
-        {{ $logo := $logo.Fill "60x60" }}
-        {{ $logoLink := $logo.RelPermalink }}
-        {{ with $directoryItem }}
-            <section class="d-flex flex-column justify-content-around flex-wrap">
-                <div class="bg-blur card my-3">
-                    <div class="card-header">
-                        <h2><img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ $directoryItem.Name }}</h2>
-                    </div>
-                    <div class="card-body ">
-                        <dl>
-                            <dd class="text-secondary text-small">Website: <a href="{{ $directoryItem.Website }}" target="_blank">{{ $directoryItem.Website }}</a></dd>
-                            <dd>{{ $directoryItem.Description }}</dd>
-                        </dl>
-                        <h3>Projects</h3>
-                        <div class="d-flex">
-                            {{ range $directoryItem.Projects }}
-                                {{ partial "showcase.html" . }}
-                            {{ end }}
-                        </div>
-                    </div>
+{{ $directory := .Site.Data.directory }}
+{{ $directory := sort $directory "name" "asc" }}
+{{- range $directoryItem := $directory }}
+{{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
+{{ $logo := $logo.Fill "60x60" }}
+{{ $logoLink := $logo.RelPermalink }}
+{{- with $directoryItem }}
+<section class="d-flex flex-column justify-content-around flex-wrap">
+    <div class="bg-blur card my-3">
+        <div class="card-header">
+            <h2><img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ $directoryItem.Name }}</h2>
+        </div>
+        <div class="card-body ">
+            <dl>
+                <dd class="text-secondary text-small">Website: <a href="{{ $directoryItem.Website }}" target="_blank">{{
+                        $directoryItem.Website }}</a></dd>
+                <dd>{{ $directoryItem.Description }}</dd>
+                </dl>
+                <h3>Projects</h3>
+                <div class="d-flex">
+                {{- range $directoryItem.Projects }}
+                {{ partial "showcase.html" . }}
+                {{ end -}}
                 </div>
-            </section>
-        {{ end }}
-    {{ end }}
-{{ end }}
+                </div>
+                </div>
+                </section>
+{{- end -}}
+{{- end -}}
+{{- end -}}

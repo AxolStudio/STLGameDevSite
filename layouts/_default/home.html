@@ -8,9 +8,9 @@
 
             <div>
                 <script type="text/javascript">
-                    const imageURLs = [ 
-                        
-                        {{ range resources.Match "images/photos/*.jpg" }}"{{ .RelPermalink }}",{{ end }}
+                        const imageURLs = [
+
+                                {{ range resources.Match "images/photos/*.jpg" }}"{{ .RelPermalink }}", {{ end }}
                     
                     ];
                     function getImageTag() {
