@@ -1,24 +1,27 @@
 ---
 title: 'About Our Organization'
 ---
-## Who are we?
+## Who we are
 
-The St Louis Game Developer Group is a volunteer-run organization dedicated to organizing events, creating and colating resources, and building connections with game developers and game development enthusiasts of all levels and from all walks of life in and around the St Louis area.
+STL GAME DEV is a volunteer-run organization providing support to game creators of all levels and all walks of life in the greater St. Louis Missouri region.
+
+We are dedicated to establishing an open, inclusive, and harrassment-free community where creators of all types of games (video, board, card, tabletop, and any other unique methods of play) can share ideas, receive constructive feedback, find resources, and build connections in order to bring their game projects to fruition.
 
 ## Our History
 
 This group started as a loose conglomeration of game developers who wanted to organize and participate in game jams around 20XX. Since then, we have grown our members, expanded our repertoire of events and have tried to build an outstanding network for our community.
 
-## What do we do?
+## What we do
 
-Some of the events that we run include:
+STL GAME DEV facilitates conversation and collaboration virtually through our [<i class="fa-brands fa-discord"></i> Discord server](https://discord.com/invite/mTMKpre/) where creators can freely discuss ideas, share works in progress, and receive help and feedback from peers and mentors.
 
-* The Annual Global Game Jam
-* Periodic local Game Jams (in-person when possible)
-* Monthly DrinkUp social events
-* Monthly Share-and-Play Demo/Feedback events
+We promote connection through a variety of free in-person events: 
+- Monthly social events
+- Semiannual demo/playtesting events
+- Semiannual game jams (both online and in-person) including the Global Game Jam each year.
+- Semiannual educational lecture events and workshops
 
-In the past we have done annual parties and bbqs, in-person talks, roundtable discussions, tutorials, and much more! We are hoping to be able to some of these again, soon!
+Sign up for our events through [<i class="fa-brands fa-meetup"></i> Meetup](https://www.meetup.com/st-louis-game-developers)!
 
 ## Code of Conduct
 

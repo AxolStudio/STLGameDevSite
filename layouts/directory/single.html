@@ -10,24 +10,29 @@
 {{ end }}
 
 {{ define "main" -}}
-
 {{ $directory := .Site.Data.directory }}
 {{ $directory := sort $directory "name" "asc" }}
 {{- range $directoryItem := $directory }}
-{{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
-{{ $logo := $logo.Fill "60x60" }}
-{{ $logoLink := $logo.RelPermalink }}
 {{- with $directoryItem }}
 <section class="d-flex flex-column justify-content-around flex-wrap">
     <div class="bg-blur card my-3">
         <div class="card-header">
-            <h2><img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ $directoryItem.Name }}</h2>
+            <h2>{{ if $directoryItem.Logo }}
+                {{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
+                {{ $logo := $logo.Fill "60x60" }}
+                {{ $logoLink := $logo.RelPermalink }}
+                <img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ end }}{{ $directoryItem.Name }}
+            </h2>
         </div>
         <div class="card-body ">
             <dl>
+                {{ if $directoryItem.Website }}
                 <dd class="text-secondary text-small">Website: <a href="{{ $directoryItem.Website }}" target="_blank">{{
                         $directoryItem.Website }}</a></dd>
+                {{ end }}
+                {{ if $directoryItem.Description}}
                 <dd>{{ $directoryItem.Description }}</dd>
+                {{ end}}
                 </dl>
                 <h3>Projects</h3>
                 <div class="d-flex">

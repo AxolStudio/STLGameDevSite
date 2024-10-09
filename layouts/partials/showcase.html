@@ -4,10 +4,12 @@
 {{ with $item }}
 <div class="card m-2">
     {{ $img := resources.Get (printf "images/directory/%s.png" $itemName ) }}
+    {{ if $img }}
     {{ $img := $img.Fit "320x180" }}
     {{/* 16:9 */}}
     {{ $imgLink := $img.RelPermalink }}
     <img src="{{ $imgLink }}" class="card-img-top" alt="Header Image for {{ .Name }}" width="320">
+    {{ end }}
     <div class="card-body" style="width: 320px;">
         <h4 class="card-title text-center">{{ .Name }}</h4>
         <p class="card-text ">{{ .Description }}</p>
