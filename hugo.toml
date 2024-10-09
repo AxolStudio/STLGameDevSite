@@ -20,7 +20,7 @@ publishDir = "public/"
 
 [[menus.main]]
   name = "About"
-  pageref = "/about"
+  pageref = "/about/"
   weight = 10
 [[menus.main]]
   name = "News"
@@ -36,7 +36,7 @@ publishDir = "public/"
 
 [[menus.main]]
   name = "Events"
-  pageref = "/events"
+  pageref = "/events/"
   weight = 40
 [[menus.main]]
   name = "Directory"
