@@ -1,6 +1,7 @@
 name: ⚙ Build the Hugo Site
 
 on: 
+    workflow_dispatch:
     workflow_call:
         outputs: 
             base_url: 
