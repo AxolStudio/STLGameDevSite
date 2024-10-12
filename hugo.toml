@@ -67,8 +67,15 @@ publishDir = "public/"
     source = "node_modules/bootstrap/scss"
     target = "assets/scss/bootstrap"
   [[module.mounts]]
+    source = "node_modules/jquery/dist/jquery.min.js"
+    target = "assets/js/jquery.min.js"
+  [[module.mounts]]
+    source = "node_modules/rss-parser/dist/rss-parser.min.js"
+    target = "assets/js/rss-parser.min.js"
+  [[module.mounts]]
     source = "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
     target = "assets/js/bootstrap.bundle.min.js"
   [[module.mounts]]
     source = "node_modules/bootstrap/dist/js/bootstrap.bundle.js"
     target = "assets/js/bootstrap.bundle.js"
+  

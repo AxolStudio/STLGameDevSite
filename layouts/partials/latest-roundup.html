@@ -1,0 +1,36 @@
+<div class="text-center">
+    <div id="roundup-spinner" class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<script>
+    async function getLatestRoundUp() {
+
+        const url = 'https://roundup.stlgame.dev/index.xml'
+        let parser = new RSSParser();
+
+        let feed = await parser.parseURL(url);
+
+        if (feed.items.length > 0) {
+            console.log(feed.items[0]);
+            return feed.items[0];
+        }
+        else
+            throw new Error('No items found in feed');
+    }
+
+    $(document).ready(function () {
+        getLatestRoundUp().then((item) => {
+            console.log(item);
+            let pubDate = new Date(item.pubDate);
+            pubDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            const linkString = `<h4 style="font-size: xxx-large;"><a href="${item.link}">${item.title}</a></h4><p class="text-secondary">${pubDate}</p>`;
+            $('#roundup-spinner').hide('fast', function () {
+                $(this).replaceWith(linkString).show('fast');
+            });
+        }).catch((err) => {
+            console.error(err);
+        });
+    });
+</script>

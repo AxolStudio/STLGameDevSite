@@ -3,9 +3,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>{{ if .IsPage }}{{ .Title }} | {{ end }}{{ site.Title }} - {{ .Param "tagline" }}</title>
-
-<meta name="ahrefs-site-verification" content="25456f4646952c0960f7c7908816048539259ec9fb099ebc6e9df9a5e6572265">
+<title>{{ if .Title }}{{ .Title | title }} - {{ end }}{{ if ne .Title .Site.Title }}{{ .Site.Title | markdownify }}{{ end }}{{ if .IsHome }} - {{ .Param "tagline" }}{{ end }}</title>
 
 {{- partialCached "head/schema.html" . }}
 
@@ -17,7 +15,6 @@
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
 {{ hugo.Generator }}
-{{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
 {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
 {{ $public := not .Params.private }}
 {{ if and $production $public }}
@@ -30,6 +27,14 @@
 
 {{- template "_internal/opengraph.html" . -}}
 {{- template "_internal/twitter_cards.html" . -}}
+
+{{ $jQuery := resources.Get "js/jquery.min.js" }}
+<script src="{{ $jQuery.RelPermalink }}" ></script>
+
+{{ if .IsHome }}
+{{ $RSSParser := resources.Get "js/rss-parser.min.js" }}
+<script src="{{ $RSSParser.RelPermalink }}" ></script>
+{{ end }}
 
 {{- if hugo.IsProduction -}}
 {{ $bootstrap := resources.Get "js/bootstrap.bundle.min.js" }}

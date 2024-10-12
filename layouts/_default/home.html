@@ -1,36 +1,13 @@
 {{ define "header" }}
-<div class="row gx-4 gx-lg-5 align-items-center my-5">
-    <div class="col-lg-6 ">
-        <div class="">
 
-            {{/* <i class="i corner-icon ci-top-left fa-sharp-duotone fa-solid fa-game-console-handheld fa-6x "></i>
-            */}}
+<div class="row d-flex  flex-row  justify-content-end flex-nowrapp-4 p-md-5 mb-4 rounded  bg-body-secondary" id="home-header" style="background-size: cover; background-repeat: no-repeat; background-position: center center;">    
 
-            <div>
-                <script>
-                        const imageURLs = [
-
-                                {{ range resources.Match "images/photos/*.jpg" }}"{{ .RelPermalink }}", {{ end }}
-                    
-                    ];
-                    function getImageTag() {
-                        var img = '<img src=\"';
-                        var randomIndex = Math.floor(Math.random() * imageURLs.length);
-                        img += imageURLs[randomIndex];
-                        img += '\" alt=\"A Random STL Game Dev Photo\" class="img-fluid  "  />';
-                        return img;
-                    }
-                    document.write(getImageTag());
-                </script>
-            </div>
-
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="card ">
-            <div class="card-header">
-                <h1 class="font-weight-light text-center">Welcome to <strong>STL Game Dev</strong>!</h1>
-                <p class="lead text-center">We are making a Home for Game Developers!</p>
+    <div class="col-lg-4 " >
+        <div class="card bg-blur " style="background-color: rgba(66, 66, 66, 0.66);" >
+            <div class="card-header text-center">
+                <p class="font-weight-light mb-1">Welcome to<p>
+                <p class="h2 font-weight-bold    ">STL Game Dev</p>
+                <p class="lead">We are making a Home for Game Developers!</p>
             </div>
             <div class="card-body">
                 <p>We are a community run organization dedicated
@@ -46,6 +23,15 @@
         </div>
     </div>
 </div>
+<script>
+    const imageURLs = [{{ range resources.Match "images/photos/*.jpg" }}"{{ .RelPermalink }}", {{ end }}];
+
+    $(document).ready(function () {
+        var randomIndex = Math.floor(Math.random() * imageURLs.length);
+
+        $('#home-header').css('background-image', 'url(' + imageURLs[randomIndex] + ')');
+    });
+</script>
 {{ end }}
 
 {{ define "middle" }}
@@ -144,6 +130,7 @@
     </div>
 
     <div class="col-md-4 mb-5 ">
+
         <div class="card mb-5 ">
             <div class="card-header">
                 <h4 class="card-title">Next Event</h4>
@@ -153,14 +140,25 @@
             </div>
             <div class="card-footer"><a class="btn btn-sm" href="events">More Events</a></div>
         </div>
+
         <div class="card mb-5">
             <div class="card-body text-center">
                 <p class="card-title h4">Connect with our Community!</p>
                 <p class="card-text">Join the conversation over on our Discord!</p>
-
-                <div><a class="btn py-3 px-6 btn-xl btn-primary" href="https://discord.com/invite/mTMKpre/"><i
+    
+                <div><a class="btn py-3 px-6 btn-lg btn-primary" href="https://discord.com/invite/mTMKpre/"><i
                             class="fa-brands fa-discord"></i> Join</a></div>
             </div>
+        </div>
+
+        <div class="card mb-5">
+            <div class="card-header">
+                <h4 class="card-title">Latest Roundup</h4>
+            </div>
+            <div class="card-body">
+                {{ partial "latest-roundup.html" . }}
+            </div>
+            <div class="card-footer"><a class="btn btn-sm" href="https://roundup.stlgame.dev">See all of our RoundUps</a></div>
         </div>
 
     </div>

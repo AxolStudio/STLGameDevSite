@@ -39,24 +39,16 @@
 //     border-width:0;
 // }
 
-.btn.btn-xl {
-    
-    --bs-btn-padding-x: 3rem;
-    --bs-btn-padding-y: 1rem;
-    --bs-btn-font-size: 3rem;
-    --bs-btn-border-radius: 1rem;
-    text-wrap: nowrap;
-}
 
-// .bg-blur-sm {
-//     backdrop-filter: blur(5px);
-// }
-// .bg-blur {
-//     backdrop-filter: blur(10px);
-// }
-// .bg-blur-lg {
-//     backdrop-filter: blur(15px);
-// }
+.bg-blur-sm {
+    backdrop-filter: blur(5px);
+}
+.bg-blur {
+    backdrop-filter: blur(10px);
+}
+.bg-blur-lg {
+    backdrop-filter: blur(15px);
+}
 
 // .basic-border {
 //     border-width: .33rem;

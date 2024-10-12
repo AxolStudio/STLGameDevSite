@@ -2,26 +2,25 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-    </ul>
+{{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
 {{- end }}
 
 {{- define "partials/inline/menu/walk.html" }}
-    {{- $page := .page }}
-    {{- range .menuEntries }}
-        
-        {{- $name := .Name }}
-        {{- with .Identifier }}
-            {{- with T . }}
-                {{- $name = . }}
-            {{- end }}
-        {{- end }}
-        <li class="nav-item" {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!" data-bs-placement="bottom"  {{ end }}>
-            <a class="nav-link {{ if .Params.disabled }}disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active"
-                aria-current="page{{- else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{- end -}}"
-                href=" {{ .URL }}" {{ end }}>{{ $name }}</a>
+{{- $page := .page }}
+{{- range .menuEntries }}
 
-        </li>
-    {{- end }}
+{{- $name := .Name }}
+{{- with .Identifier }}
+{{- with T . }}
+{{- $name = . }}
+{{- end }}
+{{- end }}
+<span class="nav-item " {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!" data-bs-placement="bottom" {{ end
+}} >
+    <a class="nav-link {{ if .Params.disabled }}disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu .
+        }}active" aria-current="page{{- else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{- end -}}"
+        href=" {{ .URL }}" {{ end }}>{{ $name }}</a>
+</span>
+
+{{- end }}
 {{- end }}

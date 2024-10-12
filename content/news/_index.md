@@ -5,4 +5,4 @@ outputs:
     - JSON
     - RSS
 ---
-Here's the news
+These are all of our News posts.

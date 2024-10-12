@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark" itemscope itemtype="http://schema.org/WebPage">
-    <head>
-        {{ block "head" . }}
-            {{ partial "head.html" . }}
-        {{ end }}
-    </head>
-    <body>
-        {{ block "nav" . }}
-            {{ partial "nav.html" . }}
-        {{ end }}
-        <header class="container px-4 px-lg-5 mh-100">
-        {{ block "header" . }}{{ end }}
+
+<head>
+    {{ block "head" . }}
+    {{ partial "head.html" . }}
+    {{ end }}
+</head>
+
+<body>
+    <div class="container">
+        <header class="border-bottom py-3">
+            <div class="row flex-nowrap justify-content-between align-items-center">
+
+                <div class="col-4 pt-1">
+
+                </div>
+                <div class="col-4 pt-1 text-center">
+                    <a class="text-center text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">{{
+                        .Site.Title }}</a>
+                </div>
+                <div class="col-4 pt-1">
+
+                </div>
+
+            </div>
+
         </header>
-        <main class="container px-4 px-lg-5 mh-100">
+
+        <div class="nav-scroller py-1 mb-3 border-bottom">
+            <nav class="nav nav-underline justify-content-between">
+                {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+            </nav>
+        </div>
+
+        {{ block "header" . }}{{ end }}
+    </div>
+
+    <main class="container px-4 px-lg-5 mh-100">
         {{ block "middle" . }}{{ end }}
         {{ block "main" . }}{{ end }}
-        </main>
-        <footer class="footer pt-5  ">
+    </main>
+    <footer class="footer pt-5  ">
         {{ block "footer" . }}
-            {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
+        {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
         {{ end }}
-        </footer>
-    </body>
+    </footer>
+</body>
+
 </html>
