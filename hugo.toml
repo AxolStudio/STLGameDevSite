@@ -20,30 +20,30 @@ publishDir = "public/"
 
 [[menus.main]]
   name = "About"
-  pageref = "/about/"
+  pageref = "/about"
   weight = 10
 [[menus.main]]
   name = "News"
-  pageref = "/news/"
+  pageref = "/news"
   weight = 20
 [[menus.main]]
   name = "Blog"
-  pageref = "/blog/"
+  pageref = "/blog"
   weight = 30
   disabled = true
     [ menus.main.params ]
       disabled = true
 [[menus.main]]
   name = "Events"
-  pageref = "/events/"
+  pageref = "/events"
   weight = 40
 [[menus.main]]
   name = "Directory"
-  pageref = "/directory/"
+  pageref = "/directory"
   weight = 60
 [[menus.main]]
   name = "Resources"
-  pageref = "/resources/"
+  pageref = "/resources"
   weight = 60
     [ menus.main.params ]
       disabled = true
