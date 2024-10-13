@@ -34,8 +34,8 @@ If you are a developer from the St Louis area, and have projects you would like 
 
 3. Add an image for your Developer to `/assets/images/directory` giving it the same file name you put in the `yml` file.
 
-    > [!NOTE]
-    > For best results, use an image that is square with a 1:1 size ratio.
+> [!NOTE]
+> For best results, use an image that is square with a 1:1 size ratio.
 
 ### How to Add a Project
 
@@ -57,10 +57,10 @@ If you are a developer from the St Louis area, and have projects you would like 
         Icon: "fa-brands fa-itch-io"
     ```
 
-    > [!NOTE]
-    > You can use as few or as many links as you want (within reason), and anything you want for the `Tooltip`. You can use any icon from [Font Awesome's Sharp Duotone or Brands packs](https://fontawesome.com/search?o=r&f=sharp-duotone%2Cbrands) for your links' `Icon`.
-
 3. Add an image to `/assets/images/directory` that has the exact same filename as your project's `yml` file, but as a `png`. It should have a size ratio of 16:9.
+
+> [!NOTE]
+> You can use as few or as many links as you want (within reason), and anything you want for the `Tooltip`. You can use any icon from [Font Awesome's Sharp Duotone or Brands packs](https://fontawesome.com/search?o=r&f=sharp-duotone%2Cbrands) for your links' `Icon`.
 
 ## Events
 
