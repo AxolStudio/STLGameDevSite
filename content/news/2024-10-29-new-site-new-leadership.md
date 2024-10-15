@@ -8,6 +8,3 @@ tags: [
 authors: ['Tim Hely', 'Someone Else']
 ---
 
-
-
- 

@@ -1,9 +1,56 @@
 
+{{ $bg := resources.Get "images/bg.png" }}
+{{ $bgE := resources.Get "images/bg-edge.png" }}
+{{ $bgER := resources.Get "images/bg-edge-r.png" }}
 
-// body {
-//     {{ $bg := resources.Get "images/bg.png" }}
-//     background-image: url('{{ $bg.RelPermalink }}');
-// }
+body {
+    background-image: url('{{ $bgE.RelPermalink }}'), url('{{ $bgER.RelPermalink }}'), url('{{ $bg.RelPermalink }}');
+    background-position: left top, right top, left top;
+    background-repeat: repeat-y, repeat-y, repeat;
+}
+
+#core-container {
+    background-color: rgba(0,0,0,.66);
+    padding:0;
+    margin:auto;
+
+    border-left :.25rem solid $color-purple;
+
+    border-right :.25rem solid $color-purple;
+    
+}
+#top-nav {
+
+    &.nav-scroller {
+        background-color: black;
+        border-top: 1px solid $color-blue;
+        border-bottom: 2em solid transparent;
+        border-image: linear-gradient(0.5Turn, #8a27b3, rgba(138, 39, 179, .33), rgba(138, 39, 179, 0));
+        border-image-slice: 100;
+        margin-bottom: 2em;
+
+    }
+
+    .nav-item {
+        font-weight: bold;
+        font-size: x-large; 
+    }
+}
+
+#home-header {
+    background-size: cover; background-repeat: no-repeat; background-position: center center;
+    border: .25rem solid $color-purple;
+}
+
+.bg-blur-sm {
+    backdrop-filter: blur(5px);
+}
+.bg-blur {
+    backdrop-filter: blur(10px);
+}
+.bg-blur-lg {
+    backdrop-filter: blur(15px);
+}
 
 // nav, footer {
 //     background-color: $color-black;
@@ -40,15 +87,7 @@
 // }
 
 
-.bg-blur-sm {
-    backdrop-filter: blur(5px);
-}
-.bg-blur {
-    backdrop-filter: blur(10px);
-}
-.bg-blur-lg {
-    backdrop-filter: blur(15px);
-}
+
 
 // .basic-border {
 //     border-width: .33rem;
