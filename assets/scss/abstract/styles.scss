@@ -19,6 +19,8 @@ body {
     border-right :.25rem solid $color-purple;
     
 }
+
+
 #top-nav {
 
     &.nav-scroller {
@@ -28,13 +30,39 @@ body {
         border-image: linear-gradient(0.5Turn, #8a27b3, rgba(138, 39, 179, .33), rgba(138, 39, 179, 0));
         border-image-slice: 100;
         margin-bottom: 2em;
+        padding: .5em;
 
     }
 
     .nav-item {
         font-weight: bold;
-        font-size: x-large; 
+        font-size: 1vw;
+        margin: 0.5em 0;
+
+    
+        .nav-link {
+                border-width: medium;
+                border-style: solid;
+                border-radius: 100px;
+                border-color: transparent;
+
+            &:hover {
+                border-color: $primary;
+            }
+
+            &.active {
+                
+                background-color: $primary;
+                color: $color-blue;
+                
+                border-color: transparent;
+
+            }
+
+     }
     }
+
+
 }
 
 #home-header {
@@ -51,260 +79,6 @@ body {
 .bg-blur-lg {
     backdrop-filter: blur(15px);
 }
-
-// nav, footer {
-//     background-color: $color-black;
-    
-// }
-
-// .navbar {
-//     line-height: 4rem;
-//     padding-top:0;
-//     padding-bottom:0;
-//     background-image: none;
-//     .navbar-brand {
-//         padding: 0;
-//         color: $color-white;
-//         font-weight: bolder;
-//     }
-//     .nav-item a {
-//         min-width: 7rem;
-//         max-width: 7rem;
-//         text-align: center;
-//     }
-// }
-
-// footer, footer .navbar, footer .navbar .nav-item , footer .navbar .nav-item a {
-//     color: $color-white;
-// }
-
-// .btn {
-//     background-image: none;
-//     border:none !important;
-//     border-radius: 0;
-//     box-shadow: none !important;
-//     border-width:0;
-// }
-
-
-
-
-// .basic-border {
-//     border-width: .33rem;
-//     border-style: solid;
-//     border-radius: 0;
-    
-// }
-// .card-header, .card-footer {
-//     background: none;
-//     border: none;
-// }
-
-
-
-// .btn, .navbar-nav a { font-weight: bolder;}
-
-// .basic-border {
-//     display:block;
-//     position: relative;
-// }
-
-// .i {
-    
-//     --fa-primary-opacity: 1.0;
-//     --fa-secondary-opacity: 1.0;
-// }
-
-// .corner-icon {
-//     position: absolute;
-//     &.ci-top-left {
-//         top:-.33em;
-//         left:-.33em;
-//     }
-//     &.ci-top-right {
-//         top:-.33em;
-//         right:-.33em;
-//     }
-//     &.ci-bottom-left {
-//         bottom:-.33em;
-//         left:-.33em;
-//     }
-//     &.ci-bottom-right {
-//         bottom:-.33em;
-//         right:-.33em;
-//     }
-
-// }
-
-// @each $name, $id, $color in $colors-array {
-
-//     $color-dark-50: darken($color, 50%);
-//     $color-dark-20: darken($color, 20%);
-//     $color-dark-10: darken($color, 10%);
-//     $color-light-10: lighten($color, 10%);
-//     $color-light-20: lighten($color, 20%);
-//     $color-light-50: lighten($color, 50%);
-//     $color-alpha-15: rgba($color, .15);
-
-//     .navbar-nav .nav-item:nth-of-type(5n + #{$id}) a {
-//         color: $color;
-//         text-decoration: none;
-//         &:hover {
-//             color: $color-black;
-//             background-color: $color;
-//         }
-//         &:active {
-//             color: $color-black;
-//             background-color: $color;
-//         }
-//         &:disabled {
-//             color: darken($color-white, 20%);
-//         }
-//     }
-
-//     .btn-#{$name} {
-//         color: $color-dark-50;
-//         background-color: $color;
-//         &:hover {
-//             background-color: $color-dark-10;
-//         }
-//         &:active {
-            
-//             background-color: $color-dark-20;
-//         }
-//         &:disabled {
-//             background-color: $color-light-10;
-//         }
-//     }
-
-//     .colored-list .basic-border:nth-of-type(5n + #{$id})
-//     {
-//         .i:not(.btn) { 
-//             --fa-primary-color: #{$color-light-10};
-//             --fa-secondary-color: #{$color-dark-20};
-//         }
-//         border-color: $color;
-        
-//         background-color: $color-alpha-15;
-
-//         a:not(.btn) {
-//             color: $color;
-//             text-decoration: none;
-//             &:hover {
-//                 color: $color-light-10;
-//                 text-decoration:     underline;
-//             }
-//             &:active {
-//                 color: $color-light-20;
-//                 text-decoration: underline;
-//             }
-//             &:disabled {
-//                 color: $color-dark-10;
-//             }
-//         }
-
-//         .btn {
-//             .i { 
-//                 color: $color-dark-50;
-//             }
-//             color: $color-dark-50;
-//             background-color: $color;
-//             &:hover {
-//                 background-color: $color-dark-10;
-//             }
-//             &:active {
-//                 background-color: $color-dark-20;
-//             }
-//             &:disabled {
-//                 background-color: $color-light-10;
-//             }
-//         }
-        
-//     }
-//     .colored-list-rev .basic-border:nth-of-type(5n - #{$id})
-//     {
-//         .i:not(.btn) { 
-//             --fa-primary-color: #{$color-light-10};
-//             --fa-secondary-color: #{$color-dark-20};
-//         }
-//         border-color: $color;
-//         background-color: $color-alpha-15;
-
-//         a:not(.btn) {
-//             color: $color;
-//             text-decoration: none;
-//             &:hover {
-//                 color: $color-light-10;
-//                 text-decoration:     underline;
-//             }
-//             &:active {
-//                 color: $color-light-20;
-//                 text-decoration: underline;
-//             }
-//             &:disabled {
-//                 color: $color-dark-10;
-//             }
-//         }
-
-//         .btn {
-//             .i { 
-//                 color: $color-dark-50;
-//             }
-//             color: $color-dark-50;
-//             background-color: $color;
-//             &:hover {
-//                 background-color: $color-dark-10;
-//             }
-//             &:active {
-//                 background-color: $color-dark-20;
-//             }
-//             &:disabled {
-//                 background-color: $color-light-10;
-//             }
-//         }
-//     }
-
-//     .basic-border-#{$name} {
-//         border-color: $color;
-//         .i:not(.btn) { 
-//             --fa-primary-color: #{$color-light-10};
-//             --fa-secondary-color: #{$color-dark-20};
-//         }
-//         a:not(.btn) {
-//             color: $color;
-//             text-decoration: none;
-//             &:hover {
-//                 color: $color-light-10;
-//                 text-decoration:     underline;
-//             }
-//             &:active {
-//                 color: $color-light-20;
-//                 text-decoration: underline;
-//             }
-//             &:disabled {
-//                 color: $color-dark-10;
-//             }
-//         }
-
-//         .btn {
-//             .i { 
-//                 color: $color-dark-50;
-//             }
-//             color: $color-dark-50;
-//             background-color: $color;
-//             &:hover {
-//                 background-color: $color-dark-10;
-//             }
-//             &:active {
-                
-//                 background-color: $color-dark-20;
-//             }
-//             &:disabled {
-//                 background-color: $color-light-10;
-//             }
-//         }
-//     }
-// }
 
 
 @media (min-width: 400px) {
