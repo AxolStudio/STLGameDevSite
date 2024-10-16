@@ -13,7 +13,7 @@
         let feed = await parser.parseURL(url);
 
         if (feed.items.length > 0) {
-            console.log(feed.items[0]);
+
             return feed.items[0];
         }
         else
@@ -22,10 +22,10 @@
 
     $(document).ready(function () {
         getLatestRoundUp().then((item) => {
-            console.log(item);
+
             let pubDate = new Date(item.pubDate);
             pubDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            const linkString = `<h4 style="font-size: xxx-large;"><a href="${item.link}">${item.title}</a></h4><p class="text-secondary">${pubDate}</p>`;
+            const linkString = `<h4 style="font-size: xxx-large;"><a href="${item.link}">${item.title}</a></h4><p class="">${pubDate}</p>`;
             $('#roundup-spinner').hide('fast', function () {
                 $(this).replaceWith(linkString).show('fast');
             });

@@ -19,7 +19,12 @@ body {
     border-right :.25rem solid $color-purple;
     
 }
-
+.i:not(.btn) {
+    --fa-primary-opacity: 1;
+    --fa-secondary-opacity: 1;
+    --fa-primary-color: #{$color-yellow};
+    --fa-secondary-color: #{$color-orange};
+}
 
 #top-nav {
 
@@ -30,14 +35,14 @@ body {
         border-image: linear-gradient(0.5Turn, #8a27b3, rgba(138, 39, 179, .33), rgba(138, 39, 179, 0));
         border-image-slice: 100;
         margin-bottom: 2em;
-        padding: .5em;
+        padding: 0 .5em;
 
     }
 
     .nav-item {
         font-weight: bold;
-        font-size: 2vw;
-        margin: 0.5em 0;
+        font-size: 1.25rem;
+            margin: 0.2em;
 
     
         .nav-link {
@@ -68,6 +73,9 @@ body {
 #home-header {
     background-size: cover; background-repeat: no-repeat; background-position: center center;
     border: .25rem solid $color-purple;
+}
+#header-card {
+    backdrop-filter: grayscale(100%) brightness(0.33);
 }
 
 .bg-blur-sm {

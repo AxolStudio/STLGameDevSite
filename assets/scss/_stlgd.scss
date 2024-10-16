@@ -7,3 +7,26 @@ $primary:                       $color-yellow;
 $primary-text-emphasis-dark:    $primary;
 $link-color-dark:               $primary;
 
+$secondary: $color-orange;
+
+$border-width: 3px;
+$border-widths: (
+    1: 3px,
+    2: 4px,
+    3: 5px,
+    4: 6px,
+    5: 7px
+);
+$border-radius: 2em;
+$border-style: solid;
+$border-color: $color-orange;
+$border-color-translucent: rgba($color-orange, .175);
+$card-border-width: $border-width;
+$card-border-color: $border-color;
+$card-border-radius: $border-radius;
+$card-cap-padding-y: 1em;
+$card-cap-padding-x: 2em;
+$card-bg: rgba($color-blue, .5);
+$card-cap-bg: rgba($color-blue, .2);
+
+$input-btn-font-size: 1.25rem;
