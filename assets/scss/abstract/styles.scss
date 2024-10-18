@@ -9,6 +9,7 @@ body {
     background-repeat: repeat-y, repeat-y, repeat;
 }
 
+
 #core-container {
     background-color: rgba(0,0,0,.66);
     padding:0;
@@ -31,11 +32,9 @@ body {
     &.nav-scroller {
         background-color: black;
         border-top: 1px solid $color-blue;
-        border-bottom: 2em solid transparent;
-        border-image: linear-gradient(0.5Turn, #8a27b3, rgba(138, 39, 179, .33), rgba(138, 39, 179, 0));
-        border-image-slice: 100;
-        margin-bottom: 2em;
+        border-bottom: 1px solid $color-blue;
         padding: 0 .5em;
+        margin-bottom: 1em;
 
     }
 
@@ -63,11 +62,8 @@ body {
                 border-color: transparent;
 
             }
-
-     }
+        }
     }
-
-
 }
 
 #home-header {
@@ -100,10 +96,19 @@ body {
     backdrop-filter: blur(15px);
 }
 
+header {
+    max-width:100%;
+    padding: 1.25rem;
+}
 
 @media (min-width: 400px) {
     ul.event-list li {
         flex-basis: calc(50% - 0.5vw);
+    }
+    
+    header {
+        max-width:100%;
+        padding: 1.25rem;
     }
 }
 
@@ -111,11 +116,20 @@ body {
     ul.event-list li {
         flex-basis: calc(33.33% - 3vw);
     }
+    header {
+        max-width:100%;
+        
+        padding: 1.5rem;
+    }
 }
 
 @media (min-width: 900px) {
     ul.event-list li {
         flex-basis: calc(25% - 3.5vw);
+    }
+    header {
+        max-width:70%;
+        padding: 2rem;
     }
 }
 
@@ -123,7 +137,13 @@ body {
     ul.event-list li {
         flex-basis: calc(20% - 4vw);
     }
+    header {
+        max-width:50%;
+        padding: 2rem;
+    }
 }
+
+
 
 ul.event-list {
     display: flex;

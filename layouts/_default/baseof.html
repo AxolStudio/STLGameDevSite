@@ -10,24 +10,19 @@
 <body>
     <div id="core-container" class="container">
 
-        <header class=" py-3">
-            <div class="row flex-nowrap justify-content-center align-items-center">
+        <header class="text-center m-auto" >
 
-                
-                <div class="col-4 pt-1 ">
-                    <a class=" text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">
-                        {{ with resources.Get "images/stlgd-logo.svg" }}
-                        <img src="{{ .RelPermalink }}" alt="STL Game Dev Logo" />
-                        {{ end }}       
-                    </a>
-                </div>
+            <a class=" text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">
+                {{ with resources.Get "images/stlgd-logo.svg" }}
+                <img src="{{ .RelPermalink }}" alt="STL Game Dev Logo" id="title-logo"/>
+                {{ end }}       
+            </a>
 
-            </div>
 
         </header>
 
         <div class="nav-scroller " id="top-nav">
-            <nav class="nav nav-pills  justify-content-evenly  flex-nowrap">
+            <nav class="nav nav-pills  justify-content-evenly  d-flex flex-wrap">
                 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
             </nav>
         </div>

@@ -44,8 +44,8 @@
 
 {{ define "main" }}
 <section class="row gx-4 gx-lg-5">
-    <div class="col-md-8 mb-5 ">
-        <div class="card   mb-5">
+    <div class="col-md-8  ">
+        <div class="card ">
             {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
             <article>
                 <div class="card-header">
@@ -88,7 +88,7 @@
             {{/* <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x "></i> */}}
         </div>
         {{ with (index (where site.RegularPages "Type" "blog").ByDate.Reverse 0) }}
-        <div class="card mb-5">
+        <div class="card">
             <article>
                 <div class="card-header">
                     <h4 class="card-title">Latest News Article</h4>
@@ -129,9 +129,9 @@
         {{ end }}
     </div>
 
-    <div class="col-md-4 mb-5 ">
+    <div class="col-md-4 ">
 
-        <div class="card mb-5 ">
+        <div class="card ">
             <div class="card-header">
                 <h4 class="card-title">Next Event</h4>
             </div>
@@ -142,7 +142,7 @@
                     Events</a></div>
         </div>
 
-        <div class="card mb-5">
+        <div class="card ">
             <div class="card-body text-center">
                 <p class="card-title h4">Connect with our Community!</p>
                 <p class="card-text">Join the conversation over on our Discord!</p>
