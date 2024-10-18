@@ -12,7 +12,14 @@
 {{ else }}
     <link rel="canonical" href="{{ .Permalink }}">
 {{ end }}
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+
+<link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="STL Game Dev" />
+<link rel="manifest" href="/site.webmanifest" />
 
 {{ hugo.Generator }}
 {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}

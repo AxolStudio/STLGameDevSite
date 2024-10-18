@@ -11,17 +11,15 @@
     <div id="core-container" class="container">
 
         <header class=" py-3">
-            <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="row flex-nowrap justify-content-center align-items-center">
 
-                <div class="col-4 pt-1">
-
-                </div>
-                <div class="col-4 pt-1 text-center">
-                    <a class="text-center text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">{{
-                        .Site.Title }}</a>
-                </div>
-                <div class="col-4 pt-1">
-
+                
+                <div class="col-4 pt-1 ">
+                    <a class=" text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">
+                        {{ with resources.Get "images/stlgd-logo.svg" }}
+                        <img src="{{ .RelPermalink }}" alt="STL Game Dev Logo" />
+                        {{ end }}       
+                    </a>
                 </div>
 
             </div>

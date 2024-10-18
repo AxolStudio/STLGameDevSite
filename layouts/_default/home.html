@@ -13,7 +13,8 @@
                     to providing social, professional, and educational
                     events,
                     resources, and support for game developers in and around the St Louis region.</p>
-                <p class="text-center font-weight-light fs-4">Let's make something great together!</p>
+                <p class="text-center font-weight-light fs-4">Let's make something great together!
+                    {{- with resources.Get "images/stlgd-icon.svg" }}  <img src="{{ .RelPermalink }}" width="30" height="30" class="ms-1" style="vertical-align: text-bottom;" alt="STL Game Dev Icon">{{ end }} </p>
             </div>
             <div class="card-footer text-center">
                 <a class=" btn btn-lg btn-primary rounded-pill " href="about">Learn more About us!</a>
