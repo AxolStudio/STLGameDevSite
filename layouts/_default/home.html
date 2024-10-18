@@ -1,23 +1,22 @@
 {{ define "header" }}
 
-<div class="mx-4 row d-flex  flex-row  justify-content-end flex-nowrapp-4 p-md-5 mb-4 rounded  bg-body-secondary" id="home-header" style="">    
+<div class="mx-4  row d-flex  flex-row  justify-content-end flex-nowrapp-4 rounded " id="home-header" style="">
 
     <div class="col-lg-6 col-md-8 col-sm-10 " >
-        <div class="card  m-2" id="header-card">
+        <div class="card m-2 mb-5  " id="header-card">
             <div class="card-header text-center">
-                <p class="font-weight-light  fs-4">Welcome to</p>
-                <p class="h1 font-weight-bold   ">STL Game Dev</p>
-                <p class="lead font-weight-bold">We are making a Home for Game Developers!</p>
+                <p class="h1 font-weight-bold ">STL Game Dev</p>
+                <p class="lead fs-4 font-weight-bold">We are making a <strong>Home</strong> for <strong>Game Developers!</strong></p>
             </div>
-            <div class="card-body  fs-4">
+            <div class="card-body">
                 <p>We are a community run organization dedicated
                     to providing social, professional, and educational
                     events,
                     resources, and support for game developers in and around the St Louis region.</p>
-                <p class="text-center h2 font-weight-light">Let's make something great together!</p>
+                <p class="text-center font-weight-light fs-4">Let's make something great together!</p>
             </div>
             <div class="card-footer text-center">
-                <a class=" btn btn-lg btn-secondary rounded-pill " href="about">Learn more About us!</a>
+                <a class=" btn btn-lg btn-primary rounded-pill " href="about">Learn more About us!</a>
             </div>
             {{/* <i class="i corner-icon ci-bottom-right fa-sharp-duotone fa-solid  fa-block-question fa-6x "></i> */}}
         </div>
@@ -35,7 +34,7 @@
 {{ end }}
 
 {{ define "middle" }}
-<div class="card text-white bg-secondary my-5 py-4 text-center">
+<div class="card text-white my-5 py-4 text-center">
     <div class="card-body">
         Something Here
     </div>
@@ -99,7 +98,7 @@
                         <div class="post-meta">
                             {{ .Date.Format "Mon, Jan 2, 2006" }}
                         </div>
-                        <div class="fa-2x ">
+                        <div>
                             <span class="fa-layers fa-fw">
                                 <i class="i fa-sharp-duotone fa-solid fa-calendar"></i>
                                 <span class="fa-layers-text fa-inverse --fa-right" data-fa-transform="shrink-8 down-3"
@@ -138,7 +137,7 @@
             <div class="card-body">
                 {{ partial "next-event.html" . }}
             </div>
-            <div class="card-footer justify-content-end d-flex"><a class="btn btn-secondary btn-sm rounded-pill " href="events">More
+            <div class="card-footer justify-content-end d-flex"><a class="btn btn-primary btn-sm rounded-pill " href="events">More
                     Events</a></div>
         </div>
 
@@ -152,16 +151,8 @@
             </div>
         </div>
 
-        <div class="card mb-5">
-            <div class="card-header">
-                <h4 class="card-title">Latest Roundup</h4>
-            </div>
-            <div class="card-body">
-                {{ partial "latest-roundup.html" . }}
-            </div>
-            <div class="card-footer justify-content-end d-flex"><a class="btn rounded-pill btn-secondary btn-sm" href="https://roundup.stlgame.dev">See all of
-                    our RoundUps</a></div>
-        </div>
+{{ partial "latest-roundup.html" . }}
+
 
     </div>
 </section>

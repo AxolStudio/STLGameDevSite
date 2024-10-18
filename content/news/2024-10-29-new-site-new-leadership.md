@@ -53,6 +53,8 @@ There are 5 members of the Administrative Group for STL Game Dev.
 We are:
 * Tim I Hely - <i class="i fa-brands fa-discord"></i> SeiferTim
   : Tim has been a member of the STL Game Development community since his first Game Jam in April 2014. He is the Founder of the Game Studio [Axol Studio, LLC](https://axolstudio.com).
+* <i class="i fa-brands fa-discord"></i> TimConceivable
+  : TimConceivable! is a 2D artist, game developer, and musical dabbler.  He has been an active member of the community since 2011 when he started his game dev journey.  In the following years he has participated in over 40 game jams and completed zero games.  He was also a board member from 2018 - 2019.
 
 ## How can I help?
 
