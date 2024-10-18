@@ -1,8 +1,9 @@
 ---
-title: "News"
+title: "News Articles"
 outputs:
     - HTML
     - JSON
     - RSS
+type: "news"
 ---
-These are all of our News posts.
+This is all of the News Articles written for this Site.
