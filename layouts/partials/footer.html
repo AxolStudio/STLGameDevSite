@@ -1,32 +1,32 @@
 {{- $page := .page }}
 {{- $menuID := .menuID }}
 
-<div class="container">
-    <div class="py-3 ms-4">
-        {{- with index site.Menus $menuID }}
-      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-        {{- partial "inline/footer-menu/walk.html" (dict "page" $page "menuEntries" .) }}
-      </ul>
-      {{- end }}
-      <p class="text-center ">© 2024 STL Game Dev Admin Group</p>
-    </div>
-  </div>
+<div class="container py-3">
+  
+    {{- with index site.Menus $menuID }}
+    <ul class="nav justify-content-center border-bottom mx-3 mb-3">
+      {{- partial "inline/footer-menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+    {{- end }}
+    <p class="text-center ">© 2024 STL Game Dev Admin Group</p>
+  
+</div>
 
 
 {{- define "partials/inline/footer-menu/walk.html" }}
-    {{- $page := .page }}
-    {{- range .menuEntries }}
-        {{- $name := .Name }}
-            {{- with .Identifier }}
-        {{- with T . }}
-            {{- $name = . }}
-        {{- end }}
-        {{- end }}
-        <li class="nav-item" {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!"
-          data-bs-placement="bottom" {{ end }}>
-          <a class="nav-link {{ if .Params.disabled }}disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active"
-            aria-current="page{{- else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{- end -}}"
-            href=" {{ .URL }}" {{ end }}>{{ $name }}</a>
-        </li>
-    {{- end }}
+{{- $page := .page }}
+{{- range .menuEntries }}
+{{- $name := .Name }}
+{{- with .Identifier }}
+{{- with T . }}
+{{- $name = . }}
+{{- end }}
+{{- end }}
+<li class="nav-item" {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!"
+  data-bs-placement="bottom" {{ end }}>
+  <a class="nav-link {{ if .Params.disabled }}disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active"
+    aria-current="page{{- else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{- end -}}"
+    href=" {{ .URL }}" {{ end }}>{{ $name }}</a>
+</li>
+{{- end }}
 {{- end }}

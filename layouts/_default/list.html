@@ -8,43 +8,25 @@
 
 {{ define "main" }}
 
-    {{ range .Pages }}
-    <div class="card my-3">
-      <div class="card-body">
-        <div class="row">
-          <div class="d-flex flex-row align-items-center">
-            <div class="flex-grow-1">
-              <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-            </div>
-            <div class="post-meta">
-              {{ .Date.Format "Mon, Jan 2, 2006" }}
-            </div>
-            <div class=" ">
-              <span class="fa-layers fa-fw">
-                <i class="i fa-sharp-duotone fa-solid fa-calendar"></i>
-                <span class="fa-layers-text fa-inverse --fa-right" data-fa-transform="shrink-8 down-3" style="font-weight:900">{{
-                  .Date.Format "2" }}</span>
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            {{ partial "authors.html" (dict "taxonomy" "authors" "page" .) }}
-          </div>
-          <div class="col-6 text-end">
-            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-          </div>
-        </div>
-        <div class="row">{{ .Summary }}</div>
-      </div>
+{{ range .Pages }}
 
-      <div class="card-footer text-end">
-        <a class="btn btn-primary btn-sm" href="{{ .RelPermalink }}"
-          >Read More</a
-        >
-      </div>
-    </div>
-    {{ end }}
- 
+<article class="card ">
+  <div class="card-header">
+
+    {{ partial "article-meta.html" . }}
+
+  </div>
+
+  <div class="card-body">
+    {{ .Summary }}
+  </div>
+  {{ if .Truncated }}
+  <div class="card-footer text-end ">
+    <a class=" btn btn-primary rounded-pill" href="{{ .RelPermalink }}">Read More</a>
+  </div>
+  {{ end }}
+
+</article>
+{{ end }}
+
 {{ end }}

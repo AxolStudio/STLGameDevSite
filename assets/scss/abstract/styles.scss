@@ -1,85 +1,83 @@
-
-{{ $bg := resources.Get "images/bg.png" }}
-{{ $bgE := resources.Get "images/bg-edge.png" }}
-{{ $bgER := resources.Get "images/bg-edge-r.png" }}
+// {{ $bg := resources.Get "images/bg.png" }}
+// {{ $bgE := resources.Get "images/bg-edge.png" }}
+// {{ $bgER := resources.Get "images/bg-edge-r.png" }}
 
 body {
-    background-image: url('{{ $bgE.RelPermalink }}'), url('{{ $bgER.RelPermalink }}'), url('{{ $bg.RelPermalink }}');
-    background-position: left top, right top, left top;
+    background-image: url("{{ $bgE.RelPermalink }}"), url("{{ $bgER.RelPermalink }}"), url("{{ $bg.RelPermalink }}");
+    background-position:
+        left top,
+        right top,
+        left top;
     background-repeat: repeat-y, repeat-y, repeat;
 }
 
-ul {
+ul:not(.nav) {
     list-style-type: square;
     margin-inline-start: 2rem;
 }
 
 #core-container {
-    background-color: rgba(0,0,0,.66);
-    padding:0;
-    margin:auto;
+    background-color: rgba(0, 0, 0, 0.66);
+    padding: 0;
+    margin: auto;
 
-    border-left :.25rem solid $color-purple;
+    border-left: 0.25rem solid $color-purple;
 
-    border-right :.25rem solid $color-purple;
-    
+    border-right: 0.25rem solid $color-purple;
 }
 .i:not(.btn) {
     --fa-primary-opacity: 1;
     --fa-secondary-opacity: 1;
     --fa-primary-color: #{$color-orange};
-        --fa-secondary-color: #{scale-color($color-orange, $lightness: -33%)};
+    --fa-secondary-color: #{scale-color($color-orange, $lightness: -33%)};
 }
 
 #top-nav {
-
     &.nav-scroller {
         background-color: black;
         border-top: 1px solid $color-blue;
         border-bottom: 1px solid $color-blue;
-        padding: 0 .5em;
-        margin-top:0;
-        margin-bottom:0;
-
+        padding: 0 0.5em;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     .nav-item {
         font-weight: bold;
         font-size: 1.25rem;
-            margin: 0.2em;
+        margin: 0.2em;
 
-    
         .nav-link {
-                border-width: medium;
-                border-style: solid;
-                border-radius: 100px;
-                border-color: transparent;
+            border-width: medium;
+            border-style: solid;
+            border-radius: 100px;
+            border-color: transparent;
 
             &:hover {
                 border-color: $link-hover-color-dark;
             }
 
             &.active {
-                
                 background-color: $primary;
                 color: $color-blue;
-                
-                border-color: transparent;
 
+                border-color: transparent;
             }
         }
     }
 }
 
 #home-header {
-    background-size: cover; background-repeat: no-repeat; background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-bottom: 1px solid $color-blue;
 }
 
 #header-card {
-    backdrop-filter: grayscale(100%) brightness(0.33);
+    backdrop-filter: blur(5px) grayscale(100%) brightness(50%);
 }
 
 .card {
@@ -104,7 +102,7 @@ ul {
 }
 
 header {
-    max-width:100%;
+    max-width: 100%;
     padding: 1.25rem;
 }
 
@@ -112,9 +110,9 @@ header {
     ul.event-list li {
         flex-basis: calc(50% - 0.5vw);
     }
-    
+
     header {
-        max-width:100%;
+        max-width: 100%;
         padding: 1.25rem;
     }
 }
@@ -124,8 +122,8 @@ header {
         flex-basis: calc(33.33% - 3vw);
     }
     header {
-        max-width:100%;
-        
+        max-width: 100%;
+
         padding: 1.5rem;
     }
 }
@@ -135,7 +133,7 @@ header {
         flex-basis: calc(25% - 3.5vw);
     }
     header {
-        max-width:70%;
+        max-width: 70%;
         padding: 2rem;
     }
 }
@@ -145,12 +143,10 @@ header {
         flex-basis: calc(20% - 4vw);
     }
     header {
-        max-width:50%;
+        max-width: 50%;
         padding: 2rem;
     }
 }
-
-
 
 ul.event-list {
     display: flex;
@@ -158,14 +154,13 @@ ul.event-list {
     margin: 0;
     padding: 0;
     li {
-        
         display: flex;
         flex-direction: column;
         justify-content: center;
         list-style-type: none;
-        min-height: 20vh ;
+        min-height: 20vh;
         min-width: 30vh;
         max-width: 30vh;
-        margin:1rem;
+        margin: 1rem;
     }
 }

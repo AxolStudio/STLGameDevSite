@@ -1,5 +1,6 @@
 ---
 title: 'About Our Organization'
+type: 'page'
 ---
 ## Who we are
 

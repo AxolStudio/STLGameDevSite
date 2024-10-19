@@ -1,0 +1,16 @@
+{{ define "main" }}
+<article class="card my-3">
+    <div class="card-body">
+        <div class="row">
+            <div class="d-flex flex-row align-items-center">
+                <div class="flex-grow-1">
+                    <h1>{{ .Title }}</h1>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="row">{{ .Content }}</div>
+    </div>
+</article>
+{{ end }}
