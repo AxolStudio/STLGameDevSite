@@ -1,6 +1,6 @@
 {{ define "header" }}
 
-<div class="mx-4  row d-flex  flex-row  justify-content-end flex-nowrapp-4 rounded " id="home-header" style="">
+<div class="m-0  row d-flex  flex-row  justify-content-end flex-nowrapp-4  " id="home-header" style="">
 
     <div class="col-lg-6 col-md-8 col-sm-10 " >
         <div class="card m-2 mb-5  " id="header-card">
@@ -35,16 +35,12 @@
 {{ end }}
 
 {{ define "middle" }}
-<div class="card text-white my-5 py-4 text-center">
-    <div class="card-body">
-        Something Here
-    </div>
-</div>
+{{ partial "showcase-item.html" . }}
 {{ end }}
 
 {{ define "main" }}
-<section class="row gx-4 gx-lg-5">
-    <div class="col-md-8  ">
+<section class="row gx-4 gx-lg-5 mt-3">
+    <div class="col-md-8  vstack gap-3">
         <div class="card ">
             {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
             <article>
@@ -121,7 +117,7 @@
                 </div>
                 {{ if .Truncated }}
                 <div class="card-footer text-end ">
-                    <a class=" btn btn-primary  rounded-pill" href="{{ .RelPermalink }}">Read More</a>
+                    <a class=" btn btn-primary rounded-pill" href="{{ .RelPermalink }}">Read More</a>
                 </div>
                 {{ end }}
             </article>
@@ -129,7 +125,7 @@
         {{ end }}
     </div>
 
-    <div class="col-md-4 ">
+    <div class="col-md-4 vstack gap-3">
 
         <div class="card ">
             <div class="card-header">
@@ -152,7 +148,7 @@
             </div>
         </div>
 
-{{ partial "latest-roundup.html" . }}
+        {{ partial "latest-roundup.html" . }}
 
 
     </div>

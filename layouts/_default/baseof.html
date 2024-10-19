@@ -10,7 +10,7 @@
 <body>
     <div id="core-container" class="container">
 
-        <header class="text-center m-auto" >
+        <header class="text-center mx-auto" >
 
             <a class=" text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">
                 {{ with resources.Get "images/stlgd-logo.svg" }}
@@ -28,7 +28,6 @@
         </div>
 
         {{ block "header" . }}{{ end }}
-
 
         <main class=" mh-100 mx-3">
             {{ block "middle" . }}{{ end }}

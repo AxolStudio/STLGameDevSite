@@ -9,6 +9,10 @@ body {
     background-repeat: repeat-y, repeat-y, repeat;
 }
 
+ul {
+    list-style-type: square;
+    margin-inline-start: 2rem;
+}
 
 #core-container {
     background-color: rgba(0,0,0,.66);
@@ -34,7 +38,8 @@ body {
         border-top: 1px solid $color-blue;
         border-bottom: 1px solid $color-blue;
         padding: 0 .5em;
-        margin-bottom: 1em;
+        margin-top:0;
+        margin-bottom:0;
 
     }
 
@@ -68,7 +73,9 @@ body {
 
 #home-header {
     background-size: cover; background-repeat: no-repeat; background-position: center center;
-    border: .25rem solid $color-purple;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $color-blue;
 }
 
 #header-card {
