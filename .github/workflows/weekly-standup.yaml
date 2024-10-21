@@ -16,4 +16,4 @@ jobs:
                   --header 'Content-Type: application/json' \
                   --header 'Accept: application/json' \
                   --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
-                  --data '{"content":"@Adjudicator: **SHOW ME WHAT YOU GOT!**"}'
+                  --data '{"content":"<@&492511881811197963>: **SHOW ME WHAT YOU GOT!**"}'
