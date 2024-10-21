@@ -1,5 +1,5 @@
 {
-  "name": "STL Game Dev",
+  "name": "STL Gamedev",
   "short_name": "STLGD",
   "icons": [
     {
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#000",
-  "background_color": "#000",
+  "theme_color": "#000000",
+  "background_color": "#142ca7",
   "display": "standalone"
 }

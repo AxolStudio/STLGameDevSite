@@ -1,31 +1,27 @@
-<div class="d-flex flex-column flex-lg-row align-items-end">
+<div class="d-flex flex-column flex-lg-row justify-items-between align-items-baseline">
 
     <div class="flex-grow-1">
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     </div>
 
     <div>
-
-        <div class="post-meta no-wrap">
-
-            {{ .Date.Format "Mon, Jan 2, 2006" }}
-
+        <div class="post-meta ">
             <span class="fa-layers fa-fw">
                 <i class="i fa-sharp-duotone fa-solid fa-calendar"></i>
                 <span class="fa-layers-text fa-inverse --fa-right" data-fa-transform="shrink-8 down-3"
                     style="font-weight:900">{{ .Date.Format "2" }}</span>
             </span>
-
+            {{- .Date.Format "Mon, Jan 2, 2006" -}}
+            
         </div>
-
     </div>
 </div>
 
-<div class="d-flex flex-column flex-lg-row  ">
-    <div>
+<div class="d-flex flex-column flex-lg-row justify-items-between align-items-baseline ">
+    <div class="flex-grow-1">
         {{ partial "authors.html" (dict "taxonomy" "authors" "page" .) }}
     </div>
-    <div class="ms-auto">
+    <div >
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
     </div>
 </div>

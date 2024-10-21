@@ -14,9 +14,7 @@
                     to providing social, professional, and educational
                     events,
                     resources, and support for game developers in and around the St Louis region.</p>
-                <p class="text-center font-weight-light fs-4">Let's make something great together!
-                    {{- with resources.Get "images/stlgd-icon.svg" }} <img src="{{ .RelPermalink }}" width="30"
-                        height="30" class="ms-1" style="vertical-align: text-bottom;" alt="STL Game Dev Icon">{{ end }}
+                <p class="text-center font-weight-light fs-4">Let's make something great together! {{ partial "stlgd-icon.html" (dict "size" "42" "class" "ms-1") }}</p>
                 </p>
             </div>
             <div class="card-footer text-center">
@@ -42,82 +40,86 @@
 {{ end }}
 
 {{ define "main" }}
-<section class="row gx-4 gx-lg-5 mt-3">
-    <div class="col-md-8  vstack gap-3">
-        
-            {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
-            <article class="card ">
-                <div class="card-header">
+<section class="row gx-3 mt-3">
+    <div class="col-12 col-xl-8 mb-3  vstack gap-3">
 
-                    <h4 class="card-title">Latest News Article</h4>
-                    <hr />
+        {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
+        <article class="card ">
+            <div class="card-header">
 
-                    {{ partial "article-meta.html" . }}
+                <h4 class="card-title">Latest News Article</h4>
+                <hr />
 
-                </div>
-                
-                <div class="card-body">
-                    {{ .Summary }}
-                </div>
-                {{ if .Truncated }}
-                <div class="card-footer text-end ">
-                    <a class=" btn btn-primary rounded-pill" href="{{ .RelPermalink }}">Read More</a>
-                </div>
-                {{ end }}
+                {{ partial "article-meta.html" . }}
 
-            </article>
+            </div>
+
+            <div class="card-body">
+                {{ .Summary }}
+            </div>
+            {{ if .Truncated }}
+            <div class="card-footer text-end ">
+                <a class=" btn btn-primary rounded-pill" href="{{ .RelPermalink }}">Read More</a>
+            </div>
             {{ end }}
-            {{/* <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x "></i> */}}
-        
+
+        </article>
+        {{ end }}
+        {{/* <i class="i corner-icon ci-bottom-left fa-sharp-duotone fa-solid fa-alien-8bit fa-6x "></i> */}}
+
         {{ with (index (where site.RegularPages "Type" "blog").ByDate.Reverse 0) }}
-        
-            <article class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Latest News Article</h4>
-                    <hr />
-                    {{ partial "article-meta.html" . }}
-                </div>
-                <div class="card-body">
-                    {{ .Summary }}
-                </div>
-                {{ if .Truncated }}
-                <div class="card-footer text-end ">
-                    <a class=" btn btn-primary rounded-pill" href="{{ .RelPermalink }}">Read More</a>
-                </div>
-                {{ end }}
-            </article>
-        
+
+        <article class="card">
+            <div class="card-header">
+                <h4 class="card-title">Latest News Article</h4>
+                <hr />
+                {{ partial "article-meta.html" . }}
+            </div>
+            <div class="card-body">
+                {{ .Summary }}
+            </div>
+            {{ if .Truncated }}
+            <div class="card-footer text-end ">
+                <a class=" btn btn-primary rounded-pill" href="{{ .RelPermalink }}">Read More</a>
+            </div>
+            {{ end }}
+        </article>
+
         {{ end }}
     </div>
 
-    <div class="col-md-4 vstack gap-3">
+    <div class="col-4 vstack gap-3">
+        <div class="d-flex flex-row flex-wrap gap-3">
 
-        <div class="card ">
-            <div class="card-header">
-                <h4 class="card-title">Next Event</h4>
+            <div class="card flex-fill">
+                <div class="card-header">
+                    <h4 class="card-title">Next Event</h4>
+                </div>
+                <div class="card-body">
+                    {{ partial "next-event.html" . }}
+                </div>
+                <div class="card-footer justify-content-end d-flex"><a class="btn btn-primary btn-sm rounded-pill "
+                        href="events">More
+                        Events</a></div>
             </div>
-            <div class="card-body">
-                {{ partial "next-event.html" . }}
-            </div>
-            <div class="card-footer justify-content-end d-flex"><a class="btn btn-primary btn-sm rounded-pill "
-                    href="events">More
-                    Events</a></div>
-        </div>
 
-        <div class="card ">
-            <div class="card-body text-center">
-                <p class="card-title h4">Connect with our Community!</p>
-                <p class="card-text">Join the conversation over on our Discord!</p>
+            <div class="card flex-fill ">
+                <div class="card-body text-center d-flex h-100 flex-column justify-content-center ">
 
-                <div><a class="btn py-3 px-6 btn-lg btn-primary rounded-pill w-100 fs-3"
-                        href="https://discord.com/invite/mTMKpre/"><i class="fa-brands fa-discord pe-1"></i> Join</a>
+                    <p class="card-title h4">Connect with our Community!</p>
+
+                    <p class="card-text">Join the conversation over on our Discord!</p>
+
+                    <a class="btn btn-primary rounded-pill fs-3" href="https://discord.com/invite/mTMKpre/"><i
+                            class="fa-brands fa-discord pe-1"></i>
+                        Join</a>
+
                 </div>
             </div>
+
+            {{ partial "latest-roundup.html" . }}
+
         </div>
-
-        {{ partial "latest-roundup.html" . }}
-
-
     </div>
 </section>
 {{ end }}

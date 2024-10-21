@@ -1,0 +1,11 @@
+{{- $size := "24" -}}
+{{- $class := "" -}}
+{{- if .size -}}
+{{- $size = .size -}}
+{{- end -}}
+{{- if .class -}}
+{{- $class = .class -}}
+{{- end -}}
+{{- with resources.Get "images/stlgd-icon.svg" -}}
+<img src="{{ .RelPermalink }}" width="{{ $size }}" height="{{ $size }}" class="{{ $class }}" style="vertical-align: text-bottom;" alt="STL Game Dev Icon">
+{{- end -}}

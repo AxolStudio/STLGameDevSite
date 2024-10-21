@@ -6,11 +6,18 @@
                 <div class="flex-grow-1">
                     <h1>{{ .Title }}</h1>
                 </div>
-                
+
             </div>
         </div>
-        
-        <div class="row">{{ .Content }}</div>
+
+        <div class="row">
+            {{ .Content }}
+
+            <p class="text-end">
+                {{ partial "stlgd-icon.html" (dict "size" "42" "class" "") }}
+            </p>
+        </div>
+
     </div>
 </article>
 {{ end }}
