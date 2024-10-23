@@ -20,7 +20,7 @@ After much discussion and a lot of work, we are ready, and very excited to re-em
 
 ## What has changed?
 
-First, the big one: the St Louis Game Developer Co-op is no more. The organization was dissolved, and 5 of the more senior members of the community have stepped up to essentially start a new group and ownership of the accounts for things like Twitter, Facebook, Meetup, etc were transferred over to the new group. We have rebranded the new group simply *STL Game Dev* and have built a new website. We plan on using the social media accounts much more actively going forward.
+First, the big one: the St Louis Game Developer Co-op is no more. The organization was dissolved, and 5 of the more senior members of the community have stepped up to essentially start a new group and ownership of the accounts for things like Twitter, Facebook, Meetup, etc were transferred over to the new group. We have rebranded the new group simply *STL Gamedev* and have built a new website. We plan on using the social media accounts much more actively going forward.
 
 Although this is technically a new group, we are trying to maintain the spirit of the original group. As always, we want the Game Development community to be a safe, inclusive, and welcoming space for anyone and everyone.
 
@@ -30,25 +30,18 @@ If you are already a member of our Discord, you really won't notice too much of 
 
 ## What's going on with Events?
 
-### DrinkUps
-
-There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month.
-
-### 2024 Holiday Party
-
-We are actively working towards making sure the promised Annual Holiday Party can still take place this year. Plans are already in motion and we will be making an announcement very soon!
-
-### 2025 Global Game Jam
-
-The GGJ is one of our highest priority items for the new organization. We feel like this event is one of great importance to the community and we are making sure that it will still happen. Details to come very soon!
-
-### Other Events and Game Jams
-
-Although we have mostly been focused on ensuring the GGJ and the Holiday Party will still happen, we absolutely want to have more events throughout the year than just those. We hope to have more Game Jams spaced out throughout the year, and we are working out details on starting up the Share-and-Play events again, but these are still in the early planning stages. We will have more information on them later.
+* **GameDev DrinkUps**
+  : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month.
+* **2024 Holiday Party**
+  : We are actively working towards making sure the promised Annual Holiday Party can still take place this year. Plans are already in motion and we will be making an announcement very soon!
+* **2025 Global Game Jam**
+  : The GGJ is one of our highest priority items for the new organization. We feel like this event is one of great importance to the community and we are making sure that it will still happen. Details to come very soon!
+* **Other Events and Game Jams**
+  : Although we have mostly been focused on ensuring the GGJ and the Holiday Party will still happen, we absolutely want to have more events throughout the year than just those. We hope to have more Game Jams spaced out throughout the year, and we are working out details on starting up the Share-and-Play events again, but these are still in the early planning stages. We will have more information on them later.
 
 ## Who's in Charge?
 
-There are 5 members of the Administrative Group for STL Game Dev.
+There are 5 members of the Administrative Group for STL Gamedev.
 
 We are:
 * Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="i fa-brands fa-itch-io"></i>](https://seifertim.itch.io/)
@@ -58,9 +51,15 @@ We are:
 * Dan Eichling &mdash; <i class="i fa-brands fa-discord"></i> kinglord, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i>](mailto:dan@callsigngames.com)
   : Game industry veteran, agile enthusiast and AI harbinger. An OG community member and speaker that has his 2009 GGJ pin somewhere. Still enjoys making and playing games of all shapes and flavors, except eggplant.
 
-## How can I help?
+## How can *YOU* help?
 
-At this moment, we are still trying to get everything in order for the new group, and plan the 2 upcoming major events, so there is little that we would ask anyone to do right now. 
+In order to get a better sense of our current members, we have created a Survey. Please take a moment to fill it out so that we can use the data to work out the best way to move forward and offer events and resources aimed at better helping our community.
+
+You can find the Survey here: [STL Gamedev Feedback Survey 2024](https://forms.gle/8yw88DMSQiErQTnS9)
+
+We are asking everyone to submit their survey by the end of the day on **Friday, November 22, 2024**.
+
+Other than that, at this moment, we are still trying to get everything in order for the new group, and plan the 2 upcoming major events, so there is little that we would ask anyone to do right now. 
 
 In the near future, we are hoping to be able to enlist members of the community to help run other events, and to suggest ideas of new events or new activities and resources, but we're not ready for that, yet.
 
@@ -72,4 +71,4 @@ As I mentioned early, most of you are not going to even notice any changes. We t
 
 We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts on our Discord channel. We are going to try to do the best we can for the community going forward.
 
-We hope you are all just as excited to move forward into this new chapter of the STL Game Dev as we are!
+We hope you are all just as excited to move forward into this new chapter of the STL Gamedev as we are!

@@ -1,5 +1,5 @@
 {{ define "header" }}
-<div class="row ">
+<div class="row mt-3">
 
     {{/* <i class="i corner-icon ci-top-right fa-sharp-duotone fa-solid fa-address-book fa-6x "></i> */}}
 
@@ -12,7 +12,7 @@
 
 {{ define "main" -}}
 {{ $directory := .Site.Data.directory }}
-{{ $directory := sort $directory "name" "asc" }}
+{{ $directory := sort $directory "Name" "asc" }}
 {{- range $directoryItem := $directory }}
 {{- with $directoryItem }}
 <section class="d-flex flex-column justify-content-around flex-wrap">
@@ -36,7 +36,7 @@
                 {{ end}}
                 </dl>
                 <h3>Projects</h3>
-                <div class="d-flex">
+                <div class="vstack gap-3">
                 {{- range $directoryItem.Projects }}
                 {{ partial "showcase.html" . }}
                 {{ end -}}

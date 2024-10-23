@@ -1,7 +1,7 @@
 {
   "name": "stlgamedevsite",
   "version": "0.1.0",
-  "description": "New website for the STL Game Dev Community",
+  "description": "New website for the STL Gamedev Community",
   "main": "index.html",
   "scripts": {
     "scss": "sass assets/scss:.",

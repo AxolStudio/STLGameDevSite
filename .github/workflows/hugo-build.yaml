@@ -119,7 +119,7 @@ jobs:
                 id: discord-post
                 uses: Ilshidur/action-discord@master
                 env:
-                    DISCORD_USERNAME: "STL Game Dev"
+                    DISCORD_USERNAME: "STL Gamedev"
                     DISCORD_WEBHOOK: ${{ secrets.AXOL_WEBHOOK }}
                     DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
                 with:

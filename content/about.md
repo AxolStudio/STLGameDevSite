@@ -4,9 +4,9 @@ type: 'page'
 ---
 ## Who we are
 
-STL GAME DEV is a volunteer-run organization providing support to game creators of all levels and all walks of life in the greater St. Louis Missouri region.
+STL Gamedev is a volunteer-run organization providing support to game creators of all levels and all walks of life in the greater St. Louis Missouri region.
 
-We are dedicated to establishing an open, inclusive, and harrassment-free community where creators of all types of games (video, board, card, tabletop, and any other unique methods of play) can share ideas, receive constructive feedback, find resources, and build connections in order to bring their game projects to fruition.
+We are dedicated to establishing an open, inclusive, and harassment-free community where creators of all types of games (video, board, card, tabletop, and any other unique methods of play) can share ideas, receive constructive feedback, find resources, and build connections in order to bring their game projects to fruition.
 
 ## Our History
 
@@ -26,7 +26,7 @@ Sign up for our events through [<i class="fa-brands fa-meetup"></i> Meetup](http
 
 ## Code of Conduct
 
-Our Code of Coduct is...
+Our Code of Conduct is...
 
 ## Our Leadership
 

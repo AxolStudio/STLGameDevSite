@@ -7,17 +7,12 @@ $my-font-family: "Nunito Sans", sans-serif, "Noto Color Emoji";
 
 $font-family-base: $my-font-family;
 
-
+@import "stlgd";
 
 @import "bootstrap/functions";
 
-
-@import "stlgd";
-
 @import "bootstrap/variables";
 
-
-// custom colors
 
 @import "bootstrap/maps";
 @import "bootstrap/mixins"; 
