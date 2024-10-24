@@ -35,13 +35,18 @@ The St Louis Game Developer group is led by a core team of volunteer Administrat
 They are:
 
 Wes Ehrlichman
-:   ...
+:   Wes, or [SuperWes](https://www.superwes.com/), has had a role in leading the local game development scene in St. Louis nearly consistently ever since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at [Riot Games](https://www.riotgames.com/), BradyGames, [The Gamer's Quarter](https://thegamersquarter.com/), [Pelaaja](https://www.pelaaja.fi/), and countless video game stores. He currently manages a mobile development team at [World Wide Technology](https://www.wwt.com/) and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
+Socials - discord - SuperWes | X - WesleyTE | Xbox - SuperWes | PlayStation - SuperWes | Steam - SuperWes
 
 Dan Eichling
-: ...
+:   Game industry veteran, agile enthusiast and AI harbinger. An OG community member and speaker that has his 2009 GGJ pin somewhere. Still enjoys making and playing games of all shapes and flavors, except eggplant.
+Socials - dan@callsigngames.com | discord - kinglord | Not on other things enough to matter
+
 
 Tim Conceivable
-:   Something about Tim
+:   TimConceivable! is a 2D artist, game developer, and musical dabbler.  He has been an active member of the community since 2011 when he started his game dev journey.  In the following years he has participated in over 40 game jams and completed zero games.  He was also a board member from 2018 - 2019.
+discord: timconceivable
+itch.io: https://timconceivable.itch.io/
 
 Tim Ian Hely
 :   Founder of Axol Studio, LLC, Tim has been an active member of the group since 2012
