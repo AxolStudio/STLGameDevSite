@@ -38,11 +38,6 @@
 {{ $jQuery := resources.Get "js/jquery.min.js" }}
 <script src="{{ $jQuery.RelPermalink }}" ></script>
 
-{{ if .IsHome }}
-{{ $RSSParser := resources.Get "js/rss-parser.min.js" }}
-<script src="{{ $RSSParser.RelPermalink }}" ></script>
-{{ end }}
-
 {{- if hugo.IsProduction -}}
 {{ $bootstrap := resources.Get "js/bootstrap.bundle.min.js" }}
 <script src="{{ $bootstrap.RelPermalink }}" crossorigin="anonymous"></script>
