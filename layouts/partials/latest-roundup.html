@@ -32,8 +32,29 @@
 <script>
     async function getLatestRoundUp() {
 
-        const url = 'https://roundup.stlgame.dev/index.xml'
-        let parser = new RSSParser();
+        const url = 'https://roundup.stlgame.dev/index.json'
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            dataType: 'json',
+            success: function (data) {
+                let item = data[0];
+                let pubDate = new Date(item.created);
+                pubDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                let issue = item.no;
+                const linkString = `<h4 ><a href="${item.permalink}">RoundUp № ${issue}</a></h4><p class="">${pubDate}</p><img src="https://raw.githubusercontent.com/AxolStudio/STLGameDevRoundUp/main/screenshots/issue-${issue}.png" class="img-fluid" />`;
+                $('#roundup-spinner').hide('fast', function () {
+                    $(this).replaceWith(linkString).show('fast');
+                });
+            },
+            error: function (err) {
+                console.error(err);
+            }
+        });
+
+
+        /*  let parser = new RSSParser();
 
         let feed = await parser.parseURL(url);
 
@@ -42,21 +63,10 @@
             return feed.items[0];
         }
         else
-            throw new Error('No items found in feed');
+            throw new Error('No items found in feed');  */
     }
 
     $(document).ready(function () {
-        getLatestRoundUp().then((item) => {
-
-            let pubDate = new Date(item.pubDate);
-            pubDate = pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            let issue = item.title.match(/\d+/)[0];
-            const linkString = `<h4 style="font-size: xxx-large;"><a href="${item.link}">${item.title}</a></h4><p class="">${pubDate}</p><img src="https://raw.githubusercontent.com/AxolStudio/STLGameDevRoundUp/main/screenshots/issue-${issue}.png" class="img-fluid" />`;
-            $('#roundup-spinner').hide('fast', function () {
-                $(this).replaceWith(linkString).show('fast');
-            });
-        }).catch((err) => {
-            console.error(err);
-        });
+        getLatestRoundUp();
     });
 </script>
