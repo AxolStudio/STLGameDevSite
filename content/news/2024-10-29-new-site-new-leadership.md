@@ -50,6 +50,8 @@ We are:
   : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2011 when he started his game dev journey. In the following years he has participated in over 40 game jams and completed zero games. He was also a board member from 2018 - 2019.
 * Dan Eichling &mdash; <i class="i fa-brands fa-discord"></i> kinglord, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i>](mailto:dan@callsigngames.com)
   : Game industry veteran, agile enthusiast and AI harbinger. An OG community member and speaker that has his 2009 GGJ pin somewhere. Still enjoys making and playing games of all shapes and flavors, except eggplant.
+* Wes Ehrlichman &mdash; <i class="i fa-brands fa-discord"></i> SuperWes, <i class="fa-brands fa-xbox"></i> SuperWes, <i class="fa-brands fa-playstation"></i> SuperWes, [<i class="fa-brands fa-x-twitter"></i>](https://www.x.com/wesleyte)
+  : Wes, or [SuperWes](https://www.superwes.com/), has had a role in leading the local game development scene in St. Louis nearly consistently ever since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at [Riot Games](https://www.riotgames.com/), BradyGames, [The Gamer's Quarter](https://thegamersquarter.com/), [Pelaaja](https://www.pelaaja.fi/), and countless video game stores. He currently manages a mobile development team at [World Wide Technology](https://www.wwt.com/) and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
 
 ## How can *YOU* help?
 
