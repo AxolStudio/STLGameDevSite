@@ -1,6 +1,5 @@
 public/
 resources/
-abstract/
 node_modules/
 *.afdesign~lock~
 .prettierrc
