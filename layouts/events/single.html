@@ -55,7 +55,7 @@
             <ul class="event-list justify-content-between ">
                 {{ end }}
 
-                <li class="card ">
+                <li class="card flex-grow-0 ">
                     
                     <img src="{{- if strings.Contains $event.name "DrinkUp" }}{{ $drinkupImg.RelPermalink }}{{ else }}{{ $genericImg.RelPermalink }}{{ end }}" class="card-img-top" alt="Event Image">
                     <dl class="card-body p-3 m-0">
