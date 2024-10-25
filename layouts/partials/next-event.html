@@ -1,5 +1,9 @@
 {{- $today := ((time.Format "2006-01-02" time.Now ) | time ) -}}
 
+{{ $drinkupImg := resources.Get "images/events/event-drinkup.png" }}
+{{ $genericImg := resources.Get "images/events/event-generic.png" }}
+
+
     {{- $eventsRaw := .Site.Data.events -}}
     {{- $events := slice -}}
     {{- range $eventRaw := $eventsRaw -}}
@@ -21,14 +25,15 @@
     {{- if $events -}}
 
     {{- range $event := first 1 (sort $events "when" "asc") -}}
-
+    <img src="{{- if strings.Contains $event.name "DrinkUp" }}{{ $drinkupImg.RelPermalink }}{{ else }}{{ $genericImg.RelPermalink }}{{ end }}" class="img-fluid" alt="Event Image">
         <dl class="p-3 m-0">
+            
             <dt class="h4 text-center">{{ $event.name }}</dt>
             <dt class="h3 text-center">{{ time.Format ":date_short" $event.when }} - {{ time.Format ":time_short" $event.when }}</dt>
             <dd class=""><em>Where:</em> {{ $event.where }}</dd>
             <dd class="">{{ $event.desc }}</dd>
             {{ if $event.meetup }}
-            <dd class="text-center"><a href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/" class="btn"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
+            <dd class="text-center"><a href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/" class="btn btn-outline-primary"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
             {{ end }}
 
         </dl>

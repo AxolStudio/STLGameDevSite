@@ -22,8 +22,8 @@
 {{- $name = . }}
 {{- end }}
 {{- end }}
-<li class="nav-item" {{ if .Params.disabled }}data-bs-toggle="tooltip" data-bs-title="Coming Soon!"
-  data-bs-placement="bottom" {{ end }}>
+<li class="nav-item {{ if .Params.disabled }}d-none" data-bs-toggle="tooltip" data-bs-title="Coming Soon!"
+  data-bs-placement="bottom{{ end }}">
   <a class="nav-link {{ if .Params.disabled }}disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active"
     aria-current="page{{- else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{- end -}}"
     href=" {{ .URL }}" {{ end }}>{{ $name }}</a>

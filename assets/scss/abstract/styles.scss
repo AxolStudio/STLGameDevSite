@@ -29,14 +29,20 @@ ul:not(.nav) {
         padding: 0 3em;
     }
 
-                                                                ul {
-                                                                    margin-inline-start: 4rem;
-                                
-                                                                    li::marker {
-                                                                        color: $color-orange;
-                                                                    }
-                                                                }
-                                                                }
+ul {
+    margin-inline-start: 4rem;
+
+    li::marker {
+        color: $color-orange;
+    }
+}
+}
+
+.event-month:not(:last-of-type) {
+    border-bottom: 0.25rem solid $color-purple;
+    padding-bottom: 1rem;
+}
+
 #core-container {
     background-color: rgba(0, 0, 0, 0.66);
     padding: 0;
@@ -57,9 +63,9 @@ ul:not(.nav) {
 #top-nav {
     &.nav-scroller {
         background-color: black;
-        border-top: 1px solid $color-blue;
-        border-bottom: 1px solid $color-blue;
-        padding: 0 0.5em;
+        border-top: 2px solid $color-blue;
+        border-bottom: 2px solid $color-blue;
+        padding: 0 1em;
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -188,8 +194,8 @@ ul.event-list {
         justify-content: center;
         list-style-type: none;
         min-height: 20vh;
-        min-width: 30vh;
-        max-width: 30vh;
-        margin: 1rem;
+        min-width: 37vh;
+        max-width: 37vh;
+        margin-bottom: 1rem;
     }
 }

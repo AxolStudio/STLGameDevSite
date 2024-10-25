@@ -88,7 +88,7 @@ jobs:
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
                         start=$(echo $new_one | jq -r '.[0][3]')
-                        end=$(echo $new_one | jq -r '.[0][9]')
+                        end=$(echo $new_one | jq -r '.[0][8]')
                         start_human=$(date --date="$start" +"%A, %B %d, %Y %I:%M %p %Z")
                         end_human=$(date --date="$end" +"%A, %B %d, %Y %I:%M %p")
                         echo start=$start >> $GITHUB_OUTPUT
@@ -99,17 +99,14 @@ jobs:
 
 
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
-                        if [ ! -z $(echo $new_one | jq -r '.[0][7]') ]
-                        then
-                            embeds=$(echo $embeds | jq --arg value $(echo $new_one | jq -r '.[0][7]') '. + { "image": { "url": $value } }')
-                        else
-                            embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
-                            case $(echo $new_one | jq -r '.[0][2]') in
-                                *"DrinkUp"* )
-                                    embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
-                                    ;;
-                            esac 
-                        fi
+                        
+                        embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
+                        case $(echo $new_one | jq -r '.[0][2]') in
+                            *"DrinkUp"* )
+                                embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
+                                ;;
+                        esac 
+                        
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]
                         then
                             echo $meetup=$(echo $new_one | jq -r '.[0][5]')

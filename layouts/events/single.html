@@ -7,6 +7,10 @@
 {{ end }}
 
 {{ define "main" -}}
+
+{{ $drinkupImg := resources.Get "images/events/event-drinkup.png" }}
+{{ $genericImg := resources.Get "images/events/event-generic.png" }}
+
 <section class="d-flex flex-column">
 
     {{- $today := ((time.Format "2006-01-02" time.Now ) | time ) -}}
@@ -43,15 +47,17 @@
     </div>
     {{- end -}}
     {{ $lastDate = $eventDate }}
-    <div class="card my-3">
-        <div class="card-header">
-            <h2>{{ $eventDate }}:</h2>
+    <div class="event-month my-3">
+        <div class="">
+            <h2>{{ $eventDate }}</h2>
         </div>
-        <div class="card-body">
-            <ul class="event-list justify-content-center ">
+        <div class="">
+            <ul class="event-list justify-content-between ">
                 {{ end }}
 
-                <li class="card">
+                <li class="card ">
+                    
+                    <img src="{{- if strings.Contains $event.name "DrinkUp" }}{{ $drinkupImg.RelPermalink }}{{ else }}{{ $genericImg.RelPermalink }}{{ end }}" class="card-img-top" alt="Event Image">
                     <dl class="card-body p-3 m-0">
                         <dt class="h3 card-text text-center">{{ $event.name }}</dt>
                         <dt class="h4 card-text text-center">{{ time.Format "Jan 2" $rawDate }} - {{ time.Format
@@ -61,7 +67,7 @@
                         {{ if $event.meetup }}
                         <dd class="card-text text-center"><a
                                 href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/"
-                                class="btn"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
+                                class="btn btn-outline-primary"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
                         {{ end }}
 
                     </dl>
