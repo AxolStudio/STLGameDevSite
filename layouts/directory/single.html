@@ -11,26 +11,63 @@
 {{ end }}
 
 {{ define "main" -}}
-<div class="container-fluid text-center">
+<div class="container-fluid">
     <div class="row">
         {{ $directory := .Site.Data.directory }}
         {{ $directory := sort $directory "Name" "asc" }}
         {{- range $directoryItem := $directory }}
         {{- with $directoryItem }}
 
-        <div class="col col-lg-6 p-4">
-            <div class="card" >
-                <div class="card-header">
+        <div class="col col-lg-6 p-2">
+            <div class="card h-100 d-flex flex-column">
+            <div class="card-header d-flex align-items-center">
+                    <!-- Icon or Placeholder -->
                     {{ if $directoryItem.Logo }}
                     {{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
                     {{ $logo := $logo.Fill "60x60" }}
                     {{ $logoLink := $logo.RelPermalink }}
-                    <img src="{{ $logoLink }}" class="rounded-circle me-2" />
-                    {{ end }}{{ $directoryItem.Name }}
+                    <img src="{{ $logoLink }}" class="rounded-circle me-3" alt="Logo" />
+                    {{ else }}
+                    <div
+                            class="d-inline-block rounded-circle bg-dark me-3"
+                            style="width: 60px; height: 60px; aspect-ratio: 1 / 1;">
+                    </div>
+
+                    {{ end }}
+
+                    <!-- Text centered relative to the icon -->
+                    <span class="flex-grow-1">{{ $directoryItem.Name }}</span>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Secondary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+                <div class="card-body flex-grow-1">
+                    <p class="card-text">
+                        {{ if $directoryItem.Description}}
+                        {{ $directoryItem.Description }}
+                        {{ end}}
+                    </p>
+                    <h3>Projects</h3>
+                    <div>
+                        <div id="carouselExample{{ $directoryItem.Name }}" class="carousel slide">
+                            <div class="carousel-inner">
+                                {{- range $directoryItem.Projects }}
+                                {{ partial "showcase.html" . }}
+                                {{ end -}}
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    {{ if $directoryItem.Website }}
+                    <dd class="text-secondary text-small"><a href="{{ $directoryItem.Website }}" target="_blank">Website</a></dd>
+                    {{ end }}
                 </div>
             </div>
         </div>
