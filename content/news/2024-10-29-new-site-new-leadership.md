@@ -30,13 +30,13 @@ If you are already a member of our Discord, you really won't notice too much of 
 
 ## What's going on with Events?
 
-* **GameDev DrinkUps**
+- **GameDev DrinkUps**
   : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month.
-* **2024 Holiday Party**
+- **2024 Holiday Party**
   : We are actively working towards making sure the promised Annual Holiday Party can still take place this year. Plans are already in motion and we will be making an announcement very soon!
-* **2025 Global Game Jam**
+- **2025 Global Game Jam**
   : The GGJ is one of our highest priority items for the new organization. We feel like this event is one of great importance to the community and we are making sure that it will still happen. Details to come very soon!
-* **Other Events and Game Jams**
+- **Other Events and Game Jams**
   : Although we have mostly been focused on ensuring the GGJ and the Holiday Party will still happen, we absolutely want to have more events throughout the year than just those. We hope to have more Game Jams spaced out throughout the year, and we are working out details on starting up the Share-and-Play events again, but these are still in the early planning stages. We will have more information on them later.
 
 ## Who's in Charge?
@@ -53,7 +53,7 @@ We are:
   : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2011 when he started his game dev journey. In the following years he has participated in over 40 game jams and completed zero games. He was also a board member from 2018 - 2019.
 - Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i>](mailto:tim@axolstudio.com), [<i class="i fa-brands fa-itch-io"></i>](https://seifertim.itch.io/), [<i class="i fa-brands fa-itch-io"></i>](https://axolstudio.itch.io/)
   : Tim has been a member of the STL Game Development community since his first Game Jam in April 2014. He is the Founder of the Game Studio [Axol Studio, LLC](https://axolstudio.com).
-  
+
 ## How can *YOU* help?
 
 In order to get a better sense of our current members, we have created a Survey. Please take a moment to fill it out so that we can use the data to work out the best way to move forward and offer events and resources aimed at better helping our community.
