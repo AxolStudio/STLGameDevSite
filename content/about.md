@@ -4,7 +4,7 @@ type: 'page'
 ---
 ## Who we are
 
-STL Gamedev is a volunteer-run organization providing support to game creators of all levels and all walks of life in the greater St. Louis Missouri region.
+STLGameDev is a volunteer-run organization providing support to game creators of all levels and all walks of life in the greater St. Louis Missouri region.
 
 We are dedicated to establishing an open, inclusive, and harassment-free community where creators of all types of games&ndash; video, board, card, tabletop, and any other unique methods of play&ndash; can share ideas, receive constructive feedback, find resources, and build connections in order to bring their game projects to fruition.
   <br>
@@ -12,21 +12,21 @@ We are dedicated to establishing an open, inclusive, and harassment-free communi
 
 ## Our History
 
-Our organization has grown and changed over many iterations since it began as a humble Meetup.com group in 2010.
+Our organization has grown and changed over many iterations since it began as a humble Meetup group in 2010.
 
-In 2013, we restructured the group and established it as a local chapter of the IGDA (International Game Developers Association), but we eventually found that being under the umbrella of the IGDA too restrictive to the needs of our community members and the ambitious community projects and events we wanted to undertake.
+In 2013, a local chapter of the IGDA (International Game Developers Association) was established, but we eventually found being under the umbrella of the IGDA too restrictive to the needs and ambitions of community members.
 
-This led to the formation of the St Louis game Developer Co-op: a 501(c)(3) non-profit organization in 2015. For several years, the Co-op grew and thrived, supporting our community with events, game jams, social outings, and more - until the Covid-19 Pandemic brought in-person events, the lifeblood of our community, to a halt.
+This led to the formation of the St. Louis Game Developer Co-op nonprofit organization in 2015. For several years, the Co-op grew and thrived, supporting our community with events, game jams, social outings, and more&ndash; until the Covid-19 pandemic brought in-person events, the lifeblood of our community, to a halt.
 
-Near the end of 2024, due to the burden of maintaining the organization as volunteers, the Co-op leadership decided to dissolve the non-profit and step away from the group.
+Due to the burden of maintaining the organization as volunteers, the Co-op leadership decided to dissolve the nonprofit and step away from the group near the end of 2024.
 
-The current leadership is dedicated to continuing the mission of the organization and rebuilding the community going forward.
+The new leadership is dedicated to continuing the mission of the organization and rebuilding the community going forward.
   <br>
   <br>
 
 ## What we do
 
-STL GAME DEV facilitates conversation and collaboration virtually through our [<i class="fa-brands fa-discord"></i> Discord server](https://discord.com/invite/mTMKpre/) where creators can freely discuss ideas, share works in progress, and receive help and feedback from peers and mentors.
+STLGameDev facilitates conversation and collaboration virtually through our [<i class="fa-brands fa-discord"></i> Discord server](https://discord.com/invite/mTMKpre/) where creators can freely discuss ideas, share works in progress, and receive help and feedback from peers and mentors.
 
 We promote connection through a variety of free in-person events: 
 - Monthly social events
@@ -59,7 +59,7 @@ The St Louis Game Developer group is led by a core team of volunteer Administrat
   <br>
 
 * Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="i fa-brands fa-itch-io"></i> seifertim](https://seifertim.itch.io/), [<i class="i fa-brands fa-itch-io"></i> axolstudio](https://axolstudio.itch.io/)
-  : Tim has been a member of the STL Game Development community since his first Game Jam in April 2014. He is the Founder of [Axol Studio](https://axolstudio.com) games company.
+  : Tim has been a member of the St. Louis Game Development community since his first Game Jam in April 2014. He is the Founder of [Axol Studio](https://axolstudio.com) games company.
   <br>
   <br>
 
