@@ -10,19 +10,20 @@
 <body>
     <div id="core-container" class="container">
 
-        <header class="text-center mx-auto p-3 p-sm-4 p-md-5 p-lg-6">
-
-            <a class=" text-body-emphasis text-decoration-none" href="{{ .Site.BaseURL }}">
-                {{ with resources.Get "images/stlgd-logo.svg" }}
-                <img src="{{ .RelPermalink }}" alt="STL Gamedev Logo" id="title-logo" />
-                {{ end }}
-            </a>
-
-        </header>
-
         <div class="nav-scroller " id="top-nav">
-            <nav class="nav nav-pills  justify-content-evenly  d-flex flex-wrap">
-                {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="/images/stlgd-logo.svg" height="50px" alt="STL Gamedev Logo" id="title-logo" />
+                     </a>
+                
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse nav-fill w-100" id="navbarNav">
+                        {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+                    </div>
+                </div>
             </nav>
         </div>
 

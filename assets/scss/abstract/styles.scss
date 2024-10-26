@@ -69,11 +69,14 @@ ul:not(.nav) {
 
 #top-nav {
 
+    .navbar {
+        background-image: none !important;
+        background-color: transparent !important; /* Optional: if you need no color */
+    }
+
     &.nav-scroller {
         background-color: black;
-        border-top: 2px solid $color-blue;
         border-bottom: 2px solid $color-blue;
-        padding: .8em .2rem;
         margin-top: 0;
         margin-bottom: 0;
     }
