@@ -38,6 +38,12 @@ ul:not(.nav) {
     }
 }
 
+.toc {
+    li::marker {
+        color: $color-orange;
+    }
+}
+
 .event-month:not(:last-of-type) {
     border-bottom: 0.25rem solid $color-purple;
     padding-bottom: 1rem;

@@ -10,6 +10,7 @@ enableEmoji = true
     tagline = "The Home for Game Developers in and around St. Louis, Mo"
     title = 'STL Gamedev'
     author = 'The STL Gamedev Admin Team'
+    images = ['meta-image.png']
   [params.social]
     twitter = 'STLGameDev'
 
