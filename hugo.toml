@@ -49,14 +49,12 @@ publishDir = "public/"
       disabled = true
 
 
-
 [markup.goldmark.renderer]
   unsafe = true
 
-  [taxonomies]
-    tag = "tags"  
-    author = 'authors'
-
+[taxonomies]
+  tag = "tags"  
+  author = 'authors'
 
 [module]
   [[module.mounts]]
