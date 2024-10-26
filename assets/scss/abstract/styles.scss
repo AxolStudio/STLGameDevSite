@@ -51,6 +51,7 @@ ul:not(.nav) {
     border-left: 0.25rem solid $color-purple;
 
     border-right: 0.25rem solid $color-purple;
+    padding:0;
 }
 
 .i:not(.btn) {
@@ -61,24 +62,25 @@ ul:not(.nav) {
 }
 
 #top-nav {
+
     &.nav-scroller {
         background-color: black;
         border-top: 2px solid $color-blue;
         border-bottom: 2px solid $color-blue;
-        padding: 0 1em;
+        padding: .8em .2rem;
         margin-top: 0;
         margin-bottom: 0;
     }
 
+    
     .nav-item {
-        font-weight: bold;
-        font-size: 1.25rem;
-        margin: 0.2em;
+
+        padding: 0 0.1rem;
 
         .nav-link {
+
             border-width: medium;
             border-style: solid;
-            border-radius: 100px;
             border-color: transparent;
 
             &:hover {
@@ -95,8 +97,7 @@ ul:not(.nav) {
     }
 }
 header {
-    padding: 2em;
-    width: 60%;
+    max-width:600px;
 }
 #home-header {
     background-size: cover;

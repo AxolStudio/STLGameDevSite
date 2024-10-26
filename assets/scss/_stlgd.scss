@@ -21,7 +21,7 @@ $border-widths: (
     4: 6px,
     5: 7px
 );
-$border-radius: 1em;
+$border-radius: 0.5em;
 $border-style: solid;
 $border-color-dark: $color-purple;
 $border-color: $color-purple;
@@ -39,3 +39,6 @@ $card-cap-bg: rgba($color-blue, .2);
 $font-size-base: 1.2rem;
 $input-btn-font-size: 1.25rem;
 $btn-font-weight: 600;
+
+$nav-link-font-size:                1.125rem;
+$nav-link-font-weight:              bold;
