@@ -38,47 +38,53 @@
     {{- $lastDate := "" -}}
     {{- $lastTime := "" -}}
     {{- range $event := (sort $events "when" "asc") -}}
-    {{- $rawDate := time.AsTime $event.when -}}
-    {{- $eventDate := time.Format "January 2006" $rawDate -}}
-    {{- if (ne $lastDate $eventDate) -}}
-    {{- if (ne $lastDate "") -}}
-    </ul>
-    </div>
-    </div>
-    {{- end -}}
-    {{ $lastDate = $eventDate }}
-    <div class="event-month my-3">
-        <div class="">
+        {{- $rawDate := time.AsTime $event.when -}}
+        {{- $eventDate := time.Format "January 2006" $rawDate -}}
+        {{- if (ne $lastDate $eventDate) -}}
+            {{- if (ne $lastDate "") -}}
+        </div>
+        </div>
+        </div>
+        </div>
+        {{- end -}}
+        {{ $lastDate = $eventDate }}
+        <div class="event-month my-3">
             <h2>{{ $eventDate }}</h2>
-        </div>
-        <div class="">
-            <ul class="event-list justify-content-between ">
-                {{ end }}
 
-                <li class="card flex-grow-0 ">
-                    
-                    <img src="{{- if strings.Contains $event.name "DrinkUp" }}{{ $drinkupImg.RelPermalink }}{{ else }}{{ $genericImg.RelPermalink }}{{ end }}" class="card-img-top" alt="Event Image">
-                    <dl class="card-body p-3 m-0">
-                        <dt class="h3 card-text text-center">{{ $event.name }}</dt>
-                        <dt class="h4 card-text text-center">{{ time.Format "Jan 2" $rawDate }} - {{ time.Format
-                            ":time_short" $rawDate }}</dt>
-                        <dd class="card-text "><em>Where:</em> {{ $event.where }}</dd>
-                        <dd class="card-text ">{{ $event.desc }}</dd>
-                        {{ if $event.meetup }}
-                        <dd class="card-text text-center"><a
-                                href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/"
-                                class="btn btn-outline-primary"><i class="i fa-brands fa-meetup"></i> RSVP</a></dd>
+            <div class="event-list">
+                <div class="container">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
                         {{ end }}
+                        <div class="col d-flex align-items-stretch">
+                            <div class="card border-color-orange">
 
-                    </dl>
-                </li>
+                                <img src="{{- if strings.Contains $event.name " DrinkUp" }}{{ $drinkupImg.RelPermalink }}{{
+                                    else }}{{ $genericImg.RelPermalink }}{{ end }}" class="card-img-top" alt="Event Image">
+                                <div class="card-body d-flex flex-column ">
+                                    <p class="h3 card-text text-center">{{ $event.name }}</p>
+                                    <p class="h4 card-text text-center">{{ time.Format "Jan 2" $rawDate }} - {{
+                                        time.Format
+                                        ":time_short" $rawDate }}</p>
+                                    <p class="card-text "><em>Where:</em> {{ $event.where }}</p>
+                                    <p class="card-text ">{{ $event.desc }}</p>
+                                    {{ if $event.meetup }}
+                                    <div class="card-text text-center mt-auto"><a
+                                            href="https://www.meetup.com/st-louis-game-developers/events/{{ $event.meetup }}/"
+                                            class="btn btn-outline-primary"><i class="i fa-brands fa-meetup"></i> RSVP</a>
+                                    </div>
+                                    {{ end }}
 
-                {{- end -}}
-            </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        {{- end -}}
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
     {{- else -}}
-    <p class="text-center">No upcoming events</p>
+        <p class="text-center">No upcoming events</p>
     {{- end -}}
 </section>
 {{- end }}

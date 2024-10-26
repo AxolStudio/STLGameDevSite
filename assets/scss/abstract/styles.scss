@@ -3,9 +3,7 @@
 // {{ $bgER := resources.Get "images/bg-edge-r.png" }}
 
 body {
-    background-image: url("{{ $bgE.RelPermalink }}"),
-        url("{{ $bgER.RelPermalink }}"),
-        url("{{ $bg.RelPermalink }}");
+    background-image: url("{{ $bgE.RelPermalink }}"), url("{{ $bgER.RelPermalink }}"), url("{{ $bg.RelPermalink }}");
     background-position:
         left top,
         right top,
@@ -13,29 +11,31 @@ body {
     background-repeat: repeat-y, repeat-y, repeat;
 }
 
+.border-color-orange {
+    border-color: $color-orange !important;
+}
+
 ul:not(.nav) {
     list-style-type: square;
 }
 
 .indented {
-
     h2 {
         padding: 0 1em;
     }
-
 
     p {
         text-indent: 0.5em;
         padding: 0 3em;
     }
 
-ul {
-    margin-inline-start: 4rem;
+    ul {
+        margin-inline-start: 4rem;
 
-    li::marker {
-        color: $color-orange;
+        li::marker {
+            color: $color-orange;
+        }
     }
-}
 }
 
 .event-month:not(:last-of-type) {
@@ -45,7 +45,7 @@ ul {
 
 #core-container {
     background-color: rgba(0, 0, 0, 0.66);
-    padding: 0;
+
     margin: auto;
 
     border-left: 0.25rem solid $color-purple;
@@ -94,7 +94,10 @@ ul {
         }
     }
 }
-
+header {
+    padding: 2em;
+    width: 60%;
+}
 #home-header {
     background-size: cover;
     background-repeat: no-repeat;
@@ -130,71 +133,4 @@ ul {
 
 .bg-blur-lg {
     backdrop-filter: blur(15px);
-}
-
-header {
-    max-width: 100%;
-    padding: 1.25rem;
-}
-
-@media (min-width: 400px) {
-    ul.event-list li {
-        flex-basis: calc(50% - 0.5vw);
-    }
-
-    header {
-        max-width: 100%;
-        padding: 1.25rem;
-    }
-}
-
-@media (min-width: 650px) {
-    ul.event-list li {
-        flex-basis: calc(33.33% - 3vw);
-    }
-
-    header {
-        max-width: 100%;
-
-        padding: 1.5rem;
-    }
-}
-
-@media (min-width: 900px) {
-    ul.event-list li {
-        flex-basis: calc(25% - 3.5vw);
-    }
-
-    header {
-        max-width: 70%;
-        padding: 2rem;
-    }
-}
-
-@media (min-width: 1100px) {
-    ul.event-list li {
-        flex-basis: calc(20% - 4vw);
-    }
-
-    header {
-        max-width: 50%;
-        padding: 2rem;
-    }
-}
-
-ul.event-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-
-    li {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        list-style-type: none;
-        min-height: 20vh;
-        min-width: 25rem;
-        margin-bottom: 1rem;
-    }
 }
