@@ -144,3 +144,12 @@ header {
 .bg-blur-lg {
     backdrop-filter: blur(15px);
 }
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
+}
+
+.navbar-toggler:active {
+    border: var(--bs-border-width) solid #444;
+}
+
