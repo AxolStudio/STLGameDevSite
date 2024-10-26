@@ -1,5 +1,5 @@
 ---
-title: 'About Our Organization'
+title: 'About the Organization'
 type: 'page'
 ---
 ## Who we are
@@ -7,20 +7,6 @@ type: 'page'
 STLGameDev is a volunteer-run organization providing support to game creators of all levels and all walks of life in the greater St. Louis Missouri region.
 
 We are dedicated to establishing an open, inclusive, and harassment-free community where creators of all types of games&ndash; video, board, card, tabletop, and any other unique methods of play&ndash; can share ideas, receive constructive feedback, find resources, and build connections in order to bring their game projects to fruition.
-  <br>
-  <br>
-
-## Our History
-
-Our organization has grown and changed over many iterations since it began as a humble Meetup group in 2010.
-
-In 2013, a local chapter of the IGDA (International Game Developers Association) was established, but we eventually found being under the umbrella of the IGDA too restrictive to the needs and ambitions of community members.
-
-This led to the formation of the St. Louis Game Developer Co-op nonprofit organization in 2015. For several years, the Co-op grew and thrived, supporting our community with events, game jams, social outings, and more&ndash; until the Covid-19 pandemic brought in-person events, the lifeblood of our community, to a halt.
-
-Due to the burden of maintaining the organization as volunteers, the Co-op leadership decided to dissolve the nonprofit and step away from the group near the end of 2024.
-
-The new leadership is dedicated to continuing the mission of the organization and rebuilding the community going forward.
   <br>
   <br>
 
@@ -38,9 +24,38 @@ Sign up for our events through [<i class="fa-brands fa-meetup"></i> Meetup](http
   <br>
   <br>
 
-## Code of Conduct
+## Community Guidelines
 
-Our Code of Conduct is...
+We are dedicated to establishing an open, inclusive, and harassment-free community where creators of all backgrounds, beliefs, and lifestyles can work together safely.
+
+We will not tolerate:
+
+- Inappropriate Decorum
+  : unwanted attention, unsolicited advice, speaking out of turn or for longer than suggested during introductions, or dominating conversations
+- Oppressive Behavior
+  : any conduct that demeans, marginalizes, rejects, threatens or harms anyone on the basis of identity, background, or ability
+- Harassment
+  : deliberate intimidation; stalking; following; harassing photography or recording; disruption of events; aggressive, derogatory, or threatening comments; and unwanted physical contact or sexual attention
+- Destructive Behavior
+  : damaging or altering any part of the building, inside or out, including furniture, equipment, or other people’s belongings
+- Exclusionary Actions
+  : denying certain participants opportunities to share views, skills and other contributions; engaging in favoritism; and creating or reinforcing an inequitable learning environment
+
+Anyone violating these guidelines will be banned from events and community spaces (such as our Discord server).
+<br>
+<br>
+
+## Our History
+
+Our organization has grown and changed over many iterations since it began as a humble Meetup group in 2010.
+
+In 2013, a local chapter of the IGDA (International Game Developers Association) was established, but we eventually found being under the umbrella of the IGDA too restrictive to the needs and ambitions of community members.
+
+This led to the formation of the St. Louis Game Developer Co-op nonprofit organization in 2015. For several years, the Co-op grew and thrived, supporting our community with events, game jams, social outings, and more&ndash; until the Covid-19 pandemic brought in-person events, the lifeblood of our community, to a halt.
+
+Due to the burden of maintaining the organization as volunteers, the Co-op leadership decided to dissolve the nonprofit and step away from the group near the end of 2024.
+
+The new leadership is dedicated to continuing the mission of the organization and rebuilding the community going forward.
   <br>
   <br>
 
@@ -49,7 +64,7 @@ Our Code of Conduct is...
 The St Louis Game Developer group is led by a core team of volunteer Administrators.
 
 * Wes Ehrlichman &mdash; <i class="i fa-brands fa-discord"></i> SuperWes, <i class="fa-brands fa-xbox"></i> SuperWes, <i class="fa-brands fa-playstation"></i> SuperWes, [<i class="fa-brands fa-x-twitter"></i> wesleyte](https://www.x.com/wesleyte)
-  : Wes, or [SuperWes](https://www.superwes.com/), has had a role in leading the local game development scene in St. Louis nearly consistently ever since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at Riot Games, BradyGames, The Gamer's Quarter, Pelaaja, and countless video game stores. He currently manages a mobile development team at World Wide Technology and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
+  : Wes, or [SuperWes](https://www.superwes.com/), has been a consistent presence in leadership of the community since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at Riot Games, BradyGames, The Gamer's Quarter, Pelaaja, and countless video game stores. He currently manages a mobile development team at World Wide Technology and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
   <br>
   <br>
 
@@ -59,12 +74,12 @@ The St Louis Game Developer group is led by a core team of volunteer Administrat
   <br>
 
 * Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="i fa-brands fa-itch-io"></i> seifertim](https://seifertim.itch.io/), [<i class="i fa-brands fa-itch-io"></i> axolstudio](https://axolstudio.itch.io/)
-  : Tim has been a member of the St. Louis Game Development community since his first Game Jam in April 2014. He is the Founder of [Axol Studio](https://axolstudio.com) games company.
+  : Tim has been a member of the St. Louis Game Development community since his first Game Jam in April 2014. He is the Founder of [Axol Studio](https://axolstudio.com) game company.
   <br>
   <br>
 
 * TimConceivable &mdash; <i class="i fa-brands fa-discord"></i> timconceivable, [<i class="i fa-brands fa-itch-io"></i> timconceivable](https://timconceivable.itch.io/)
-  : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2011 when he started his game dev journey. In the following years he has participated in over 40 game jams and completed zero games. He was also a board member from 2018 - 2019. 
+  : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2010 when he started his game dev journey. In the following years he has participated in over 40 game jams and *completed* zero games. He was also a Co-op board member from 2018 to 2019. 
   <br>
   <br>
 
@@ -75,4 +90,9 @@ The St Louis Game Developer group is led by a core team of volunteer Administrat
 
 ## Contact
 
-Here's how to contact us / contact us if you have any issues / we are dedicated to safe spaces and events and will not tolerate...
+You can reach someone in leadership by one of the following methods:
+
+- Reach out to any of us individually using the [contact information above](#our-leadership)
+- Mention the **@Adjudicator** role on [<i class="fa-brands fa-discord"></i> Discord](https://discord.com/channels/406541601750515718/489187236638883840)
+- Send an email to [admin@stlgame.dev](mailto:admin@stlgame.dev)
+
