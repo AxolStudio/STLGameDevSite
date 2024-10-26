@@ -12,7 +12,15 @@ We are dedicated to establishing an open, inclusive, and harassment-free communi
 
 ## Our History
 
-The organization started as a Meetup group in 2010 and has grown immensely in the years since. In 2013, several community members formed a local chapter of the IGDA (International Game Developers Association) but found that it didn't offer much of the support they were looking for.  This lead to the formation of the St. Louis Game Developer Co-op non-profit organization in 2015.  For several years the community grew and thrived until covid-19 brought in-person events to a halt.  The lack of in-person events which were the lifeblood of the community had a severe negative impact in which we are only beginning to rebound from.  Due to the stress of maintenance, the non-profit was dissolved in late 2024.  We are continuing and building upon the mission of the non-profit in every way possible.
+Our organization has grown and changed over many iterations since it began as a humble Meetup.com group in 2010.
+
+In 2013, we restructured the group and established it as a local chapter of the IGDA (International Game Developers Association), but we eventually found that being under the umbrella of the IGDA too restrictive to the needs of our community members and the ambitious community projects and events we wanted to undertake.
+
+This led to the formation of the St Louis game Developer Co-op: a 501(c)(3) non-profit organization in 2015. For several years, the Co-op grew and thrived, supporting our community with events, game jams, social outings, and more - until the Covid-19 Pandemic brought in-person events, the lifeblood of our community, to a halt.
+
+Near the end of 2024, due to the burden of maintaining the organization as volunteers, the Co-op leadership decided to dissolve the non-profit and step away from the group.
+
+The current leadership is dedicated to continuing the mission of the organization and rebuilding the community going forward.
   <br>
   <br>
 
