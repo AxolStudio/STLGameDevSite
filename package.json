@@ -8,7 +8,8 @@
     "build": "npm run scss",
     "watch:css": "sass --watch assets/scss:.",
     "watch": "npm run watch:css",
-    "script": "npm run build && npm run watch"
+    "script": "npm run build && npm run watch",
+    "run": "hugo server -D"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
