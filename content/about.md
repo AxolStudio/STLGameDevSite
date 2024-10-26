@@ -61,7 +61,7 @@ The new leadership is dedicated to continuing the mission of the organization an
 
 ## Our Leadership
 
-The St Louis Game Developer group is led by a core team of volunteer Administrators.
+STLGameDev is led by a core team of volunteer Administrators.
 
 * Wes Ehrlichman &mdash; <i class="i fa-brands fa-discord"></i> SuperWes, <i class="fa-brands fa-xbox"></i> SuperWes, <i class="fa-brands fa-playstation"></i> SuperWes, [<i class="fa-brands fa-x-twitter"></i> wesleyte](https://www.x.com/wesleyte)
   : Wes, or [SuperWes](https://www.superwes.com/), has been a consistent presence in leadership of the community since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at Riot Games, BradyGames, The Gamer's Quarter, Pelaaja, and countless video game stores. He currently manages a mobile development team at World Wide Technology and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
