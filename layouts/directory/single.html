@@ -15,7 +15,7 @@
     <div class="row">
         {{ $directory := .Site.Data.directory }}
         {{ $directory := sort $directory "Name" "asc" }}
-        {{- range $directoryItem := $directory }}
+        {{- range $index, $directoryItem := $directory }}
         {{- with $directoryItem }}
 
         <div class="col col-lg-6 p-2">
@@ -47,17 +47,17 @@
                     </p>
                     <h3>Projects</h3>
                     <div>
-                        <div id="carouselExample{{ $directoryItem.Name }}" class="carousel slide">
+                        <div id="project-carousel-{{$index}}" class="carousel slide">
                             <div class="carousel-inner">
-                                {{- range $directoryItem.Projects }}
-                                {{ partial "showcase.html" . }}
+                                {{- range $projectIndex, $_ := $directoryItem.Projects }}
+                                {{ partial "showcase.html" (dict "context" . "index" $projectIndex) }}
                                 {{ end -}}
                             </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#project-carousel-{{$index}}" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
                             </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                            <button class="carousel-control-next" type="button" data-bs-target="#project-carousel-{{$index}}" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Next</span>
                             </button>
