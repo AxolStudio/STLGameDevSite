@@ -16,7 +16,7 @@
 {{- end }}
 {{- end }}
 <span class="nav-item {{ if .Params.disabled }}d-none "data-bs-toggle="tooltip" data-bs-title="Coming Soon!" data-bs-placement="bottom{{ end }}" >
-    <a href=" {{ .URL }}" class="nav-link {{ if .Params.disabled -}} disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{ else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{ end }}" {{ end }}>{{ $name }}</a>
+    <a href=" {{ .URL }}" class="nav-link rounded px-2 py-1 {{ if .Params.disabled -}} disabled" {{ else }}{{ if $page.IsMenuCurrent .Menu . }}active" aria-current="page{{ else if $page.HasMenuCurrent .Menu . }} ancestor" aria-current="true{{ end }}" {{ end }}>{{ $name }}</a>
 </span>
 {{- end }}
 {{- end }}
