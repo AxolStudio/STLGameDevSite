@@ -13,15 +13,15 @@ $link-hover-color-dark: $color-orange;
 $headings-color: $color-purple;
 $headings-color-dark: $color-purple;
 
-$border-width: 3px;
+$border-width: 0.1rem;
 $border-widths: (
-    1: 3px,
-    2: 4px,
-    3: 5px,
-    4: 6px,
-    5: 7px
+    1: 0.1rem,
+    2: 0.2rem,
+    3: 0.5rem,
+    4: 0.4rem,
+    5: 0.5rem
 );
-$border-radius: 0.5em;
+$border-radius: 0.33em;
 $border-style: solid;
 $border-color-dark: $color-purple;
 $border-color: $color-purple;

@@ -9,6 +9,14 @@ body {
         right top,
         left top;
     background-repeat: repeat-y, repeat-y, repeat;
+    backdrop-filter: grayscale(20%) brightness(80%) ;
+}
+
+#core-container {
+    
+    
+    
+   
 }
 
 .border-color-orange {
@@ -50,7 +58,7 @@ ul:not(.nav) {
 }
 
 #core-container {
-    background-color: rgba(0, 0, 0, 0.66);
+    background-color: rgba(0, 0, 0, 0.4);
 
     margin: auto;
 
@@ -69,16 +77,20 @@ ul:not(.nav) {
 
 #top-nav {
 
+
+
     .navbar {
         background-image: none !important;
         background-color: transparent !important; /* Optional: if you need no color */
+        backdrop-filter: grayscale(100%) brightness(150%);
     }
 
     &.nav-scroller {
-        background-color: black;
-        border-bottom: 2px solid $color-blue;
+        background-image: url("{{ $bg.RelPermalink }}");
+        border-bottom: 0.25rem solid $color-blue;
         margin-top: 0;
         margin-bottom: 0;
+        
     }
 
     
@@ -114,7 +126,7 @@ header {
     background-position: center center;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid $color-blue;
+    border-bottom: 0.25rem solid $color-blue;
 }
 
 #header-card {
@@ -122,14 +134,20 @@ header {
 }
 
 .card {
-    backdrop-filter: brightness(0.33);
+    backdrop-filter: brightness(80%)  grayscale(100%) ;
+
 
     .card-header {
-        border-bottom: none;
+        border-bottom: 0.25rem solid $color-blue;
+
+    }
+
+    .card-body {
+        background: rgba(shift-color($color-blue, 60%), 0.33);
     }
 
     .card-footer {
-        border-top: none;
+        border-top: 0.25rem solid $color-blue;
     }
 }
 
