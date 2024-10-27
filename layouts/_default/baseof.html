@@ -15,15 +15,13 @@
 
                 <a class="navbar-brand me-auto flex-grow-1 flex-sm-grow-0 "  href="{{ .Site.Home.RelPermalink }}" >
                     {{ with resources.Get "images/stlgd-logo.svg" }}
-                    <img src="{{ .RelPermalink }}" height="64px" width="100%" class="d-none d-sm-inline" alt="STL Gamedev Logo" id="title-logo"  />
+                    <img src="{{ .RelPermalink }}" height="64px" width="100%"  alt="STL Gamedev Logo" id="title-logo"  />
                     {{ end }}
-                    {{ with resources.Get "images/stlgd-icon.svg" }}
-                    <img src="{{ .RelPermalink }}" height="100%" class="d-inline d-sm-none " style="max-height:64px;" alt="STL Gamedev Icon" id="title-icon"  />
-                    {{ end }}
+                    
                     
                 </a>
 
-                <button class="navbar-toggler ms-auto ms-sm-0 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                <button class="navbar-toggler  " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
