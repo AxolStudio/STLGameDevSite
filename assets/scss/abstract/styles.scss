@@ -44,6 +44,8 @@ ul:not(.nav) {
     li::marker {
         color: $color-orange;
     }
+
+    top: 9rem;
 }
 
 .event-month:not(:last-of-type) {
@@ -54,7 +56,7 @@ ul:not(.nav) {
 #core-container {
     
     background-image: url("{{ $bg.RelPermalink }}");
-    
+
     margin: auto;
 
     border-left: 0.25rem solid $color-purple;
