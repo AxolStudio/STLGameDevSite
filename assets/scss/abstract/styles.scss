@@ -153,3 +153,23 @@ header {
     border: var(--bs-border-width) solid #444;
 }
 
+.top-nav-logo {
+    height: 100%;
+    width: auto;
+    max-height: 46px;
+}
+
+@media (min-width: 576px) {
+    .top-nav-logo {
+        height: 46px;
+    }
+}
+
+@media (min-width: 992px) {
+    .top-nav-logo {
+        height: 100%;
+        width: 100%;
+        max-height: 64px;
+        display: inline !important;
+    }
+}
