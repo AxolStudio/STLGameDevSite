@@ -45,8 +45,16 @@
                         {{ $directoryItem.Description }}
                         {{ end}}
                     </p>
-                    <h3>Projects</h3>
-                    <div>
+                    <p>
+                        <button 
+                            class="btn btn-primary"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapse-projects-{{$index}}">
+                            Projects
+                        </button>
+                    </p>
+                    <div class="collapse" id="collapse-projects-{{$index}}">
                         <div id="project-carousel-{{$index}}" class="carousel slide">
                             <div class="carousel-inner">
                                 {{- range $projectIndex, $_ := $directoryItem.Projects }}

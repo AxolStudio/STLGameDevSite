@@ -13,6 +13,11 @@
     <img src="{{ $imgLink }}" class="d-block w-100" />
     <h3 class="">{{ .Name }} </h3>
     <p class=" ">{{ .Description }}</p>
+    <div class="d-flex flex-row hstack gap-3 border-top pt-2">{{ range .Links }}
+        <a href="{{ .URL }}" target="_blank" data-bs-toggle="tooltip" data-bs-title="{{ .Tooltip }}"><i
+                class="i {{ .Icon }} fa-2x"></i></a>
+        {{ end }}
+    </div>
 </div>
 
 {{ end }}
