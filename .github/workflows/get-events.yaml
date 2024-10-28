@@ -122,7 +122,7 @@ jobs:
                 uses: Ilshidur/action-discord@master
                 env:
                     DISCORD_USERNAME: "STL Gamedev"
-                    DISCORD_WEBHOOK: ${{ secrets.AXOL_WEBHOOK }}
+                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
                     DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
                 with:
                     args: ":calendar: A new event has been scheduled!"
@@ -164,3 +164,20 @@ jobs:
                             https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
                             \#STL \#GameDev \#IndieGames
+            -   name: Bsky's
+                uses: myConsciousness/bluesky-post@v5
+                with: 
+                    text: |
+                            :calendar: A new event has been scheduled!
+                            ${{ steps.get-new-one.outputs.event_name }} 
+
+                            ${{ steps.get-new-one.outputs.event_name }}
+                            
+                            ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
+                            
+                            https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+                            
+                            \#STL \#GameDev \#IndieGames
+                    link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+                    identifier: "stlgame.dev"
+                    password: ${{ secrets.BLUESKY_PASSWORD }}
