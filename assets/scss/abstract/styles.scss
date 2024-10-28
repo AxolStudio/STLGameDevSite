@@ -81,7 +81,9 @@ ul:not(.nav) {
 
 #top-nav {
 
-
+    .navbar-toggler {
+        background-color:black;
+    }
 
     .navbar {
         background-image: none !important;
@@ -138,20 +140,22 @@ header {
 }
 
 .card {
-    backdrop-filter: brightness(80%)  grayscale(100%) ;
+    backdrop-filter: brightness(80%)  grayscale(100%) saturate(50%) ;
 
 
     .card-header {
         border-bottom: 0.25rem solid $color-blue;
+        background: rgba(shift-color($color-blue, 20%), 0.8);
 
     }
 
     .card-body {
-        background: rgba(shift-color($color-blue, 60%), 0.33);
+        background: rgba(shift-color($color-blue, 60%), 0.8);
     }
 
     .card-footer {
         border-top: 0.25rem solid $color-blue;
+        background: rgba(shift-color($color-blue, 20%), 0.8);
     }
 }
 
