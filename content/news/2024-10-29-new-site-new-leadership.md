@@ -30,13 +30,13 @@ If you are already a member of our Discord, you really won't notice too much of 
 
 ## What's going on with Events?
 
-* **GameDev DrinkUps**
+- **GameDev DrinkUps**
   : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month.
-* **2024 Holiday Party**
+- **2024 Holiday Party**
   : We are actively working towards making sure the promised Annual Holiday Party can still take place this year. Plans are already in motion and we will be making an announcement very soon!
-* **2025 Global Game Jam**
+- **2025 Global Game Jam**
   : The GGJ is one of our highest priority items for the new organization. We feel like this event is one of great importance to the community and we are making sure that it will still happen. Details to come very soon!
-* **Other Events and Game Jams**
+- **Other Events and Game Jams**
   : Although we have mostly been focused on ensuring the GGJ and the Holiday Party will still happen, we absolutely want to have more events throughout the year than just those. We hope to have more Game Jams spaced out throughout the year, and we are working out details on starting up the Share-and-Play events again, but these are still in the early planning stages. We will have more information on them later.
 
 ## Who's in Charge?
@@ -44,14 +44,15 @@ If you are already a member of our Discord, you really won't notice too much of 
 There are 5 members of the Administrative Group for STL Gamedev.
 
 We are:
-* Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="i fa-brands fa-itch-io"></i>](https://seifertim.itch.io/)
-  : Tim has been a member of the STL Game Development community since his first Game Jam in April 2014. He is the Founder of the Game Studio [Axol Studio, LLC](https://axolstudio.com).
-* TimConceivable &mdash; <i class="i fa-brands fa-discord"></i> timconceivable, [<i class="i fa-brands fa-itch-io"></i>](https://timconceivable.itch.io/)
-  : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2011 when he started his game dev journey. In the following years he has participated in over 40 game jams and completed zero games. He was also a board member from 2018 - 2019.
-* Dan Eichling &mdash; <i class="i fa-brands fa-discord"></i> kinglord, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i>](mailto:dan@callsigngames.com)
-  : Game industry veteran, agile enthusiast and AI harbinger. An OG community member and speaker that has his 2009 GGJ pin somewhere. Still enjoys making and playing games of all shapes and flavors, except eggplant.
-* Wes Ehrlichman &mdash; <i class="i fa-brands fa-discord"></i> SuperWes, <i class="fa-brands fa-xbox"></i> SuperWes, <i class="fa-brands fa-playstation"></i> SuperWes, [<i class="fa-brands fa-x-twitter"></i>](https://www.x.com/wesleyte)
+
+- Wes Ehrlichman &mdash; <i class="i fa-brands fa-discord"></i> SuperWes, <i class="fa-brands fa-xbox"></i> SuperWes, <i class="fa-brands fa-playstation"></i> SuperWes, [<i class="fa-brands fa-x-twitter"></i>](https://www.x.com/wesleyte)
   : Wes, or [SuperWes](https://www.superwes.com/), has had a role in leading the local game development scene in St. Louis nearly consistently ever since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at [Riot Games](https://www.riotgames.com/), BradyGames, [The Gamer's Quarter](https://thegamersquarter.com/), [Pelaaja](https://www.pelaaja.fi/), and countless video game stores. He currently manages a mobile development team at [World Wide Technology](https://www.wwt.com/) and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
+- Dan Eichling &mdash; <i class="i fa-brands fa-discord"></i> kinglord, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i>](mailto:dan@callsigngames.com)
+  : Game industry veteran, agile enthusiast and AI harbinger. An OG community member and speaker that has his 2009 GGJ pin somewhere. Still enjoys making and playing games of all shapes and flavors, except eggplant.
+- TimConceivable &mdash; <i class="i fa-brands fa-discord"></i> timconceivable, [<i class="i fa-brands fa-itch-io"></i>](https://timconceivable.itch.io/)
+  : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2011 when he started his game dev journey. In the following years he has participated in over 40 game jams and completed zero games. He was also a board member from 2018 - 2019.
+- Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i>](mailto:tim@axolstudio.com), [<i class="i fa-brands fa-itch-io"></i>](https://seifertim.itch.io/), [<i class="i fa-brands fa-itch-io"></i>](https://axolstudio.itch.io/)
+  : Tim has been a member of the STL Game Development community since his first Game Jam in April 2014. He is the Founder of the Game Studio [Axol Studio, LLC](https://axolstudio.com).
 
 ## How can *YOU* help?
 
@@ -61,7 +62,7 @@ You can find the Survey here: [STL Gamedev Feedback Survey 2024](https://forms.g
 
 We are asking everyone to submit their survey by the end of the day on **Friday, November 22, 2024**.
 
-Other than that, at this moment, we are still trying to get everything in order for the new group, and plan the 2 upcoming major events, so there is little that we would ask anyone to do right now. 
+Other than that, at this moment, we are still trying to get everything in order for the new group, and plan the 2 upcoming major events, so there is little that we would ask anyone to do right now.
 
 In the near future, we are hoping to be able to enlist members of the community to help run other events, and to suggest ideas of new events or new activities and resources, but we're not ready for that, yet.
 

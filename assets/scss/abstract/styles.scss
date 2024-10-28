@@ -9,7 +9,9 @@ body {
         right top,
         left top;
     background-repeat: repeat-y, repeat-y, repeat;
+    backdrop-filter: grayscale(20%) brightness(80%) ;
 }
+
 
 .border-color-orange {
     border-color: $color-orange !important;
@@ -42,6 +44,8 @@ ul:not(.nav) {
     li::marker {
         color: $color-orange;
     }
+
+    top: 9rem;
 }
 
 .event-month:not(:last-of-type) {
@@ -50,7 +54,8 @@ ul:not(.nav) {
 }
 
 #core-container {
-    background-color: rgba(0, 0, 0, 0.66);
+    
+    background-image: url("{{ $bg.RelPermalink }}");
 
     margin: auto;
 
@@ -67,15 +72,29 @@ ul:not(.nav) {
     --fa-secondary-color: #{scale-color($color-orange, $lightness: -33%)};
 }
 
+.social-bar{
+    background-image: none !important;
+    background-color: transparent !important; /* Optional: if you need no color */
+    backdrop-filter: grayscale(100%) brightness(150%) !important;
+}
+
+
 #top-nav {
 
+
+
+    .navbar {
+        background-image: none !important;
+        background-color: transparent !important; /* Optional: if you need no color */
+        backdrop-filter: grayscale(100%) brightness(150%);
+    }
+
     &.nav-scroller {
-        background-color: black;
-        border-top: 2px solid $color-blue;
-        border-bottom: 2px solid $color-blue;
-        padding: .8em .2rem;
+        background-image: url("{{ $bg.RelPermalink }}");
+        border-bottom: 0.25rem solid $color-blue;
         margin-top: 0;
         margin-bottom: 0;
+        
     }
 
     
@@ -111,22 +130,28 @@ header {
     background-position: center center;
     padding-top: 3rem;
     padding-bottom: 3rem;
-    border-bottom: 1px solid $color-blue;
+    border-bottom: 0.25rem solid $color-blue;
 }
 
 #header-card {
-    backdrop-filter: blur(5px) grayscale(100%) brightness(50%);
+    backdrop-filter: blur(2px) grayscale(100%) brightness(20%) contrast(90%);
 }
 
 .card {
-    backdrop-filter: brightness(0.33);
+    backdrop-filter: brightness(80%)  grayscale(100%) ;
+
 
     .card-header {
-        border-bottom: none;
+        border-bottom: 0.25rem solid $color-blue;
+
+    }
+
+    .card-body {
+        background: rgba(shift-color($color-blue, 60%), 0.33);
     }
 
     .card-footer {
-        border-top: none;
+        border-top: 0.25rem solid $color-blue;
     }
 }
 
@@ -140,4 +165,33 @@ header {
 
 .bg-blur-lg {
     backdrop-filter: blur(15px);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0;
+}
+
+.navbar-toggler:active {
+    border: var(--bs-border-width) solid #444;
+}
+
+.top-nav-logo {
+    height: 100%;
+    width: auto;
+    max-height: 46px;
+}
+
+@media (min-width: 576px) {
+    .top-nav-logo {
+        height: 46px;
+    }
+}
+
+@media (min-width: 992px) {
+    .top-nav-logo {
+        height: 100%;
+        width: 100%;
+        max-height: 64px;
+        display: inline !important;
+    }
 }
