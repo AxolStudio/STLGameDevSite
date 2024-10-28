@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="core-container" class="container">
+    <div id="core-container" class="container d-flex flex-column ">
 
         <div class="nav-scroller sticky-top" id="top-nav">
             <nav class="navbar navbar-expand-lg container-fluid p-3 d-flex flex-row g-3 align-items-end">
@@ -46,11 +46,11 @@
 
         {{ block "header" . }}{{ end }}
 
-        <main class=" mh-100 mx-3">
+        <main class=" mh-100 mx-3 h-100">
             {{ block "middle" . }}{{ end }}
             {{ block "main" . }}{{ end }}
         </main>
-        <footer class="footer pt-5  ">
+        <footer class="footer pt-5 mt-auto  ">
             {{ block "footer" . }}
             {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
             {{ end }}

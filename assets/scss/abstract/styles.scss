@@ -2,6 +2,11 @@
 // {{ $bgE := resources.Get "images/bg-edge.png" }}
 // {{ $bgER := resources.Get "images/bg-edge-r.png" }}
 
+html, body { 
+    height:100%;
+    min-height:100%;
+ }
+
 body {
     background-image: url("{{ $bgE.RelPermalink }}"), url("{{ $bgER.RelPermalink }}"), url("{{ $bg.RelPermalink }}");
     background-position:
@@ -63,6 +68,7 @@ ul:not(.nav) {
 
     border-right: 0.25rem solid $color-purple;
     padding:0;
+    min-height:100%;
 }
 
 .i:not(.btn) {
@@ -72,7 +78,7 @@ ul:not(.nav) {
     --fa-secondary-color: #{scale-color($color-orange, $lightness: -33%)};
 }
 
-.social-bar{
+.simple-bar{
     background-image: none !important;
     background-color: transparent !important; /* Optional: if you need no color */
     backdrop-filter: grayscale(100%) brightness(150%) !important;
