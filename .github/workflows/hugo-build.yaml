@@ -120,7 +120,37 @@ jobs:
                 uses: Ilshidur/action-discord@master
                 env:
                     DISCORD_USERNAME: "STL Gamedev"
-                    DISCORD_WEBHOOK: ${{ secrets.AXOL_WEBHOOK }}
+                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
                     DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
                 with:
                     args: ":newspaper: A News Article has been posted on the website!"
+            -   name: Tweet
+                id: tweet
+                uses: dart-actions/tweet@v1.0.1
+                with:
+                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                    text: |
+                            :newspaper: A new post has been created!
+
+                            ${{ steps.get-new-one.outputs.embeds.title }}
+                            
+                            ${{ steps.get-new-one.outputs.embeds.url }}
+                            
+                            \#STL \#GameDev
+            -   name: Bsky's
+                uses: myConsciousness/bluesky-post@v5
+                with: 
+                    text: |
+                            :newspaper: A new post has been created!
+                            
+                            ${{ steps.get-new-one.outputs.embeds.title }}
+                            
+                            ${{ steps.get-new-one.outputs.embeds.url }}
+                            
+                            \#STL \#GameDev
+                    link-preview-url: ${{ steps.get-new-one.outputs.embeds.url }}
+                    identifier: "stlgame.dev"
+                    password: ${{ secrets.BLUESKY_PASSWORD }}

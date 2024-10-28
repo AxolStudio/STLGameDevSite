@@ -163,7 +163,7 @@ jobs:
                             
                             https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
-                            \#STL \#GameDev \#IndieGames
+                            \#STL \#GameDev
             -   name: Bsky's
                 uses: myConsciousness/bluesky-post@v5
                 with: 
@@ -177,7 +177,7 @@ jobs:
                             
                             https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
-                            \#STL \#GameDev \#IndieGames
+                            \#STL \#GameDev
                     link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                     identifier: "stlgame.dev"
                     password: ${{ secrets.BLUESKY_PASSWORD }}
