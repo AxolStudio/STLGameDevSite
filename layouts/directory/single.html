@@ -22,17 +22,18 @@
                 {{ $logo := resources.Get (printf "images/directory/%s" $directoryItem.Logo ) }}
                 {{ $logo := $logo.Fill "60x60" }}
                 {{ $logoLink := $logo.RelPermalink }}
-                <img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ end }}{{ $directoryItem.Name }}
-            </h2>
-            <dl>
+                <img src="{{ $logoLink }}" class="rounded-circle me-2" />{{ end }}
                 {{ if $directoryItem.Website }}
-                <dd class="text-secondary text-small">Website: <a href="{{ $directoryItem.Website }}" target="_blank">{{
-                        $directoryItem.Website }}</a></dd>
+                    <a href="{{ $directoryItem.Website }}" target="_blank"> {{ $directoryItem.Name }} </a>
+                {{ else }}
+                    {{ $directoryItem.Name }} 
                 {{ end }}
+            </h2>
+            
                 {{ if $directoryItem.Description}}
                 <dd>{{ $directoryItem.Description }}</dd>
                 {{ end}}
-            </dl>
+            
         </div>
         <div class="card-body ">
                 <h3>Projects</h3>
