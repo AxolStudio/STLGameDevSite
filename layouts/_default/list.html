@@ -1,14 +1,15 @@
-{{ define "header" }}
-<div class="row text-center mt-3">
+{{ define "header" -}}
+<div class="row text-center  simple-bar rounded m-4 p-3 border d-flex justify-content-evenly">
 
   <h1 class="font-weight-light text-center">{{ .Title }}</h1>
   {{ .Content }}
+
 </div>
-{{ end }}
+{{- end }}
 
-{{ define "main" }}
+{{ define "main" -}}
 
-{{ range .Pages }}
+{{ range .Pages -}}
 
 <article class="card ">
   <div class="card-header">
@@ -27,6 +28,6 @@
   {{ end }}
 
 </article>
-{{ end }}
+{{- end }}
 
-{{ end }}
+{{- end }}
