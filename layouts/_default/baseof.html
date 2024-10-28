@@ -8,53 +8,57 @@
 </head>
 
 <body>
-    <div id="core-container" class="container d-flex flex-column ">
+    <div id="core-container" class="container d-flex flex-column  ">
+        <div id="inner-block" class=" d-flex flex-column flex-grow-1">
+            <div class="nav-scroller sticky-top" id="top-nav">
+                <nav class="navbar navbar-expand-lg container-fluid p-3 d-flex flex-row g-3 align-items-end">
 
-        <div class="nav-scroller sticky-top" id="top-nav">
-            <nav class="navbar navbar-expand-lg container-fluid p-3 d-flex flex-row g-3 align-items-end">
+                    <a class="navbar-brand me-auto flex-grow-1 flex-sm-grow-0 " href="{{ .Site.Home.RelPermalink }}">
+                        {{ with resources.Get "images/stlgd-logo.svg" }}
+                        <img src="{{ .RelPermalink }}" class="top-nav-logo" alt="STL Gamedev Logo" id="title-logo" />
+                        {{ end }}
+                    </a>
 
-                <a class="navbar-brand me-auto flex-grow-1 flex-sm-grow-0 "  href="{{ .Site.Home.RelPermalink }}" >
-                    {{ with resources.Get "images/stlgd-logo.svg" }}
-                    <img src="{{ .RelPermalink }}" class="top-nav-logo" alt="STL Gamedev Logo" id="title-logo"  />
-                    {{ end }}
-                </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <div class="collapse navbar-collapse nav-fill ms-auto gap-3 flex-grow-0" id="navbarNav">
 
-                <div class="collapse navbar-collapse nav-fill ms-auto gap-3 flex-grow-0" id="navbarNav">
+                        {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 
-                    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+                        <span class="nav-item dropdown">
+                            <a class="nav-link rounded px-2 py-1 dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" id="other-sites">Other Sites</a>
+                            <div class="dropdown-menu dropdown-menu-lg-end">
+                                <span class="nav-item"><a class="rounded px-2 py-1 nav-link"
+                                        href="https://roundup.stlgame.dev">STL Gamedev Roundups</a></span>
+                                <span class="nav-item"><a class="rounded px-2 py-1 nav-link"
+                                        href="https://www.stlgamejam.com/">STL Gamejam</a></span>
+                            </div>
 
-                    <span class="nav-item dropdown" >
-                        <a class="nav-link rounded px-2 py-1 dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" id="other-sites"  >Other Sites</a>
-                        <div class="dropdown-menu dropdown-menu-lg-end">
-                            <span class="nav-item"><a class="rounded px-2 py-1 nav-link" href="https://roundup.stlgame.dev">STL Gamedev Roundups</a></span>
-                            <span class="nav-item"><a class="rounded px-2 py-1 nav-link" href="https://www.stlgamejam.com/">STL Gamejam</a></span>
-                        </div>
-    
-                    </span>
+                        </span>
 
-                    
-                </div>
 
-            </nav>
+                    </div>
+
+                </nav>
+            </div>
+
+
+            {{ block "header" . }}{{ end }}
+
+            <main class=" mh-100 mx-3 h-100">
+                {{ block "middle" . }}{{ end }}
+                {{ block "main" . }}{{ end }}
+            </main>
+            <footer class="footer pt-5 mt-auto  ">
+                {{ block "footer" . }}
+                {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
+                {{ end }}
+            </footer>
         </div>
-
-
-        {{ block "header" . }}{{ end }}
-
-        <main class=" mh-100 mx-3 h-100">
-            {{ block "middle" . }}{{ end }}
-            {{ block "main" . }}{{ end }}
-        </main>
-        <footer class="footer pt-5 mt-auto  ">
-            {{ block "footer" . }}
-            {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
-            {{ end }}
-        </footer>
     </div>
 
 </body>
