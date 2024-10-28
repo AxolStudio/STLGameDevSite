@@ -8,11 +8,11 @@ tags: [
 authors: ['Tim I Hely']
 ---
 
-## Welcome to the new Era of Game Development in St Louis!
+## Welcome to the new Era of Game Development in St. Louis!
 
-St Louis has had a thriving Game Development community in some capacity for over 10 years.
+St. Louis has had a thriving Game Development community in some capacity for over 10 years.
 
-In September 2024, we were informed, rather abruptly, that the current leaders of the *St Louis Game Dev Co-op* had all stepped down from the organization and had dissolved the 501(c)(3) that had been formed a few years previous to allow the organization to collect donation funds.
+In September 2024, we were informed, rather abruptly, that the current leaders of the *St. Louis Game Dev Co-op* had all stepped down from the organization and had dissolved the 501(c)(3) that had been formed a few years previous to allow the organization to collect donation funds.
 
 In the hours following this announcement, several long-time members of the group scrambled to take over ownership of all the accounts and services that were part of the organization and began working on plans on what would come next for our community.
 
@@ -20,7 +20,7 @@ After much discussion and a lot of work, we are ready, and very excited to re-em
 
 ## What has changed?
 
-First, the big one: the St Louis Game Developer Co-op is no more. The organization was dissolved, and 5 of the more senior members of the community have stepped up to essentially start a new group and ownership of the accounts for things like Twitter, Facebook, Meetup, etc were transferred over to the new group. We have rebranded the new group simply *STL Gamedev* and have built a new website. We plan on using the social media accounts much more actively going forward.
+First, the big one: the St. Louis Game Developer Co-op is no more. The organization was dissolved, and 5 of the more senior members of the community have stepped up to essentially start a new group and ownership of the accounts for things like Twitter, Facebook, Meetup, etc were transferred over to the new group. We have rebranded the new group simply *STL Gamedev* and have built a new website. We plan on using the social media accounts much more actively going forward.
 
 Although this is technically a new group, we are trying to maintain the spirit of the original group. As always, we want the Game Development community to be a safe, inclusive, and welcoming space for anyone and everyone.
 

@@ -10,7 +10,7 @@ The site is built by [GitHub Actions](https://github.com/AxolStudio/STLGameDevSi
 
 ## Directory
 
-If you are a developer from the St Louis area, and have projects you would like to share on our site, you can add them to the Directory.
+If you are a developer from the St. Louis area, and have projects you would like to share on our site, you can add them to the Directory.
 
 ### How to Add a Developer
 
