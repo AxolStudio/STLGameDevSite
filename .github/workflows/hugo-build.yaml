@@ -100,57 +100,57 @@ jobs:
                 id: deployment
                 uses: actions/deploy-pages@v4
 
-    share:
-        runs-on: ubuntu-latest
-        needs: build
-        if: needs.build.outputs.new_news_items != '[]'
-        strategy:
-            matrix:
-                steps: ${{ fromJSON( needs.build.outputs.new_news_items ) }}
-        steps:
-            -   name: get new one
-                id: get-new-one
-                run: |
-                        new_one='${{ toJSON(matrix.steps) }}'
-                        embeds=$(echo $new_one | jq -r ' . | { "title": .title, "url": .url }')
-                        embeds=$(echo $embeds | jq -c '[ . ]')
-                        echo 'embeds'=$embeds >> $GITHUB_OUTPUT
-            -   name: discord post
-                id: discord-post
-                uses: Ilshidur/action-discord@master
-                env:
-                    DISCORD_USERNAME: "STLGameDev"
-                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
-                with:
-                    args: ":newspaper: A News Article has been posted on the website!"
-            -   name: Tweet
-                id: tweet
-                uses: dart-actions/tweet@v1.0.1
-                with:
-                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-                    text: |
-                            📰 A new post has been created!
+    # share:
+    #     runs-on: ubuntu-latest
+    #     needs: build
+    #     if: needs.build.outputs.new_news_items != '[]'
+    #     strategy:
+    #         matrix:
+    #             steps: ${{ fromJSON( needs.build.outputs.new_news_items ) }}
+    #     steps:
+    #         -   name: get new one
+    #             id: get-new-one
+    #             run: |
+    #                     new_one='${{ toJSON(matrix.steps) }}'
+    #                     embeds=$(echo $new_one | jq -r ' . | { "title": .title, "url": .url }')
+    #                     embeds=$(echo $embeds | jq -c '[ . ]')
+    #                     echo 'embeds'=$embeds >> $GITHUB_OUTPUT
+    #         -   name: discord post
+    #             id: discord-post
+    #             uses: Ilshidur/action-discord@master
+    #             env:
+    #                 DISCORD_USERNAME: "STLGameDev"
+    #                 DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+    #                 DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
+    #             with:
+    #                 args: ":newspaper: A News Article has been posted on the website!"
+    #         -   name: Tweet
+    #             id: tweet
+    #             uses: dart-actions/tweet@v1.0.1
+    #             with:
+    #                 consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+    #                 consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+    #                 access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+    #                 access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+    #                 text: |
+    #                         📰 A new post has been created!
 
-                            ${{ steps.get-new-one.outputs.embeds.title }}
+    #                         ${{ steps.get-new-one.outputs.embeds.title }}
                             
-                            ${{ steps.get-new-one.outputs.embeds.url }}
+    #                         ${{ steps.get-new-one.outputs.embeds.url }}
                             
-                            #STL #GameDev
-            -   name: Bsky
-                uses: myConsciousness/bluesky-post@v5
-                with: 
-                    text: |
-                            📰 A new post has been created!
+    #                         #STL #GameDev
+    #         -   name: Bsky
+    #             uses: myConsciousness/bluesky-post@v5
+    #             with: 
+    #                 text: |
+    #                         📰 A new post has been created!
                             
-                            ${{ steps.get-new-one.outputs.embeds.title }}
+    #                         ${{ steps.get-new-one.outputs.embeds.title }}
                             
-                            ${{ steps.get-new-one.outputs.embeds.url }}
+    #                         ${{ steps.get-new-one.outputs.embeds.url }}
                             
-                            #STL #GameDev
-                    link-preview-url: ${{ steps.get-new-one.outputs.embeds.url }}
-                    identifier: "stlgame.dev"
-                    password: ${{ secrets.BLUESKY_PASSWORD }}
+    #                         #STL #GameDev
+    #                 link-preview-url: ${{ steps.get-new-one.outputs.embeds.url }}
+    #                 identifier: "stlgame.dev"
+    #                 password: ${{ secrets.BLUESKY_PASSWORD }}
