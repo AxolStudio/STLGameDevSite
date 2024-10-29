@@ -2,19 +2,22 @@
 // {{ $bgE := resources.Get "images/bg-edge.png" }}
 // {{ $bgER := resources.Get "images/bg-edge-r.png" }}
 
-html, body { 
-    height:100%;
-    min-height:100%;
- }
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+}
 
 body {
-    background-image: url("{{ $bgE.RelPermalink }}"), url("{{ $bgER.RelPermalink }}"), url("{{ $bg.RelPermalink }}");
+    background-image: url("{{ $bgE.RelPermalink }}"),
+    url("{{ $bgER.RelPermalink }}"),
+    url("{{ $bg.RelPermalink }}");
     background-position:
         left top,
         right top,
         left top;
     background-repeat: repeat-y, repeat-y, repeat;
-    
+
 }
 
 .punctuation-icon {
@@ -64,7 +67,7 @@ ul:not(.nav) {
 }
 
 #core-container {
-    
+
     background-image: url("{{ $bg.RelPermalink }}");
 
     margin: auto;
@@ -72,17 +75,17 @@ ul:not(.nav) {
     border-left: 0.25rem solid $color-purple;
 
     border-right: 0.25rem solid $color-purple;
-    
-    min-height:100%;
+
+    min-height: 100%;
 
 }
 
 #inner-block {
-    margin:0;
-    padding:0;
-    min-height:100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
     // height:100%;
-    
+
     background-color: rgba(black, 0.5);
 }
 
@@ -93,22 +96,23 @@ ul:not(.nav) {
     --fa-secondary-color: #{scale-color($color-orange, $lightness: -33%)};
 }
 
-.simple-bar{
+.simple-bar {
     background-image: none !important;
     background: rgba(shift-color($color-blue, 60%), 0.8);
-    
+
 }
 
 
 #top-nav {
 
     .navbar-toggler {
-        background-color:black;
+        background-color: black;
     }
 
     .navbar {
         background-image: none !important;
-        background-color: transparent !important; /* Optional: if you need no color */
+        background-color: transparent !important;
+        /* Optional: if you need no color */
         backdrop-filter: grayscale(100%) brightness(150%);
     }
 
@@ -117,10 +121,10 @@ ul:not(.nav) {
         border-bottom: 0.25rem solid $color-blue;
         margin-top: 0;
         margin-bottom: 0;
-        
+
     }
 
-    
+
     .nav-item {
 
         padding: 0 0.1rem;
@@ -145,23 +149,30 @@ ul:not(.nav) {
         }
     }
 }
+
 header {
-    max-width:600px;
+    max-width: 600px;
 }
+
 #home-header {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     border-top: 0.25rem solid $color-blue;
     border-bottom: 0.25rem solid $color-blue;
+    padding-top: 16rem;
 }
 
-#header-card {
-    backdrop-filter: blur(2px) grayscale(100%) brightness(20%) contrast(90%);
+#home-card {
+    background-color: rgba($color-blue, 0.5);
+    border-radius: 2rem;
+    padding: 4rem;
+    backdrop-filter: brightness(30%) blur(2px);
 }
+
 
 .card {
-    backdrop-filter: brightness(80%)  grayscale(100%) saturate(50%) ;
+    backdrop-filter: brightness(80%) grayscale(100%) saturate(50%);
 
 
     .card-header {
@@ -174,6 +185,7 @@ header {
     .card-body {
         background: rgba(shift-color($color-blue, 60%), 0.8);
         padding: 1rem 3rem;
+
         p ul dl {
             max-width: 60rem;
         }
