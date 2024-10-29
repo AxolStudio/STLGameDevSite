@@ -29,13 +29,13 @@ We will not tolerate:
 
 - Inappropriate Decorum
   : unwanted attention, unsolicited advice, speaking out of turn or for longer than suggested during introductions, or dominating conversations
-  - Oppressive Behavior
+- Oppressive Behavior
   : any conduct that demeans, marginalizes, rejects, threatens or harms anyone on the basis of identity, background, or ability
-  - Harassment
+- Harassment
   : deliberate intimidation; stalking; following; harassing photography or recording; disruption of events; aggressive, derogatory, or threatening comments; and unwanted physical contact or sexual attention
-  - Destructive Behavior
+- Destructive Behavior
   : damaging or altering any part of the building, inside or out, including furniture, equipment, or other people’s belongings
-  - Exclusionary Actions
+- Exclusionary Actions
   : denying certain participants opportunities to share views, skills and other contributions; engaging in favoritism; and creating or reinforcing an inequitable learning environment
 
 Anyone violating these guidelines will be banned from events and community spaces (such as our Discord server).
