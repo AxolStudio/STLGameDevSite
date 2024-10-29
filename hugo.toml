@@ -1,15 +1,15 @@
 baseURL = 'https://stlgame.dev/'
 languageCode = 'en-us'
-title = 'STL Gamedev'
+title = 'STLGameDev'
 
 enableEmoji = true
 
 [params]
     keywords = "st louis, stl, saint louis, missouri, mo, video game, game development, games, video games, tabletop games, board games, gamedev, game dev, indie dev, indie game dev, community, club, group"
-    description ="STL Gamedev is a community run organization dedicated to providing social, educational, and professional resources for game developers in the St. Louis area."
+    description ="STLGameDev is a community run organization dedicated to providing social, educational, and professional resources for game developers in the St. Louis area."
     tagline = "The Home for Game Developers in and around St. Louis, Mo"
-    title = 'STL Gamedev'
-    author = 'The STL Gamedev Admin Team'
+    title = 'STLGameDev'
+    author = 'The STLGameDev Admin Team'
     images = ['meta-image.png']
   [params.social]
     twitter = 'STLGameDev'
