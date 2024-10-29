@@ -76,8 +76,10 @@ For now something anyone can do is get the word out! Tell people about our event
 
 ## Conclusion
 
-As I mentioned early, most of you are not going to even notice any changes. We thought it was important to be transparent and share with everyone what our plans and our goals are.
+Before we go we want to make sure to give a thank *The St. Louis Game Dev Co-op* members and leaders who kept the community thriving for so many years. Without your efforts we wouldn't have a community worth saving. We'd like to give a special shout out to Rob, Kess, and Kirby for being so supportive of the transition and guiding the organization through the complexities of the COVID years without dropping the ball on the Global Game Jam and other key events.
+
+As a testament to what's come before, most of you are not going to even notice any changes beyond a few new icons and logos. Regardless, we thought it was important to be transparent and share with everyone what our plans and our goals are.
 
 We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts in Discord. We are going to try to do the best we can for the community going forward.
 
-We hope you are all just as excited to move forward into this new chapter of the STL Gamedev as we are!
+We hope you are all just as excited to move forward into this new chapter of the STL Gamedev as we are! See you in Discord!
