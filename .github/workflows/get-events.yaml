@@ -100,10 +100,10 @@ jobs:
 
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
                         
-                        embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
+                        embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
                         case $(echo $new_one | jq -r '.[0][2]') in
                             *"DrinkUp"* )
-                                embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
+                                embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                                 ;;
                         esac 
                         
