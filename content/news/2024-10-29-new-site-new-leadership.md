@@ -8,7 +8,11 @@ authors: ['Tim I Hely']
 
 ## Welcome to a new era of game development in St. Louis!
 
-Since [last month](../2024-10-1-transition) when the *St. Louis Game Developer Co-op* was officially dissolved, and 5 long-time members of the community stepped up to lead, there has been *a lot* of discussion and work going on *in secret*, and we are excited to finally update everyone on what we have planned for the future.
+St. Louis has had a thriving Game Development community in some capacity for over 14 years. Around 9 years ago it evolved into a nonprofit organization, the *St. Louis Game Developer Co-op*.
+
+Last month leadership of the *Co-op* announced they would be stepping down and dissolving the non-profit organization. This came as a bit of a shock to some long-time community members and a small group of us banded together to make sure that the community would still have support from people who care. *Co-op* leadership transferred over as many of the existing community accounts and assets as possible, and our new group began working on plans for what would come its new home.
+
+After much discussion and a lot of work, we are ready, and very excited to re-emerge into the world and update everyone on where things are now, and where they are headed!
 
 ## What has changed?
 
@@ -34,6 +38,25 @@ If you are already a member of our Discord server, you really won't notice too m
 - **Other events and game jams**
   : Although we are focused on ensuring GGJ and the Holiday Party will happen, we absolutely want to have more events throughout the year! We hope to have more game jams, educational talks/events, and quarterly demo opportunities; but these are all still in the early planning stages. Expect more information early next year if not sooner!
 
+## Who's in charge?
+
+Currently we have 5 members of the administrative team:
+
+- Wes Ehrlichman &mdash; <i class="i fa-brands fa-discord"></i> SuperWes, <i class="fa-brands fa-xbox"></i> SuperWes, <i class="fa-brands fa-playstation"></i> SuperWes, [<i class="fa-brands fa-x-twitter"></i> wesleyte](https://www.x.com/wesleyte)
+  : Wes, or [SuperWes](https://www.superwes.com/), has been a consistent presence in leadership of the community since the meetup began in 2010. He has a passion for collaborative problem solving through software. Wes has worked at Riot Games, BradyGames, The Gamer's Quarter, Pelaaja, and countless video game stores. He currently manages a mobile development team at World Wide Technology and spends most of his game development time [designing board games](https://midnightlaunchgames.com/).
+
+- Dan Eichling &mdash; <i class="i fa-brands fa-discord"></i> kinglord, [<i class="fa-sharp-duotone fa-solid fa-mailbox"></i> dan@callsigngames](mailto:dan@callsigngames.com)
+  : Dan is a game industry veteran, agile enthusiast and AI harbinger. An OG community member and speaker that has his 2009 GGJ pin somewhere. Still enjoys making and playing games of all shapes and flavors, except eggplant.
+
+- Tim I Hely &mdash; <i class="i fa-brands fa-discord"></i> seifertim, [<i class="i fa-brands fa-itch-io"></i> seifertim](https://seifertim.itch.io/), [<i class="i fa-brands fa-itch-io"></i> axolstudio](https://axolstudio.itch.io/)
+  : Tim has been a member of the St. Louis Game Development community since his first Game Jam in April 2014. He is the Founder of [Axol Studio](https://axolstudio.com) game company.
+
+- TimConceivable &mdash; <i class="i fa-brands fa-discord"></i> timconceivable, [<i class="i fa-brands fa-itch-io"></i> timconceivable](https://timconceivable.itch.io/)
+  : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2010 when he started his game dev journey. In the following years he has participated in over 40 game jams and *completed* zero games. He was also a Co-op board member from 2018 to 2019.
+  
+- Chris Taylor &mdash; <i class="i fa-brands fa-discord"></i> shredder2500, [<i class="i fa-brands fa-itch-io"></i> shredderct](https://shredderct.itch.io/)
+  : Chris loves to test his coding skills. He thrives on challenges like building a game engine from scratch and contributing to 4 different games during a single game jam.  He has been an active member of the community since 2014.
+
 ## How can *YOU* help?
 
 We have created a [feedback survey](https://forms.gle/8yw88DMSQiErQTnS9) in order to get a better sense of how we can best support you and the community. Please take a moment to fill it out. We would appreciate responses before the end of November so that we can use the data to guide our efforts.
@@ -51,5 +74,3 @@ Before we go we want to thank all the *St. Louis Game Dev Co-op* members and lea
 As a testament to what's come before, many of you won't even notice any changes beyond some new icons and logos. Regardless, we thought it was important to be transparent and share with everyone what our plans and goals are.
 
 We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts on Discord. We are going to do the best we can for the community going forward, and we hope you all are just as pumped about this new era of the St. Louis game development community as we are!
-
-  #### See you soon!
