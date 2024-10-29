@@ -6,9 +6,9 @@ $color-blue:    #142ca7;
 $body-secondary-color-dark: $color-purple;
 $body-secondary-bg-dark: $color-blue;
 
-$primary: $color-yellow;
-$link-color-dark: $color-yellow;
-$link-hover-color-dark: $color-orange;
+$primary: $color-orange;
+$link-color-dark: $color-orange;
+$link-hover-color-dark: $color-yellow;
 
 $headings-color: $color-purple;
 $headings-color-dark: $color-purple;
@@ -21,18 +21,18 @@ $border-widths: (
     4: 0.4rem,
     5: 0.5rem
 );
-$border-radius: 0.33em;
+$border-radius: 0.33rem;
 $border-style: solid;
-$border-color-dark: $color-purple;
-$border-color: $color-purple;
+$border-color-dark: $color-blue;
+$border-color: $color-blue;
 
 $border-color-translucent: rgba($color-purple, .175);
 
 $card-border-width: $border-width;
 $card-border-color: $border-color;
 $card-border-radius: $border-radius;
-$card-cap-padding-y: 1em;
-$card-cap-padding-x: 2em;
+$card-cap-padding-y: 1rem;
+$card-cap-padding-x: 2rem;
 $card-bg: rgba($color-blue, .2);
 $card-cap-bg: rgba($color-blue, .2);
 
@@ -40,7 +40,7 @@ $dropdown-border-width: $border-width;
 $dropdown-border-color: $border-color;
 $dropdown-border-radius: $border-radius;
 $dropdown-bg: black ;
-$dropdown-padding-x: 1em;
+$dropdown-padding-x: 1rem;
 $dropdown-padding-y: 0;
 $dropdown-min-width: 12vw;
 
@@ -52,5 +52,5 @@ $btn-font-weight: 600;
 
 $nav-link-font-size:                1.125rem;
 $nav-link-font-weight:              bold;
-$nav-link-color:                   $link-color-dark;
-$nav-link-hover-color:             $link-hover-color-dark;
+$nav-link-color:                    $color-orange;
+$nav-link-hover-color:              $color-yellow;

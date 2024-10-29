@@ -100,10 +100,10 @@ jobs:
 
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
                         
-                        embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
+                        embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
                         case $(echo $new_one | jq -r '.[0][2]') in
                             *"DrinkUp"* )
-                                embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/AxolStudio/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
+                                embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                                 ;;
                         esac 
                         
@@ -118,15 +118,15 @@ jobs:
                         echo event_name=$(echo $new_one | jq -r '.[0][2]') >> $GITHUB_OUTPUT
                         echo event_location=$(echo $new_one | jq -r '.[0][4]') >> $GITHUB_OUTPUT
                         echo event_description=$(echo $new_one | jq -r '.[0][6]') >> $GITHUB_OUTPUT
-            -   name: STL Gamedev Discord
+            -   name: STLGameDev Discord
                 uses: Ilshidur/action-discord@master
                 env:
-                    DISCORD_USERNAME: "STL Gamedev"
+                    DISCORD_USERNAME: "STLGameDev"
                     DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
                     DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
                 with:
                     args: ":calendar: A new event has been scheduled!"
-            -   name: STL Gamedev Event
+            -   name: STLGameDev Event
                 run: |
                         image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8'))
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
