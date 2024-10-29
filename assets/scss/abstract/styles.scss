@@ -36,16 +36,16 @@ ul:not(.nav) {
 
 .indented {
     h2 {
-        padding: 1rem 2rem 0;
+        // padding: 1rem 2rem 0;
     }
 
     p {
-        text-indent: 1em;
-        padding: 0 3em;
+        // text-indent: 1em;
+            // padding: 0 3em;
     }
 
     ul {
-        margin-inline-start: 4rem;
+        // margin-inline-start: 4rem;
 
         li::marker {
             color: $color-orange;
@@ -63,7 +63,7 @@ ul:not(.nav) {
 
 .event-month:not(:last-of-type) {
     border-bottom: 0.25rem solid $color-purple;
-    padding-bottom: 1rem;
+    // padding-bottom: 1rem;
 }
 
 #core-container {
@@ -121,7 +121,7 @@ ul:not(.nav) {
 
 
     .nav-item {
-        padding: 0 0.1rem;
+        // padding: 0 0.1rem;
 
         .nav-link {
             border-width: medium;
@@ -159,7 +159,7 @@ header {
 #home-card {
     background-color: rgba($color-blue, 0.5);
     border-radius: 2rem;
-    padding: 4rem;
+    // padding: 4rem;
     backdrop-filter: brightness(30%) blur(2px);
 }
 
@@ -177,17 +177,17 @@ header {
 
     .card-body {
         background: rgba(shift-color($color-blue, 60%), 0.8);
-        padding: 1rem 3rem;
+        // padding: 1rem 3rem;
 
-        p ul dl {
-            max-width: 60rem;
-        }
+        // p ul dl {
+            //     max-width: 60rem;
+            // }
     }
 
     .card-footer {
         border-top: 0.25rem solid $color-blue;
         background: rgba(shift-color($color-blue, 20%), 0.8);
-        padding: 1rem 3rem;
+        // padding: 1rem 3rem;
     }
 }
 

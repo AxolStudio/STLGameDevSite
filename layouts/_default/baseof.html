@@ -47,13 +47,13 @@
 
             {{ block "header" . }}{{ end }}
 
-            <div class="container-fluid p-lg-4">
+            <div class="container-fluid p-0 p-md-3">
 
-                <main class=" mh-100 mx-3 h-100">
+                <main class=" mh-100 mx-0  mx-md-3 h-100">
                     {{ block "middle" . }}{{ end }}
                     {{ block "main" . }}{{ end }}
                 </main>
-                <footer class="footer pt-5 mt-auto  ">
+                <footer class="footer pt-3 mt-auto  ">
                     {{ block "footer" . }}
                     {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
                     {{ end }}
