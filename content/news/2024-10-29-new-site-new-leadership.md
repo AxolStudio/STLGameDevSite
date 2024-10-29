@@ -25,7 +25,7 @@ Since we are no longer a nonprofit organization, we are not currently planning o
 ## What about events?
 
 - **GameDev DrinkUps**
-  : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month, except December when... 
+  : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month, except December when...
 
 - **2024 Holiday Party**
   : We are actively planning the Annual Holiday Party this year. Things can still change, but the current plan is **December 5th** at [Earthbound Beer](https://maps.app.goo.gl/CUV5eVqjYPWMsNey5)! We hope everyone can make it, and if you've made a game since last year please let us know when you RSVP!
@@ -51,9 +51,9 @@ Currently we have 5 members of the administrative team:
 
 - TimConceivable &mdash; <i class="i fa-brands fa-discord"></i> timconceivable, [<i class="i fa-brands fa-itch-io"></i> timconceivable](https://timconceivable.itch.io/)
   : TimConceivable! is a 2D artist, game developer, and musical dabbler. He has been an active member of the community since 2010 when he started his game dev journey. In the following years he has participated in over 40 game jams and *completed* zero games. He was also a Co-op board member from 2018 to 2019.
-  
-- Chris Taylor &mdash; <i class="i fa-brands fa-discord"></i> shredder2500, [<i class="i fa-brands fa-itch-io"></i> shredderct](https://shredderct.itch.io/)
-  : Chris loves to test his coding skills. He thrives on challenges like building a game engine from scratch and contributing to 4 different games during a single game jam.  He has been an active member of the community since 2014.
+
+- Chris Taylor &mdash; <i class="i fa-brands fa-discord"></i> [<i class="i fa-brands fa-itch-io"></i> shredder2500](https://globalgamejam.org/users/shredder2500), [<i class="i fa-brands fa-itch-io"></i> shredderct](https://shredderct.itch.io/)
+  : Chris is a seasoned software engineer with a passion for solving complex problems and bringing ideas to life through code. With over a decade of experience in game development, he has built custom game engines, contributed to various game jams—including one where he worked on four games simultaneously—and actively supports the game development community. Chris thrives in both collaborative environments and individual projects, always looking for ways to improve his skills. In addition to his technical expertise, he enjoys mentoring others, sharing his knowledge at meetups, and helping developers unlock their potential. His contributions since 2014 reflect a commitment to fostering creativity and innovation within the industry.
 
 ## How can *YOU* help?
 
