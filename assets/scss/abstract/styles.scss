@@ -14,7 +14,6 @@ body {
         right top,
         left top;
     background-repeat: repeat-y, repeat-y, repeat;
-    
 }
 
 
@@ -59,27 +58,21 @@ ul:not(.nav) {
 }
 
 #core-container {
-    
-    background-image: url("{{ $bg.RelPermalink }}");
-
+    // background-image: url("{{ $bg.RelPermalink }}");
     margin: auto;
-
-    border-left: 0.25rem solid $color-purple;
-
-    border-right: 0.25rem solid $color-purple;
-    padding:0;
+    // border-left: 0.25rem solid $color-purple;
+    // border-right: 0.25rem solid $color-purple;
+    padding: 0 2rem;
     min-height:100%;
     // height:100%;
-
 }
 
 #inner-block {
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     min-height:100%;
     // height:100%;
-    
-    background-color: rgba(black, 0.5);
+    background-color: rgba(black, 0.25);
 }
 
 .i:not(.btn) {
@@ -92,7 +85,7 @@ ul:not(.nav) {
 .simple-bar{
     background-image: none !important;
     background-color: transparent !important; /* Optional: if you need no color */
-    backdrop-filter: grayscale(100%) brightness(150%) !important;
+    // backdrop-filter: grayscale(100%) brightness(150%) !important;
 }
 
 
@@ -140,39 +133,63 @@ ul:not(.nav) {
         }
     }
 }
+
 header {
     max-width:600px;
 }
+
 #home-header {
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 0.25rem solid $color-blue;
+    background-position: center top;
+    clip-path:inset(1rem 0);
+    padding: 0;
+    // border-bottom: 0.25rem solid $color-blue;
 }
 
 #header-card {
-    backdrop-filter: blur(2px) grayscale(100%) brightness(20%) contrast(90%);
+    backdrop-filter: brightness(20%) contrast(90%);
+    position: relative;
+    right: 0;
+    margin: auto;
+
+    .card-header {
+        display: none;
+    }
+
+    .card-body {
+        
+    }
+
+    .card-footer {
+        
+    }
 }
 
 .card {
-    backdrop-filter: brightness(80%)  grayscale(100%) saturate(50%) ;
-
+    backdrop-filter: brightness(80%) saturate(50%) ;
+    border-style: none !important;
+    border-color: black !important;
+    border-width: 0 !important;
 
     .card-header {
-        border-bottom: 0.25rem solid $color-blue;
+        border-bottom: 0.5rem solid rgba(black, 0.6);
         background: rgba(shift-color($color-blue, 20%), 0.8);
-
+        padding: 1rem 3rem;
     }
 
     .card-body {
         background: rgba(shift-color($color-blue, 60%), 0.8);
+        padding: 1rem 3rem;
     }
+     .card-body p ul dl {
+        max-width: 60rem;
+     }
 
     .card-footer {
-        border-top: 0.25rem solid $color-blue;
-        background: rgba(shift-color($color-blue, 20%), 0.8);
+        border-top: 0.5rem solid rgba($color-blue, 0.4);
+        // background: rgba(shift-color($color-blue, 20%), 0.3);
+        padding: 1rem 3rem;
     }
 }
 
