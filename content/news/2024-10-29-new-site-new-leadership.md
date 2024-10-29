@@ -8,7 +8,7 @@ authors: ['Tim I Hely']
 
 ## Welcome to a new era of game development in St. Louis!
 
-Since [last month](../2024-10-1-transition) when the *St. Louis Game Developer Co-op* was officially dissolved, and 5 long-time members of the community stepped up to lead, there has been *a lot* of discussion and work going on *in secret*, and we are excited to finally update everyone on what we have planned for the future.
+Since [last month](../2024-10-1-transition) when the *St. Louis Game Developer Co-op* was officially dissolved and 5 long-time members of the community stepped up to lead, there has been *a lot* of discussion and work going on *in secret*, and we are excited to finally update everyone on what we have planned for the future.
 
 ## What has changed?
 

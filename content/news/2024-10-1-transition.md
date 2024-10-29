@@ -10,7 +10,7 @@ authors: ['Tim I Hely']
 
 St. Louis has had a thriving Game Development community in some capacity for over 14 years. Around 9 years ago it evolved into a nonprofit organization, the *St. Louis Game Developer Co-op*.
 
-Last month leadership of the *Co-op* announced they would be stepping down and dissolving the non-profit organization. This came as a bit of a shock to some long-time community members and a small group of us banded together to make sure that the community would still have support from people who care. *Co-op* leadership transferred over as many of the existing community accounts and assets as possible, and our new group began working on plans for what would come its new home.
+Last month leadership of the *Co-op* announced they would be stepping down and dissolving the non-profit organization. This came as a bit of a shock to some long-time community members and a small group of us banded together to make sure that the community would still have support from people who care. *Co-op* leadership transferred over as many of the existing community accounts and assets as possible, and our new group began working on plans to rebuild.
 
 ## Who's in charge?
 
