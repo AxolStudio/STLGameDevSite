@@ -10,19 +10,19 @@ authors: ['Tim I Hely']
 
 ## Welcome to the new Era of Game Development in St. Louis!
 
-St. Louis has had a thriving Game Development community in some capacity for over 10 years.
+St. Louis has had a thriving Game Development community in some capacity for over 14 years. Around 9 years ago it evolved into a non-profit 501(c)(3) called *The St. Louis Game Dev Co-op*.
 
-In September 2024, we were informed, rather abruptly, that the current leaders of the *St. Louis Game Dev Co-op* had all stepped down from the organization and had dissolved the 501(c)(3) that had been formed a few years previous to allow the organization to collect donation funds.
+In September 2024 the community was informed that the current leader of the *St. Louis Game Dev Co-op* was planning on stepping down and the non-profit status would be dissolved if nobody was willing to step up and take over the maintenance duties. On the morning of the deadline the entire leadership group individually announced that they were abruptly stepping down and the non-profit dissolution had been set into motion.
 
-In the hours following this announcement, several long-time members of the group scrambled to take over ownership of all the accounts and services that were part of the organization and began working on plans on what would come next for our community.
+This was a much bigger change than what had sounded like a shift in legal status, and in the hours following this announcement several long-time members of the group came together to step up and make sure that the community would still have support from people who care. Prior leadership accepted our request to take up the mantle and transitioned over as many of the existing community accounts and assets as possible. The new group began working on plans for what would come its new home.
 
 After much discussion and a lot of work, we are ready, and very excited to re-emerge into the world and update everyone on where things are now, and where they are headed!
 
 ## What has changed?
 
-First, the big one: the St. Louis Game Developer Co-op is no more. The organization was dissolved, and 5 of the more senior members of the community have stepped up to essentially start a new group and ownership of the accounts for things like Twitter, Facebook, Meetup, etc were transferred over to the new group. We have rebranded the new group simply *STL Gamedev* and have built a new website. We plan on using the social media accounts much more actively going forward.
+First, the big one: the St. Louis Game Developer Co-op is no more and leadership group is now made up of new (but familliar) people. As mentioned above, the Co-op organization was officially dissolved, and 5 of the more senior members of the community stepped up to lead. The decision was made early on to drop the Co-op moniker and start a new group. The pages for things like Twitter, Facebook, Meetup, etc will still be found at the same places, but we've rebranded them to simply *STL Gamedev* and built a new website. We are hoping to use the social media accounts much more actively going forward.
 
-Although this is technically a new group, we are trying to maintain the spirit of the original group. As always, we want the Game Development community to be a safe, inclusive, and welcoming space for anyone and everyone.
+Although this is technically a new group, our goal is to maintain the spirit and values of the original group. As always, we want the Game Development community to be a safe, inclusive, and welcoming space for anyone and everyone. We hope to make this group even more community-led than before, making it easier to contribute ideas and talents in ways that bring the community together.
 
 Since we are no longer a Non-profit Organization, we are not currently planning on re-starting membership fees. Although we are still dedicated to having events that are free for everyone.
 
@@ -33,11 +33,11 @@ If you are already a member of our Discord, you really won't notice too much of 
 - **GameDev DrinkUps**
   : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month.
 - **2024 Holiday Party**
-  : We are actively working towards making sure the promised Annual Holiday Party can still take place this year. Plans are already in motion and we will be making an announcement very soon!
+  : We are actively planning the Annual Holiday Party this year. Things can still change, but the plan right now is December 5th at [Earthbound Beer on Cherokee](https://maps.app.goo.gl/CUV5eVqjYPWMsNey5)! We hope everyone can make it, and if you've made a game since last year please let us know ASAP!
 - **2025 Global Game Jam**
-  : The GGJ is one of our highest priority items for the new organization. We feel like this event is one of great importance to the community and we are making sure that it will still happen. Details to come very soon!
+  : The GGJ is one of our highest priority items for the new organization. We've been working with UMSL to have the event there again for the first time since 2018. This is still in planning and things can change, but for now add Jan 24-26, 2025 to your calendar and get ready to JAM! More details coming soon.
 - **Other Events and Game Jams**
-  : Although we have mostly been focused on ensuring the GGJ and the Holiday Party will still happen, we absolutely want to have more events throughout the year than just those. We hope to have more Game Jams spaced out throughout the year, and we are working out details on starting up the Share-and-Play events again, but these are still in the early planning stages. We will have more information on them later.
+  : Although we have mostly been focused on ensuring the GGJ and the Holiday Party will still happen, we absolutely want to have more events throughout the year than just those. We hope to have more Game Jams, the resurrection of educational talks/events, and regular Share-and-Play events, but these are all still in the early planning stages. We will have more information on them later.
 
 ## Who's in Charge?
 
@@ -62,22 +62,24 @@ We are:
 
 ## How can *YOU* help?
 
-In order to get a better sense of our current members, we have created a Survey. Please take a moment to fill it out so that we can use the data to work out the best way to move forward and offer events and resources aimed at better helping our community.
+In order to get a better sense of our current members, we have created a Survey. Please take a moment to fill it out so that we can use the data to work out the best way to offer events and resources aimed at helping our community.
 
 You can find the Survey here: [STL Gamedev Feedback Survey 2024](https://forms.gle/8yw88DMSQiErQTnS9)
 
 We are asking everyone to submit their survey by the end of the day on **Friday, November 22, 2024**.
 
-Other than that, at this moment, we are still trying to get everything in order for the new group, and plan the 2 upcoming major events, so there is little that we would ask anyone to do right now.
+Other than that, at this moment, we are focused on getting everything in order for the new group and planning the 2 upcoming major events. If you have any feedback or suggestions please start the discussion in the #suggestions channel on Discord.
 
-In the near future, we are hoping to be able to enlist members of the community to help run other events, and to suggest ideas of new events or new activities and resources, but we're not ready for that, yet.
+In the near future, we are hoping to be able to enlist members of the community to speak, demo, and help run other events. We will also be opening up opportunities to help us with social media, running events, and contributing to the site. Be on the lookout in #community-building on Discord.
 
-Although, telling people about our events and sharing the group with people to help get new people involved is never a bad thing!
+For now something anyone can do is get the word out! Tell people about our events and share the group with people to help get new people involved!
 
 ## Conclusion
 
-As I mentioned early, most of you are not going to even notice any changes. We thought it was important to be transparent and share with everyone what our plans and our goals are.
+Before we go we want to make sure to give a thank *The St. Louis Game Dev Co-op* members and leaders who kept the community thriving for so many years. Without your efforts we wouldn't have a community worth saving. We'd like to give a special shout out to Rob, Kess, and Kirby for being so supportive of the transition and guiding the organization through the complexities of the COVID years without dropping the ball on the Global Game Jam and other key events.
 
-We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts on our Discord channel. We are going to try to do the best we can for the community going forward.
+As a testament to what's come before, most of you are not going to even notice any changes beyond a few new icons and logos. Regardless, we thought it was important to be transparent and share with everyone what our plans and our goals are.
 
-We hope you are all just as excited to move forward into this new chapter of the STL Gamedev as we are!
+We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts in Discord. We are going to try to do the best we can for the community going forward.
+
+We hope you are all just as excited to move forward into this new chapter of the STL Gamedev as we are! See you in Discord!
