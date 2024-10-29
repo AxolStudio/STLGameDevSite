@@ -114,7 +114,7 @@ jobs:
                         new_one='${{ toJSON(matrix.steps) }}'
                         embeds=$(echo $new_one | jq -r ' . | { "title": .title, "url": .url }')
                         embeds=$(echo $embeds | jq -c '[ . ]')
-                        echo embeds=$embeds >> $GITHUB_OUTPUT
+                        echo 'embeds'=$embeds >> $GITHUB_OUTPUT
             -   name: discord post
                 id: discord-post
                 uses: Ilshidur/action-discord@master
@@ -133,24 +133,24 @@ jobs:
                     access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
                     access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
                     text: |
-                            :newspaper: A new post has been created!
+                            📰 A new post has been created!
 
                             ${{ steps.get-new-one.outputs.embeds.title }}
                             
                             ${{ steps.get-new-one.outputs.embeds.url }}
                             
-                            \#STL \#GameDev
-            -   name: Bsky's
+                            #STL #GameDev
+            -   name: Bsky
                 uses: myConsciousness/bluesky-post@v5
                 with: 
                     text: |
-                            :newspaper: A new post has been created!
+                            📰 A new post has been created!
                             
                             ${{ steps.get-new-one.outputs.embeds.title }}
                             
                             ${{ steps.get-new-one.outputs.embeds.url }}
                             
-                            \#STL \#GameDev
+                            #STL #GameDev
                     link-preview-url: ${{ steps.get-new-one.outputs.embeds.url }}
                     identifier: "stlgame.dev"
                     password: ${{ secrets.BLUESKY_PASSWORD }}
