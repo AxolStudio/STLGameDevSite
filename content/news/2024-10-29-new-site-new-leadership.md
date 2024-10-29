@@ -10,7 +10,7 @@ authors: ['Tim I Hely']
 
 ## Welcome to the new Era of Game Development in St. Louis!
 
-St. Louis has had a thriving Game Development community in some capacity for over 14 years. Around 9 years ago it evolved into a non-profit 501(c)(3) called *The St. Louis Game Dev Co-op*.
+St. Louis has had a thriving Game Development community in some capacity for over 14 years. Around 9 years ago it evolved into a non-profit 501(c)(6) called *The St. Louis Game Dev Co-op*.
 
 In September 2024 the community was informed that the current leader of the *St. Louis Game Dev Co-op* was planning on stepping down and the non-profit status would be dissolved if nobody was willing to step up and take over the maintenance duties. On the morning of the deadline the entire leadership group individually announced that they were abruptly stepping down and the non-profit dissolution had been set into motion.
 
