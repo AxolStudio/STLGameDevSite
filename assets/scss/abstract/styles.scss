@@ -36,11 +36,11 @@ ul:not(.nav) {
 
 .indented {
     h2 {
-        padding: 0 1em;
+        padding: 1rem 2rem 0;
     }
 
     p {
-        text-indent: 0.5em;
+        text-indent: 1em;
         padding: 0 3em;
     }
 
@@ -67,13 +67,9 @@ ul:not(.nav) {
 }
 
 #core-container {
-
     background-image: url("{{ $bg.RelPermalink }}");
-
     margin: auto;
-
     border-left: 0.25rem solid $color-purple;
-
     border-right: 0.25rem solid $color-purple;
 
     min-height: 100%;
@@ -102,7 +98,6 @@ ul:not(.nav) {
 
 }
 
-
 #top-nav {
 
     .navbar-toggler {
@@ -126,11 +121,9 @@ ul:not(.nav) {
 
 
     .nav-item {
-
         padding: 0 0.1rem;
 
         .nav-link {
-
             border-width: medium;
             border-style: solid;
             border-color: transparent;
