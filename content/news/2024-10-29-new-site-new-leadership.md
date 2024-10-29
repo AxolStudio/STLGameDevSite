@@ -20,7 +20,7 @@ Since we are no longer a nonprofit organization, we are not currently planning o
 
 If you are already a member of our Discord server, you really won't notice too much of a change at this time, although we hope to start doing more and being more active!
 
-## What's going on with Events?
+## What about Events?
 
 - **GameDev DrinkUps**
   : There are no plans to stop or change the DrinkUps at this time. We will continue to have them every month, except December when... 
