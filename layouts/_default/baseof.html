@@ -7,11 +7,13 @@
     {{ end }}
 </head>
 {{ partial "ga.html" . }}
+
 <body>
-    <div id="core-container" class="container d-flex flex-column  ">
+    <div id="core-container" class="container d-flex flex-column p-0  ">
         <div id="inner-block" class=" d-flex flex-column flex-grow-1">
+            
             <div class="nav-scroller sticky-top" id="top-nav">
-                <nav class="navbar navbar-expand-lg container-fluid p-3 d-flex flex-row g-3 align-items-end">
+                <nav class="navbar navbar-expand-lg container-fluid px-4 py-2 d-flex flex-row g-3 align-items-end">
 
                     <a class="navbar-brand me-auto flex-grow-1 flex-sm-grow-0 " href="{{ .Site.Home.RelPermalink }}">
                         {{ with resources.Get "images/stlgd-logo.svg" }}
@@ -39,28 +41,26 @@
                             </div>
 
                         </span>
-
-
                     </div>
-
                 </nav>
             </div>
 
-
             {{ block "header" . }}{{ end }}
 
-            <main class=" mh-100 mx-3 h-100">
-                {{ block "middle" . }}{{ end }}
-                {{ block "main" . }}{{ end }}
-            </main>
-            <footer class="footer pt-5 mt-auto  ">
-                {{ block "footer" . }}
-                {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
-                {{ end }}
-            </footer>
+            <div class="container p-4">
+
+                <main class=" mh-100 mx-3 h-100">
+                    {{ block "middle" . }}{{ end }}
+                    {{ block "main" . }}{{ end }}
+                </main>
+                <footer class="footer pt-5 mt-auto  ">
+                    {{ block "footer" . }}
+                    {{ partial "footer.html" (dict "menuID" "main" "page" .) }}
+                    {{ end }}
+                </footer>
+            </div>
         </div>
     </div>
-
 </body>
 
 </html>

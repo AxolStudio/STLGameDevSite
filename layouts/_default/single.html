@@ -9,17 +9,19 @@
   </div>
 
   <div class="card-body ">
+    <div class="punctuation-icon">
+      {{ partial "stlgd-icon.html" (dict "size" "24" "class" "ms-1") }}
+    </div>
     <div class="row ">
       <div class="col col-md-9 indented">
         {{ .Content }}
-        <div class="text-end">
-          {{ partial "stlgd-icon.html" (dict "size" "42" "class" "ms-1") }}
-        </div>
+        
       </div>
       <div class="col-md-3 order-first order-md-last">
         {{ partial "toc.html" . }}
       </div>
     </div>
+    
   </div>
 
 </article>
