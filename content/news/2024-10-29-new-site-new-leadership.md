@@ -3,7 +3,7 @@ title: "New Site + New Leadership"
 date: 2024-10-29
 draft: false
 tags: ["announcements", "events"]
-authors: ['Tim I Hely']
+authors: ['Tim I Hely', 'SuperWes', 'TimConceivable']
 ---
 
 ## Welcome to a new era of game development in St. Louis!
