@@ -17,6 +17,11 @@ body {
     
 }
 
+.punctuation-icon {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
 
 .border-color-orange {
     border-color: $color-orange !important;
@@ -147,8 +152,7 @@ header {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    border-top: 0.25rem solid $color-blue;
     border-bottom: 0.25rem solid $color-blue;
 }
 

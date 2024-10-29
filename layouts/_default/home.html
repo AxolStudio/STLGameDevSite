@@ -2,25 +2,17 @@
 
 <div class="m-0 row p-0">
     <div class="col-12 col-header text-center simple-bar p-4 ">
-        
         <h1>Welcome to the St Louis Game Developer Community!</h1>
-        
     </div>
-    <div class="col-12 text-center " id="home-header" style="padding-top: 20vh;">
-
+    <div class="col-12 text-center " id="home-header" style="padding-top: 30vh;">
         <div class="mb-2 mx-4 p-3 " style="backdrop-filter: brightness(30%) blur(5px);">
-        <p class=" text-white lead " >We are a community run organization dedicated
-            to providing social, professional, and educational
-            events,
-            resources, and support for game developers in and around the St. Louis region.
+            <p class=" text-white lead ">We are a community run organization dedicated
+                to providing social, professional, and educational
+                events,
+                resources, and support for game developers in and around the St. Louis region.
             </p>
-        <button class="text-center btn btn-lg btn-primary rounded " href="about">Learn more</button>
+            <button class="text-center btn btn-lg btn-primary rounded " href="about">Learn more</button>
         </div>
-    
-    </div>
-
-    <div class="col-12 mx-2 mt-4 ">
-        <h2 class="text-center font-weight-light">Let's make something great together! {{ partial "stlgd-icon.html" (dict "size" "42" "class" "ms-1") }}</h2>
     </div>
 </div>
 
@@ -37,14 +29,17 @@
 
 {{ define "middle" }}
 <div class="simple-bar rounded my-4 p-3 border d-flex justify-content-evenly ">
-            
-    <a href="https://www.facebook.com/groups/stlgamedev" target="_blank"><i class="i fa-2x fa-brands fa-facebook"></i></a>
+
+    <a href="https://www.meetup.com/st-louis-game-developers/" target="_blank"><i
+            class="i fa-2x fa-brands fa-meetup"></i></a>
+    <a href="https://discord.com/invite/mTMKpre/" target="_blank"><i class="i fa-2x fa-brands fa-discord"></i></a>
+    <a href="https://www.facebook.com/groups/stlgamedev" target="_blank"><i
+            class="i fa-2x fa-brands fa-facebook"></i></a>
     <a href="https://x.com/stlgamedev" target="_blank"><i class="i fa-2x  fa-brands fa-x-twitter"></i></a>
     <a href="https://bsky.app/profile/stlgame.dev" target="_blank"><i class="i fa-2x  fa-brands fa-bluesky"></i></a>
     <a href="https://www.instagram.com/stlgamedev" target="_blank"><i class="i fa-2x  fa-brands fa-instagram"></i></a>
-    <a href="https://www.youtube.com/@stlgamedeveloperco-op3742" target="_blank"><i class="i fa-2x  fa-brands fa-youtube"></i></a>
-    
-    
+    <a href="https://www.youtube.com/@stlgamedeveloperco-op3742" target="_blank"><i
+            class="i fa-2x  fa-brands fa-youtube"></i></a>
 
 </div>
 {{ end }}
@@ -55,6 +50,7 @@
 
         {{ with (index (where site.RegularPages "Type" "news").ByDate.Reverse 0) }}
         <article class="card ">
+
             <div class="card-header">
 
                 <h4 class="card-title">Latest News Article</h4>
@@ -110,7 +106,8 @@
                 </div>
                 <div class="card-footer justify-content-end d-flex"><a class="btn btn-primary btn-sm rounded "
                         href="events">More
-                        Events</a></div>
+                        Events</a>
+                </div>
             </div>
 
             <div class="card flex-fill ">
