@@ -20,7 +20,7 @@ After much discussion and a lot of work, we are ready, and very excited to re-em
 
 ## What has changed?
 
-First, the big one: the St. Louis Game Developer Co-op is no more and leadership group is now made up of new (but familliar) people. As mentioned above, the Co-op organization was officially dissolved, and 5 of the more senior members of the community stepped up to lead. The decision was made early on to drop the Co-op moniker and start a new group. The pages for things like Twitter, Facebook, Meetup, etc will still be found at the same places, but we've rebranded them to simply *STL Gamedev* and built a new website. We are hoping to use the social media accounts much more actively going forward.
+First, the big one: the St. Louis Game Developer Co-op is no more and leadership group is now made up of new (but familliar) people. As mentioned above, the Co-op organization was officially dissolved, and 5 of the more senior members of the community stepped up to lead. The decision was made early on to drop the Co-op moniker and start a new group. The pages for things like Twitter, Facebook, Meetup, etc will still be found at the same places, but we've rebranded them to simply *STLGameDev* and built a new website. We are hoping to use the social media accounts much more actively going forward.
 
 Although this is technically a new group, our goal is to maintain the spirit and values of the original group. As always, we want the Game Development community to be a safe, inclusive, and welcoming space for anyone and everyone. We hope to make this group even more community-led than before, making it easier to contribute ideas and talents in ways that bring the community together.
 
@@ -41,7 +41,7 @@ If you are already a member of our Discord, you really won't notice too much of 
 
 ## Who's in Charge?
 
-There are 5 members of the Administrative Group for STL Gamedev.
+There are 5 members of the Administrative Group for STLGameDev.
 
 We are:
 
@@ -64,7 +64,7 @@ We are:
 
 In order to get a better sense of our current members, we have created a Survey. Please take a moment to fill it out so that we can use the data to work out the best way to offer events and resources aimed at helping our community.
 
-You can find the Survey here: [STL Gamedev Feedback Survey 2024](https://forms.gle/8yw88DMSQiErQTnS9)
+You can find the Survey here: [STLGameDev Feedback Survey 2024](https://forms.gle/8yw88DMSQiErQTnS9)
 
 We are asking everyone to submit their survey by the end of the day on **Friday, November 22, 2024**.
 
@@ -82,4 +82,4 @@ As a testament to what's come before, most of you are not going to even notice a
 
 We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts in Discord. We are going to try to do the best we can for the community going forward.
 
-We hope you are all just as excited to move forward into this new chapter of the STL Gamedev as we are! See you in Discord!
+We hope you are all just as excited to move forward into this new chapter of the STLGameDev as we are! See you in Discord!

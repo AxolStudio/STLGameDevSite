@@ -1,8 +1,8 @@
 [![⚙ Build the Hugo Site](https://github.com/AxolStudio/STLGameDevSite/actions/workflows/hugo-build.yaml/badge.svg)](https://github.com/AxolStudio/STLGameDevSite/actions/workflows/hugo-build.yaml)
 
-# STL Gamedev Website
+# STLGameDev Website
 
-This is the source code for the STL Gamedev Website.
+This is the source code for the STLGameDev Website.
 
 The site is driven by [Hugo](https://gohugo.io/) with [Bootstrap](https://getbootstrap.com/) and [jQuery](https://jquery.com/).
 
