@@ -12,7 +12,7 @@ Since [last month](../2024-10-1-transition) when the *St. Louis Game Developer C
 
 ## What has changed?
 
-First, the big one: The decision was made early on to drop the *Co-op* moniker and start a new organization, simply called ***STLGameDev***. We will use the same social media accounts, but with new branding and we have built this new snazzy website. We are hoping to be much more active with these going forward.
+First, the big one: The decision was made early on to drop the *Co-op* moniker and start a new organization, simply called ***STLGameDev***. We will use the same social media accounts but with new branding, and we have built this new snazzy website. We are hoping to be much more active with these going forward.
 
 Our goal is to maintain the spirit and values of the nonprofit. As always, we want the game development community to be a safe, inclusive, and welcoming space for anyone and everyone. We hope to make this group even more community-led than before; making it easier to contribute ideas and talents in ways that bring the community together.
 
@@ -42,7 +42,7 @@ If you have any feedback or suggestions beyond the survey, please start a discus
 
 In the near future, we are hoping to be able to enlist members of the community to speak, demo, and help run other events. We will also be opening up opportunities to help us with social media, running events, and contributing to the site. Be on the lookout in **#community-building** on Discord.
 
-For now something anyone can do is get the word out! Bring friends to our events and share the group to get new people involved!
+For now something anyone can do is get the word out! Bring friends to our events and get new people involved by sharing the group!
 
 ## Thank you!
 
@@ -50,6 +50,6 @@ Before we go we want to thank all the *St. Louis Game Dev Co-op* members and lea
 
 As a testament to what's come before, many of you won't even notice any changes beyond some new icons and logos. Regardless, we thought it was important to be transparent and share with everyone what our plans and goals are.
 
-We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts on Discord. We are going to do the best we can for the community going forward, and **we hope you all are just as pumped about this new era of the St. Louis game development community as we are!** 
+We encourage everyone to come out and talk to us at the next DrinkUp or share your thoughts on Discord. We are going to do the best we can for the community going forward, and we hope you all are just as pumped about this new era of the St. Louis game development community as we are!
 
   #### See you soon!
