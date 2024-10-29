@@ -33,17 +33,16 @@ ul:not(.nav) {
 
 .indented {
     h2 {
-        padding: 0 1em;
+        padding: 1rem 2rem 0;
     }
 
     p {
-        text-indent: 0.5em;
+        text-indent: 1em;
         padding: 0 3em;
     }
 
     ul {
         margin-inline-start: 4rem;
-
         li::marker {
             color: $color-orange;
         }
@@ -54,7 +53,6 @@ ul:not(.nav) {
     li::marker {
         color: $color-orange;
     }
-
     top: 9rem;
 }
 
@@ -64,17 +62,11 @@ ul:not(.nav) {
 }
 
 #core-container {
-    
     background-image: url("{{ $bg.RelPermalink }}");
-
     margin: auto;
-
     border-left: 0.25rem solid $color-purple;
-
     border-right: 0.25rem solid $color-purple;
-    
     min-height:100%;
-
 }
 
 #inner-block {
@@ -99,7 +91,6 @@ ul:not(.nav) {
     
 }
 
-
 #top-nav {
 
     .navbar-toggler {
@@ -117,16 +108,12 @@ ul:not(.nav) {
         border-bottom: 0.25rem solid $color-blue;
         margin-top: 0;
         margin-bottom: 0;
-        
     }
 
     
     .nav-item {
-
         padding: 0 0.1rem;
-
         .nav-link {
-
             border-width: medium;
             border-style: solid;
             border-color: transparent;
@@ -145,19 +132,29 @@ ul:not(.nav) {
         }
     }
 }
+
 header {
     max-width:600px;
 }
+
 #home-header {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     border-top: 0.25rem solid $color-blue;
     border-bottom: 0.25rem solid $color-blue;
+    padding-top: 16rem;
+}
+
+#home-card {
+    background-color: rgba($color-blue, 0.8);
+    border-radius: 2rem;
+    padding: 4rem;
+    backdrop-filter: brightness(30%) blur(2px);
 }
 
 #header-card {
-    backdrop-filter: blur(2px) grayscale(100%) brightness(20%) contrast(90%);
+    // backdrop-filter: blur(2px) grayscale(100%) brightness(20%) contrast(90%);
 }
 
 .card {
