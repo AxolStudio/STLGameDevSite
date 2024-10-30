@@ -63,7 +63,7 @@
             
             <div class="card-body ">
             
-                {{- if .Params.images }}
+                {{ if .Params.images }}
                 {{- with index .Params.images 0 }}
                 {{ $image := resources.Get (printf "images/news/%s" . ) }}
                 {{ $image = $image.Resize "200x" }}
@@ -71,7 +71,8 @@
                     <img src="{{ $image.RelPermalink }}" alt="Article Image" style="float:right;" class=" m-2">
                 </div>
                 {{ end }}
-                {{ end -}}
+                {{ end }}
+
                 {{ .Summary }}
             </div>
             {{ if .Truncated }}
