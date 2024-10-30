@@ -65,7 +65,7 @@
             
                 {{ if .Params.images }}
                 {{- with index .Params.images 0 }}
-                {{ $image := resources.Get (printf "images/news/%s" . ) }}
+                {{ $image := resources.Get . }}
                 {{ $image = $image.Resize "200x" }}
                 <div>
                     <img src="{{ $image.RelPermalink }}" alt="Article Image" style="float:right;" class=" m-2">

@@ -15,7 +15,7 @@
     <div class="row ">
       <div class="col col-md-9 indented">
         {{- with index .Params.images 0 }}
-        {{ $image := resources.Get (printf "images/news/%s" . ) }}
+        {{ $image := resources.Get . }}
         <img src="{{ $image.RelPermalink }}" class="img-fluid rounded p-3" alt="Article Image">
         {{ end }}
         {{ .Content }}
