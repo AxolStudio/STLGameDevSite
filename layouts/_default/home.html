@@ -60,8 +60,18 @@
                 {{ partial "article-meta.html" . }}
 
             </div>
-
-            <div class="card-body">
+            
+            <div class="card-body ">
+            
+                {{- if .Params.images }}
+                {{- with index .Params.images 0 }}
+                {{ $image := resources.Get (printf "images/news/%s" . ) }}
+                {{ $image = $image.Resize "200x" }}
+                <div>
+                    <img src="{{ $image.RelPermalink }}" alt="Article Image" style="float:right;" class=" m-2">
+                </div>
+                {{ end }}
+                {{ end -}}
                 {{ .Summary }}
             </div>
             {{ if .Truncated }}
