@@ -1,6 +1,6 @@
 Name: 'Game Jams'
 Description: "Tim has contributed to many small game projects created for game jams.  They can be found on his itch.io page."
 Links:
-- URL: 'https://timconceivable.itch.io/'
+  - URL: 'https://timconceivable.itch.io/'
     Tooltip: 'Itch.io Profile'
     Icon: "fa-brands fa-itch-io"
