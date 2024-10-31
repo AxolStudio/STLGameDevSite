@@ -4,3 +4,9 @@ Links:
   - URL: 'https://www.youtube.com/watch?v=02iEtbYowtg'
     Tooltip: 'Video'
     Icon: "fa-brands fa-youtube"
+  - URL: 'https://store.steampowered.com/app/2661960/GingerSnap/'
+    Tooltip: 'Steam'
+    Icon: "fa-brands fa-steam"
+  - URL: 'https://meepalasheep.itch.io/gingersnap-demo'
+    Tooltip: 'Itch.io'
+    Icon: "fa-brands fa-itch-io"
