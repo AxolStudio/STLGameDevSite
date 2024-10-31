@@ -4,6 +4,7 @@ date: 2024-10-29
 draft: false
 tags: ["announcements", "events"]
 authors: ['Tim I Hely', 'SuperWes', 'TimConceivable']
+images: ["images/news/RIP-coop-halloween-5x.png"]
 ---
 
 ## Welcome to a new era of game development in St. Louis!
