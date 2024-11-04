@@ -97,7 +97,6 @@ jobs:
                         echo end_human=$end_human >> $GITHUB_OUTPUT
                         echo new_one=$new_one >> $GITHUB_OUTPUT
 
-
                         embeds=$(echo $new_one | jq -r '.[0] | { "title": .[2], "timestamp": .[3], "description": ("When: " + "'"$start_human"'" + " - " + "'"$end_human"'" + "\nWhere: " + .[4] + "\n\n" + .[6]) }')
                         
                         embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-generic.png?raw=true" } }')
@@ -118,66 +117,63 @@ jobs:
                         echo event_name=$(echo $new_one | jq -r '.[0][2]') >> $GITHUB_OUTPUT
                         echo event_location=$(echo $new_one | jq -r '.[0][4]') >> $GITHUB_OUTPUT
                         echo event_description=$(echo $new_one | jq -r '.[0][6]') >> $GITHUB_OUTPUT
-            # -   name: STLGameDev Discord
-            #     uses: Ilshidur/action-discord@master
-            #     env:
-            #         DISCORD_USERNAME: "STLGameDev"
-            #         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-            #         DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
-            #     with:
-            #         args: ":calendar: A new event has been scheduled!"
-            # -   name: STLGameDev Event
-            #     run: |
-            #             image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8'))
-            #             curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
-            #                 --header 'Content-Type: application/json' \
-            #                 --header 'Accept: application/json' \
-            #                 --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
-            #                 --data '{
-            #                     "name": "${{ steps.get-new-one.outputs.event_name }}",
-            #                     "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
-            #                     "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
-            #                     "privacy_level": 2,
-            #                     "entity_type": 3,
-            #                     "entity_metadata": {
-            #                         "location": "${{ steps.get-new-one.outputs.event_location }}"
-            #                     },
-            #                     "description": "${{ steps.get-new-one.outputs.event_description }}",
-            #                     "image": "data:image/jpeg;base64,"'"$image64'""
-            #                 }'
-            # -   name: Tweet
-            #     id: tweet
-            #     uses: dart-actions/tweet@v1.0.1
-            #     with:
-            #         consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-            #         consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-            #         access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-            #         access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-            #         text: |
-            #                 :calendar: A new event has been scheduled!
-            #                 ${{ steps.get-new-one.outputs.event_name }} 
+            -   name: STLGameDev Discord
+                uses: Ilshidur/action-discord@master
+                env:
+                    DISCORD_USERNAME: "STLGameDev"
+                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
+                with:
+                    args: ":calendar: A new event has been scheduled!"
+            -   name: STLGameDev Event
+                run: |
+                        image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8'))
+                        curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
+                            --header 'Content-Type: application/json' \
+                            --header 'Accept: application/json' \
+                            --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
+                            --data '{
+                                "name": "${{ steps.get-new-one.outputs.event_name }}",
+                                "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
+                                "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
+                                "privacy_level": 2,
+                                "entity_type": 3,
+                                "entity_metadata": {
+                                    "location": "${{ steps.get-new-one.outputs.event_location }}"
+                                },
+                                "description": "${{ steps.get-new-one.outputs.event_description }}",
+                                "image": "data:image/jpeg;base64,"'"$image64'""
+                            }'
+            -   name: Tweet
+                id: tweet
+                uses: dart-actions/tweet@v1.0.1
+                with:
+                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                    text: |
+                            📅 A new event has been scheduled!
 
-            #                 ${{ steps.get-new-one.outputs.event_name }}
+                            ${{ steps.get-new-one.outputs.event_name }} 
                             
-            #                 ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
+                            ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
                             
-            #                 https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+                            https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
-            #                 #STL #GameDev
-            # -   name: Bsky's
-            #     uses: myConsciousness/bluesky-post@v5
-            #     with: 
-            #         text: |
-            #                 :calendar: A new event has been scheduled!
-            #                 ${{ steps.get-new-one.outputs.event_name }} 
-
-            #                 ${{ steps.get-new-one.outputs.event_name }}
+                            #STL #GameDev
+            -   name: Bsky's
+                uses: myConsciousness/bluesky-post@v5
+                with: 
+                    text: |
+                            :calendar: A new event has been scheduled!
+                            ${{ steps.get-new-one.outputs.event_name }} 
                             
-            #                 ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
+                            ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
                             
-            #                 https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+                            https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
-            #                 #STL #GameDev
-            #         link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
-            #         identifier: "stlgame.dev"
-            #         password: ${{ secrets.BLUESKY_PASSWORD }}
+                            #STL #GameDev
+                    link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+                    identifier: "stlgame.dev"
+                    password: ${{ secrets.BLUESKY_PASSWORD }}
