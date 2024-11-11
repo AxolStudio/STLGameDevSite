@@ -104,6 +104,9 @@ jobs:
                             *"DrinkUp"* )
                                 embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-drinkup.png?raw=true" } }')
                                 ;;
+                            *"Holiday"* )
+                                embeds=$(echo $embeds | jq -r '. + { "image": { "url": "https://github.com/stlgamedev/STLGameDevSite/blob/main/assets/images/events/event-holiday.png?raw=true" } }')
+                                ;;
                         esac 
                         
                         if [ ! -z $(echo $new_one | jq -r '.[0][5]') ]
