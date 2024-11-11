@@ -90,7 +90,7 @@ jobs:
                         start=$(echo $new_one | jq -r '.[0][3]')
                         end=$(echo $new_one | jq -r '.[0][8]')
                         start_human=$(date --date="$start" +"%A, %B %d, %Y %I:%M %p %Z")
-                        end_human=$(date --date="$end" +"%A, %B %d, %Y %I:%M %p")
+                        end_human=$(date --date="$end" +"%A, %B %d, %Y %I:%M %p  %Z")
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
@@ -175,7 +175,7 @@ jobs:
                     link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                     identifier: "stlgame.dev"
                     password: ${{ secrets.BLUESKY_PASSWORD }}
-                    
+
             -   name: STLGameDev Discord
                 uses: Ilshidur/action-discord@master
                 env:
