@@ -88,9 +88,9 @@ jobs:
                 run: |
                         new_one=$(echo '${{ needs.fetch-events.outputs.new_ones }}' | jq --arg step ${{ matrix.steps }} -r 'map(select(.[0] == $step))')
                         start=$(echo $new_one | jq -r '.[0][3]')
-                        end=$(echo $new_one | jq -r '.[0][8]')
-                        start_human=$(TZ=":CST" date --date="$start" +"%A, %B %d, %Y %I:%M %p %Z")
-                        end_human=$(TZ=":CST" date --date="$end" +"%A, %B %d, %Y %I:%M %p %Z")
+                        end=$(echo $new_one | jq -r '.[0][8]')  
+                        start_human=$(TZ=":America/Chicago" date --date="$start" +"%A, %B %d, %Y %I:%M %p %Z")
+                        end_human=$(TZ=":America/Chicago" date --date="$end" +"%A, %B %d, %Y %I:%M %p %Z")
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
@@ -148,7 +148,7 @@ jobs:
                                     "location": "${{ steps.get-new-one.outputs.event_location }}"
                                 },
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "data:image/jpeg;base64,"'"$image64"'""
+                                "image": "data:image/jpeg;base64,$image64"
                             }'
 
             -   name: Tweet
@@ -174,7 +174,7 @@ jobs:
                 uses: myConsciousness/bluesky-post@v5
                 with: 
                     text: |
-                            :calendar: A new event has been scheduled!
+                            📅 A new event has been scheduled!
                             ${{ steps.get-new-one.outputs.event_name }} 
                             
                             ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
