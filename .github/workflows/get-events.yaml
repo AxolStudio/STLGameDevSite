@@ -121,19 +121,21 @@ jobs:
                         echo event_location=$(echo $new_one | jq -r '.[0][4]') >> $GITHUB_OUTPUT
                         echo event_description=$(echo $new_one | jq -r '.[0][6]') >> $GITHUB_OUTPUT
 
-            -   name: STLGameDev Discord
-                uses: Ilshidur/action-discord@master
-                env:
-                    DISCORD_USERNAME: "STLGameDev"
-                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
-                with:
-                    args: ":calendar: A new event has been scheduled!"
+            # -   name: STLGameDev Discord
+            #     uses: Ilshidur/action-discord@master
+            #     env:
+            #         DISCORD_USERNAME: "STLGameDev"
+            #         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+            #         DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
+            #     with:
+            #         args: ":calendar: A new event has been scheduled!"
 
             -   name: STLGameDev Event
                 run: |
                         wget -O image.png ${{ steps.get-new-one.outputs.event_image }}
                         image64=$(base64 image.png)
+                        image64=$(echo 'data:image/jpeg;base64,$image64')
+                        echo $image64
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
                             --header 'Content-Type: application/json' \
                             --header 'Accept: application/json' \
@@ -148,7 +150,7 @@ jobs:
                                     "location": "${{ steps.get-new-one.outputs.event_location }}"
                                 },
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "data:image/png;base64,$image64"
+                                "image": "$image64"
                             }'
 
             -   name: Tweet
