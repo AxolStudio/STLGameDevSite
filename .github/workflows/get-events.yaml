@@ -120,17 +120,10 @@ jobs:
                         echo event_name=$(echo $new_one | jq -r '.[0][2]') >> $GITHUB_OUTPUT
                         echo event_location=$(echo $new_one | jq -r '.[0][4]') >> $GITHUB_OUTPUT
                         echo event_description=$(echo $new_one | jq -r '.[0][6]') >> $GITHUB_OUTPUT
-            -   name: STLGameDev Discord
-                uses: Ilshidur/action-discord@master
-                env:
-                    DISCORD_USERNAME: "STLGameDev"
-                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
-                with:
-                    args: ":calendar: A new event has been scheduled!"
+            
             -   name: STLGameDev Event
                 run: |
-                        image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode('utf-8'))
+                        image64=$(echo base64.b64encode(requests.get(${{ steps.get-new-one.outputs.event_image }}).content).decode("utf-8"))
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
                             --header 'Content-Type: application/json' \
                             --header 'Accept: application/json' \
@@ -147,6 +140,7 @@ jobs:
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
                                 "image": "data:image/jpeg;base64,"'"$image64'""
                             }'
+
             -   name: Tweet
                 id: tweet
                 uses: dart-actions/tweet@v1.0.1
@@ -165,6 +159,7 @@ jobs:
                             https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
                             #STL #GameDev
+
             -   name: Bsky's
                 uses: myConsciousness/bluesky-post@v5
                 with: 
@@ -180,3 +175,12 @@ jobs:
                     link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                     identifier: "stlgame.dev"
                     password: ${{ secrets.BLUESKY_PASSWORD }}
+                    
+            -   name: STLGameDev Discord
+                uses: Ilshidur/action-discord@master
+                env:
+                    DISCORD_USERNAME: "STLGameDev"
+                    DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+                    DISCORD_EMBEDS: ${{ steps.get-new-one.outputs.embeds }}
+                with:
+                    args: ":calendar: A new event has been scheduled!"
