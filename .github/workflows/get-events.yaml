@@ -90,7 +90,7 @@ jobs:
                         start=$(echo $new_one | jq -r '.[0][3]')
                         end=$(echo $new_one | jq -r '.[0][8]')
                         start_human=$(date --date="$start" +"%A, %B %d, %Y %I:%M %p %Z")
-                        end_human=$(date --date="$end" +"%A, %B %d, %Y %I:%M %p  %Z")
+                        end_human=$(date --date="$end" +"%A, %B %d, %Y %I:%M %p %Z")
                         echo start=$start >> $GITHUB_OUTPUT
                         echo end=$end >> $GITHUB_OUTPUT
                         echo start_human=$start_human >> $GITHUB_OUTPUT
