@@ -148,17 +148,14 @@ jobs:
                                     "location": "${{ steps.get-new-one.outputs.event_location }}"
                                 },
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "data:image/jpeg;base64,$image64"
+                                "image": "data:image/png;base64,$image64"
                             }'
 
             -   name: Tweet
                 id: tweet
                 uses: dart-actions/tweet@v1.0.1
                 with:
-                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                    bearer-token: ${{ secrets.TWITTER_BEARER_TOKEN }}
                     text: |
                             📅 A new event has been scheduled!
 
