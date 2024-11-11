@@ -153,9 +153,12 @@ jobs:
             #                     "image": "'"$image64"'"
             #                 }'
 
+            -   name: get image
+                run: wget -O image.png ${{ steps.get-new-one.outputs.event_image }}
             -   name: Tweet
                 id: tweet
                 uses: snow-actions/tweet@v1.4.0
+                
                 with:
                     status: |
                             📅 A new event has been scheduled!
