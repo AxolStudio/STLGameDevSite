@@ -130,28 +130,28 @@ jobs:
             #     with:
             #         args: ":calendar: A new event has been scheduled!"
 
-            -   name: STLGameDev Event
-                run: |
-                        wget -O image.png ${{ steps.get-new-one.outputs.event_image }}
-                        image64=$(base64 image.png -w 0)
-                        image64=$(echo "data:image/png;base64,$image64")
-                        echo $image64
-                        curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
-                            --header 'Content-Type: application/json' \
-                            --header 'Accept: application/json' \
-                            --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
-                            --data '{
-                                "name": "${{ steps.get-new-one.outputs.event_name }}",
-                                "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
-                                "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
-                                "privacy_level": 2,
-                                "entity_type": 3,
-                                "entity_metadata": {
-                                    "location": "${{ steps.get-new-one.outputs.event_location }}"
-                                },
-                                "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "'"$image64"'"
-                            }'
+            # -   name: STLGameDev Event
+            #     run: |
+            #             wget -O image.png ${{ steps.get-new-one.outputs.event_image }}
+            #             image64=$(base64 image.png -w 0)
+            #             image64=$(echo "data:image/png;base64,$image64")
+            #             echo $image64
+            #             curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
+            #                 --header 'Content-Type: application/json' \
+            #                 --header 'Accept: application/json' \
+            #                 --header 'Authorization: Bot ${{ secrets.DISCORD_API_TOKEN }}' \
+            #                 --data '{
+            #                     "name": "${{ steps.get-new-one.outputs.event_name }}",
+            #                     "scheduled_start_time": "${{ steps.get-new-one.outputs.start }}",
+            #                     "scheduled_end_time": "${{ steps.get-new-one.outputs.end }}",
+            #                     "privacy_level": 2,
+            #                     "entity_type": 3,
+            #                     "entity_metadata": {
+            #                         "location": "${{ steps.get-new-one.outputs.event_location }}"
+            #                     },
+            #                     "description": "${{ steps.get-new-one.outputs.event_description }}",
+            #                     "image": "'"$image64"'"
+            #                 }'
 
             -   name: Tweet
                 id: tweet
