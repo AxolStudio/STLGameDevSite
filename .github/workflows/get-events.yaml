@@ -153,14 +153,16 @@ jobs:
             #                     "image": "'"$image64"'"
             #                 }'
 
-            -   name: get image
-                run: wget -O image.png ${{ steps.get-new-one.outputs.event_image }}
             -   name: Tweet
                 id: tweet
-                uses: snow-actions/tweet@v1.4.0
+                uses: myConsciousness/tweet@v1.0.1
                 
                 with:
-                    status: |
+                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+                    text: |
                             📅 A new event has been scheduled!
 
                             ${{ steps.get-new-one.outputs.event_name }} 
@@ -170,13 +172,6 @@ jobs:
                             https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
                             #STL #GameDev
-                    media_paths: |
-                        image.png
-                env:
-                    CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
-                    CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_SECRET }} 
-                    ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-                    ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} 
 
             # -   name: Bsky's
             #     uses: myConsciousness/bluesky-post@v5
