@@ -133,7 +133,7 @@ jobs:
             -   name: STLGameDev Event
                 run: |
                         wget -O image.png ${{ steps.get-new-one.outputs.event_image }}
-                        image64=$(base64 image.png)
+                        image64=$(base64 image.png -w 0)
                         image64=$(echo "data:image/png;base64,$image64")
                         echo $image64
                         curl --location 'https://discord.com/api/v10/guilds/${{ secrets.STL_GUILD_ID }}/scheduled-events' \
@@ -150,7 +150,7 @@ jobs:
                                     "location": "${{ steps.get-new-one.outputs.event_location }}"
                                 },
                                 "description": "${{ steps.get-new-one.outputs.event_description }}",
-                                "image": "$image64"
+                                "image": "'"$image64"'"
                             }'
 
             -   name: Tweet
@@ -168,27 +168,27 @@ jobs:
                             
                             #STL #GameDev
                     media_paths: |
-                        ${{ steps.get-new-one.outputs.event_image }}
+                        image.png
                 env:
                     CONSUMER_API_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
                     CONSUMER_API_SECRET_KEY: ${{ secrets.TWITTER_CONSUMER_SECRET }} 
                     ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
                     ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }} 
 
-            -   name: Bsky's
-                uses: myConsciousness/bluesky-post@v5
-                with: 
-                    text: |
-                            📅 A new event has been scheduled!
-                            ${{ steps.get-new-one.outputs.event_name }} 
+            # -   name: Bsky's
+            #     uses: myConsciousness/bluesky-post@v5
+            #     with: 
+            #         text: |
+            #                 📅 A new event has been scheduled!
+            #                 ${{ steps.get-new-one.outputs.event_name }} 
                             
-                            ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
+            #                 ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
                             
-                            https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+            #                 https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
-                            #STL #GameDev
-                    link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
-                    identifier: "stlgame.dev"
-                    password: ${{ secrets.BLUESKY_PASSWORD }}
+            #                 #STL #GameDev
+            #         link-preview-url: https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+            #         identifier: "stlgame.dev"
+            #         password: ${{ secrets.BLUESKY_PASSWORD }}
 
             
