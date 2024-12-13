@@ -153,25 +153,25 @@ jobs:
                                 "image": "'"$image64"'"
                             }'
 
-            -   name: Tweet
-                id: tweet
-                uses: myConsciousness/tweet@v1.0.1
+            # -   name: Tweet
+            #     id: tweet
+            #     uses: myConsciousness/tweet@v1.0.1
                 
-                with:
-                    consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
-                    consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
-                    access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-                    access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-                    text: |
-                            📅 A new event has been scheduled!
+            #     with:
+            #         consumer-key: ${{ secrets.TWITTER_CONSUMER_KEY }}
+            #         consumer-secret: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+            #         access-token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+            #         access-token-secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+            #         text: |
+            #                 📅 A new event has been scheduled!
 
-                            ${{ steps.get-new-one.outputs.event_name }} 
+            #                 ${{ steps.get-new-one.outputs.event_name }} 
                             
-                            ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
+            #                 ${{ steps.get-new-one.outputs.start_human }} at ${{ steps.get-new-one.outputs.event_location }}
                             
-                            https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
+            #                 https://www.meetup.com/st-louis-game-developers/events/${{ steps.get-new-one.outputs.meetup }}
                             
-                            #STL #GameDev
+            #                 #STL #GameDev
 
             -   name: Bsky's
                 uses: myConsciousness/bluesky-post@v5
